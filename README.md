@@ -17,7 +17,7 @@ Our goal is to help groups of people choose a dining spot so that more time is s
   <tr>
     <td align="center"><a href="https://github.com/Jen-Lopez"><img src="https://avatars.githubusercontent.com/u/21044058?s=400&u=ba065b3d40eb24aabc9097b14cf78c2f504adc52&v=4" width="100px;" alt=""/><br /><sub>   <b>Jennifer Lopez</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/psc358"><img src="https://avatars.githubusercontent.com/u/52253078?v=4" width="100px;" alt=""/><br /><sub><b>Priya Chaganti</b></sub></a><br /></td>
-    <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>Sri Kaushik</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/Golemwardox"><img src="https://avatars.githubusercontent.com/u/71036353?v=4" width="100px;" alt=""/><br /><sub><b>Sri Kaushik</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/tanyasingh7"><img src="https://avatars.githubusercontent.com/u/60750284?v=4" width="100px;" alt=""/><br /><sub> <b>Tanya Singh</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/thomastai1666"><img src="https://avatars.githubusercontent.com/u/36852809?v=4" width="100px;" alt=""/><br /><sub><b>Thomas Tai</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/yunko1803"><img src="https://avatars.githubusercontent.com/u/35706156?v=4" width="100px;" alt=""/><br /><sub><b>Yoon Koh</b></sub></a><br /></td>
