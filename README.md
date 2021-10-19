@@ -9,7 +9,7 @@ Instead of wasting time deciding on what and where to eat, foodwithfriends allow
 
 ## Product Vision Statement
 
-Our goal is to help groups of people choose a dining spot so that more time is spent on being together than deciding on where and what to eat. To accomplish this, our MVP should allow users to create/join group spaces, vote on a cuisine and view the results, add dietary restrictions, and view the list of recommended restaurants in descending order (from most recommended to least, based on user preferences).
+Our goal is to help groups of people choose a dining spot so that more time is spent on being together than deciding on where and what to eat. To accomplish this, our MVP should allow users to create/join group spaces, vote on a cuisine and view the results, add preferred dishes related to the cuisine, and view the list of recommended restaurants in descending order (from most recommended to least, based on user preferences).
 
 
 ## Core Team Members
@@ -34,3 +34,7 @@ If you would like to contribute to our project, we recommend you to checkout our
 
 ## Installation & Setup
 Check out our [Installation Guide](./INSTALLATION.md) to setup your local development environment.
+
+## Additional Documentation
+- [Project Proposal](https://github.com/software-students-fall2021/project-proposal-jennifer-lopez)
+- [App Map and Wireframes](https://github.com/software-students-fall2021/user-experience-design-tanya-singh)
