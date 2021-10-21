@@ -5,6 +5,7 @@ import React from 'react';
 function InviteCode(props) {
   return (
     <div className="InviteCode">
+      invite
     </div>
   );
 };
