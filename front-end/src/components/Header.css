@@ -1,2 +1,21 @@
 .Header {
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9e9d9;
+}
+
+.Header .logo {
+  height: 50px;
+}
+
+.Header .menu-button {
+  width: 90px;
+}
+
+.Header .menu-button-link {
+  text-decoration: none;
 }
