@@ -1,2 +1,19 @@
 .InformationIcon {
+  margin: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 10px;
+  background: #f0d060;
+  color: black;
+  border: none;
+  font-weight: bold;
+  border-radius: 35px;
+  display: flex;
+}
+
+.InformationIcon .icon {
+  display: inline;
+  width: 12px;
+  margin-top: -1px;
+  padding-right: 5px;
 }
