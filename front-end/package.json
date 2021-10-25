@@ -17,7 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "gen": "node scripts/generate.js"
+    "gen": "node scripts/generate.js",
+    "lint": "eslint '**/*.{js,jsx}'"
   },
   "eslintConfig": {
     "extends": [
