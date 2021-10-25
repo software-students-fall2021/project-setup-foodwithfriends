@@ -1,2 +1,22 @@
-.Input {
+.input {
+    margin: 20px 0;
+}
+
+.input label {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    text-transform: capitalize;
+    font-weight: bold;
+    text-align: left;
+    flex-direction: column;
+}
+
+.input input {
+    height: 50px;
+    background-color: #EFEBEB;
+    border-radius: 15px;
+    border: none;
+    margin-top: 10px;
+    text-align: center;
 }
