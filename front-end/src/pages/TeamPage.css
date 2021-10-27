@@ -1,2 +1,75 @@
 .TeamPage {
 }
+
+
+#back-button {
+    margin-top: 12px;
+    margin-left: 87%;
+    font-weight: 600;
+}
+
+#logo-comp {
+    margin-top: 10px;
+    width: 60%;
+    margin: auto;
+}
+
+#introduction-title {
+    margin-top: 40px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+#introduction-text {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#the-team-title {
+    font-weight: bold;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+#photo-container {
+    margin-top: 30px;
+}
+
+.flex-container {
+    display: flex;
+    margin-top: 20px;
+    margin: auto;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+#photo-1, #photo-2, #photo-3, #photo-4, #photo-5, #photo-6{
+    width: 100px;
+    height: 100px;
+    background:#C4C4C4;
+    border-radius: 50%;
+    margin-right: 38px;
+}
+
+#photo-1-title, #photo-2-title, #photo-3-title, #photo-4-title, #photo-5-title, #photo-6-title {
+    margin-top: 110px;
+    font-size: 14px;
+}
+
+#try-now-button {
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+#try-button {
+    padding: 10px 100px;
+    background-color: #3F3F3F;
+    color: white;
+    font-weight: bold;
+    margin-left: -20px;
+}
