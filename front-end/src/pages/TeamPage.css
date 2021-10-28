@@ -4,18 +4,13 @@
 
 #back-button {
     margin-top: 12px;
-    margin-left: 87%;
+    margin-left: 80%;
     font-weight: 600;
 }
 
-#logo-comp {
-    margin-top: 10px;
-    width: 60%;
-    margin: auto;
-}
 
 #introduction-title {
-    margin-top: 40px;
+    margin-top: 20px;
     font-weight: bold;
     text-align: left;
     margin-left: 20px;
@@ -53,7 +48,8 @@
     height: 100px;
     background:#C4C4C4;
     border-radius: 50%;
-    margin-right: 38px;
+    margin: 10px 20px;
+
 }
 
 #photo-1-title, #photo-2-title, #photo-3-title, #photo-4-title, #photo-5-title, #photo-6-title {
@@ -71,5 +67,4 @@
     background-color: #3F3F3F;
     color: white;
     font-weight: bold;
-    margin-left: -20px;
 }

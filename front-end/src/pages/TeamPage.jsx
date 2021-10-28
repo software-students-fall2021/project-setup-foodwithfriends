@@ -1,5 +1,4 @@
 import './TeamPage.css';
-import Logo from '../components/Logo.jsx'; 
 import React from 'react';
 import BackButton from '../components/BackButton';
 
@@ -9,9 +8,6 @@ function TeamPage(props) {
         <div id="full-page">
             <div id="back-button">
               <BackButton/>
-            </div>
-            <div id="logo-comp">
-              <Logo/>
             </div>
             <div id="introduction-title">
                 Introduction
