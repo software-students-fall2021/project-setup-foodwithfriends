@@ -1,0 +1,10 @@
+.RoomButton {
+  width: 260px;
+  height: 50px;
+  background-color: #C4C4C4;
+  border-radius: 15px;
+  border: none;
+  font-style: Roboto;
+  font-weight: 700;
+  font-size: 16px;
+}
