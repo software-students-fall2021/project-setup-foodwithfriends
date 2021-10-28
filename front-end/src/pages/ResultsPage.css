@@ -1,0 +1,39 @@
+.restauraunt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+.restauraunt-cell {
+  display: block;
+  background-color: rgb(226, 226, 226);
+  border-radius: 10px;
+  margin: 10px;
+  height: 150px;
+}
+
+.restauraunt-cell img {
+  height: 150px;
+  border-radius: 10px 00px 0px 10px;
+}
+
+.restauraunt-cell .name {
+  margin-bottom: 0px;
+}
+
+.restauraunt-cell .description {
+  margin: 10px 0px;
+}
+
+.restauraunt-cell .flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.restauraunt-cell .left {
+  text-align: left;
+}
+
+.restauraunt-cell .right {
+  text-align: right;
+  padding-right: 20px;
+}
