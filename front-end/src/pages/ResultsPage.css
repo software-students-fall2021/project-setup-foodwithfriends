@@ -1,6 +1,6 @@
 .restauraunt-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 600px));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 }
 
 .restauraunt-cell {
@@ -8,11 +8,11 @@
   background-color: rgb(226, 226, 226);
   border-radius: 10px;
   margin: 10px;
-  height: 150px;
+  height: 130px;
 }
 
 .restauraunt-cell img {
-  height: 150px;
+  height: 130px;
   border-radius: 10px 00px 0px 10px;
 }
 
