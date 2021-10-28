@@ -4,8 +4,7 @@ import React from "react";
 
 function HomePageLogo(props) {
   return (
-    <div className="HomePageLogo">
-    </div>
+    <div className="HomePageLogo"/>
   );
 };
 
