@@ -8,6 +8,6 @@ function TeamPage(props) {
       Team
     </div>
   );
-};
+}
 
 export default TeamPage;

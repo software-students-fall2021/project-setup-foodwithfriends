@@ -11,6 +11,6 @@ function Input(props) {
       </label>
     </div>
   );
-};
+}
 
 export default Input;

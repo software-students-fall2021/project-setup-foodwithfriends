@@ -4,7 +4,7 @@ import React, { Fragment } from "react";
 import HomePageLogo from "../components/HomePageLogo";
 import { Link } from "react-router-dom";
 
-function Home(props) {
+function Home() {
   return (
   <Fragment>
     <div className = "Home">
@@ -18,6 +18,6 @@ function Home(props) {
     </Link> 
   </Fragment>
   );
-};
+}
 
 export default Home;
