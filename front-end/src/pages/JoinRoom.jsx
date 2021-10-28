@@ -8,6 +8,6 @@ function JoinRoom(props) {
       Join
     </div>
   );
-};
+}
 
 export default JoinRoom;

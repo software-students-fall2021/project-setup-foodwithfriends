@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import React from "react";
 
-function Header(props) {
+function Header() {
   return (
     <header className="Header">
       <div className="menu-button"></div>

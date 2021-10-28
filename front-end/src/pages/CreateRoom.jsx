@@ -8,6 +8,6 @@ function CreateRoom(props) {
       create
     </div>
   );
-};
+}
 
 export default CreateRoom;

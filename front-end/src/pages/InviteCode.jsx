@@ -8,6 +8,6 @@ function InviteCode(props) {
       invite
     </div>
   );
-};
+}
 
 export default InviteCode;
