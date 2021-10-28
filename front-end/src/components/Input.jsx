@@ -4,7 +4,11 @@ import React from 'react';
 
 function Input(props) {
   return (
-    <div className="Input">
+    <div className="input">
+      <label htmlFor={props.labelFor}> 
+        <span>{props.label}</span> 
+        <input type="text" name={props.inputName}/>
+      </label>
     </div>
   );
 };
