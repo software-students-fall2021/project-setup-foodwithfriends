@@ -9,12 +9,14 @@ import TeamPage from "./TeamPage";
 import User from "./User";
 import CuisineVote from './CuisineVote';
 import ChooseCuisine from './ChooseCuisine';
+import RandomCuisine from './RandomCuisine';
 import WinningCuisine from './WinningCuisine';
 import ResultsPage from "./ResultsPage";
 import RestaurauntDetails from "../pages/RestaurantDetails";
 import Wait from './Wait';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+
 
 function App() {
   return (
@@ -35,7 +37,8 @@ function App() {
         <Route path="/results" component={ResultsPage} exact />
         <Route path='/wait' component={Wait} exact />
         <Route path='/cuisine' component={CuisineVote} exact />
-        <Route path='/choose-cuisine' component={ChooseCuisine} exact />
+        <Route path='/choose' component={ChooseCuisine} exact />
+        <Route path='/random' component={RandomCuisine} exact />
         <Route path='/win' component={WinningCuisine} exact />
       </Switch>
       <Footer />
