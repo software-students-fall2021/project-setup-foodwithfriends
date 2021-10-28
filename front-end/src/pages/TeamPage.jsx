@@ -1,6 +1,7 @@
 import './TeamPage.css';
 import React from 'react';
 import BackButton from '../components/BackButton';
+import { Link } from "react-router-dom";
 
 function TeamPage(props) {
   return (
@@ -45,7 +46,9 @@ function TeamPage(props) {
                 </div>
             </div>
             <div id="try-now-button">
+            <Link to="/">
               <button id="try-button"> Try Now </button>
+            </Link>
             </div>
         </div>
     </div>
