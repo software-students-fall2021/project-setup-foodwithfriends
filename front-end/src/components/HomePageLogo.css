@@ -1,0 +1,12 @@
+.HomePageLogo {
+    width: 320px;
+    height: 400px;
+    background-color: cyan;
+}
+
+.tempButton{
+    width: 260px;
+    height: 60px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+}
