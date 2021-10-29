@@ -4,7 +4,6 @@ import React from 'react';
 
 function InviteCodeInput({ disabled = false, value }) {
   const [curValue, setCurValue] = React.useState('');
-  console.log(disabled);
 
   return (
     <input
