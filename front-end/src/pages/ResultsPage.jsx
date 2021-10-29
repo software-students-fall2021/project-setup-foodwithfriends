@@ -1,5 +1,5 @@
 import "./ResultsPage.css";
-import restaurauntPlaceholder from "../img/restauraunt-placeholder.jpeg";
+import ResultsCell from "../components/ResultsCell";
 
 import React from "react";
 
@@ -65,24 +65,13 @@ function ResultsPage(props) {
     <div className="ResultsPage">
       <h2>Recommended Restauraunts</h2>
       <div className="restauraunt-grid">
-        {restaurauntList.map((restauraunt) => {
-          return (
-            <div className="restauraunt-cell">
-              <div className="flex">
-                <div className="left">
-                  <img src={restaurauntPlaceholder} alt=""></img>
-                </div>
-                <div className="right">
-                  <h4 className="name">{restauraunt.name}</h4>
-                  <h5 className="description">{restauraunt.description}</h5>
-                  <h5 className="percentage">
-                    {restauraunt.percentageMatch}% Match
-                  </h5>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+        {restaurauntList.map((restauraunt) => (
+          <ResultsCell
+            name={restauraunt.name}
+            description={restauraunt.description}
+            percentageMatch={restauraunt.percentageMatch}
+          />
+        ))}
       </div>
     </div>
   );

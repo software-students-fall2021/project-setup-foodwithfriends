@@ -1,0 +1,36 @@
+.ResultsCell {
+  display: block;
+  background-color: white;
+  border: 1px solid rgb(226, 226, 226);
+  box-shadow: 5px 5px 10px -6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 10px;
+  height: 130px;
+}
+
+.ResultsCell img {
+  height: 130px;
+  border-radius: 10px 00px 0px 10px;
+}
+
+.ResultsCell .name {
+  margin-bottom: 0px;
+}
+
+.ResultsCell .description {
+  margin: 10px 0px;
+}
+
+.ResultsCell .flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ResultsCell .left {
+  text-align: left;
+}
+
+.ResultsCell .right {
+  text-align: right;
+  padding-right: 20px;
+}
