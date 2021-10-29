@@ -6,7 +6,7 @@ import RoomButton from '../components/RoomButton';
 import Spacer from '../components/Spacer';
 import { Link } from "react-router-dom";
 
-function InviteCode(props) {
+function InviteCode() {
   const inviteCode = generateInviteCode();
 
   return (
@@ -33,6 +33,6 @@ function InviteCode(props) {
   function generateInviteCode() {
     return 'ABCDE';
   }
-};
+}
 
 export default InviteCode;

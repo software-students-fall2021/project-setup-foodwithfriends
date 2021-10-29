@@ -8,6 +8,6 @@ function RoomButton({ content }) {
       {content}
     </button>
   );
-};
+}
 
 export default RoomButton;

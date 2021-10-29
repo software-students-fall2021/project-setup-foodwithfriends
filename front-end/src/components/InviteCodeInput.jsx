@@ -15,13 +15,13 @@ function InviteCodeInput({ disabled = false, value }) {
       value={value || curValue}
       onChange={handleValue}
       disabled={!!disabled}
-      style={{ backgroundColor: !!disabled ? '#C4C4C4' : '#EFEBEB' }}
+      style={{ backgroundColor: disabled ? '#C4C4C4' : '#EFEBEB' }}
     />
   );
 
   function handleValue(event) {
     setCurValue(event.target.value);
   }
-};
+}
 
 export default InviteCodeInput;

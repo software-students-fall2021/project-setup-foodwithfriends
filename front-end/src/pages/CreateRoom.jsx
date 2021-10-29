@@ -8,7 +8,7 @@ import Spacer from '../components/Spacer';
 const MAX_CAPACITY = 20;
 const MIN_CAPACITY = 0;
 
-function CreateRoom(props) {
+function CreateRoom() {
   const [name, setName] = React.useState('');
   const [location, setLocation] = React.useState('');
   const [capacity, setCapacity] = React.useState(0);
@@ -27,9 +27,10 @@ function CreateRoom(props) {
           Group Name
         </div>
         <input
-            className="CreateRoom__group__input"
-            onChange={(e) => setName(e.target.value)}
-          />
+          className="CreateRoom__group__input"
+          onChange={(e) => setName(e.target.value)}
+          value={name}
+        />
       </div>
 
       <Spacer space="25"/>
@@ -42,6 +43,7 @@ function CreateRoom(props) {
           <input
             className="CreateRoom__location__input"
             onChange={(e) => setLocation(e.target.value)}
+            value={location}
           />
           <img
             className="CreateRoom__location__logo"
@@ -85,16 +87,16 @@ function CreateRoom(props) {
   );
 
   function onClickInclement() {
-    if (capacity >= 20)
+    if (capacity >= MAX_CAPACITY)
       return;
     setCapacity(capacity + 1);
   }
 
   function onClickDecrement() {
-    if (capacity <= 0)
+    if (capacity <= MIN_CAPACITY)
       return;
     setCapacity(capacity - 1);
   }
-};
+}
 
 export default CreateRoom;
