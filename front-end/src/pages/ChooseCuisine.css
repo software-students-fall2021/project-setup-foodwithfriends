@@ -13,6 +13,7 @@
 
 .control-dots {
     margin: 30px 0!important;
+    z-index: 0!important;
 }
 
 .control-dots .dot {
@@ -32,6 +33,7 @@ button {
     background-color: #505050;
     color: white;
     margin: 10px auto 20px;
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 600px) {

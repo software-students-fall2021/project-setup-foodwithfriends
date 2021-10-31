@@ -1,7 +1,7 @@
 [
     {
       "name": "Italian",
-      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
+      "description": "Simple, fresh, & delicious. Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
       "thumbnail": "italian.jpeg",
       "dishes": [
         {
@@ -10,7 +10,7 @@
         },
         {
             "name": "Lasagna",
-            "img": "lasgna.jpeg"
+            "img": "lasagna.jpeg"
         },
         {
             "name": "Risotto",
@@ -29,160 +29,160 @@
             "img": "insalata.jpeg"
         }
       ]
-    },
-    {
+    }, {
       "name": "Chinese",
-      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
-      "thumbnail": "italian.jpeg",
+      "description": "One of the most diverse in the world, Chinese Cuisine has had great influence on other East Asian foods. Most dishes are traditionally served with noodles or rice.",
+      "thumbnail": "chinese.png",
       "dishes": [
         {
-          "name": "Pizza",
-          "img": "margherita.jpeg"
+          "name": "Dumplings",
+          "img": "dumplings.jpeg"
         },
         {
-            "name": "Lasagna",
-            "img": "lasgna.jpeg"
+            "name": "Chow Mein",
+            "img": "chowmein.jpeg"
         },
         {
-            "name": "Risotto",
-            "img": "risotto.jpeg"
+            "name": "Spring Rolls",
+            "img": "springrolls.jpeg"
         },
         {
-            "name": "Spaghetti",
-            "img": "spaghetti.jpeg"
+            "name": "Dim Sum",
+            "img": "dimsum.jpeg"
         },
         {
-            "name": "Ravioli",
-            "img": "ravioli.jpeg"
+            "name": "Sesame Chicken",
+            "img": "sesame.jpeg"
         },
         {
-            "name": "Insalata Caprese",
-            "img": "insalata.jpeg"
+            "name": "Wonton Soup",
+            "img": "wonton.jpeg"
         }
       ]
     },
     {
       "name": "Latin American",
-      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
-      "thumbnail": "italian.jpeg",
+      "description": "Latin America is home to a diverse range of cuisines, made of flavorful spices and fresh ingredients. A few popular staples include arroz con pollo, tamales, and empanadas.",
+      "thumbnail": "latin-america.jpeg",
       "dishes": [
         {
-          "name": "Pizza",
-          "img": "margherita.jpeg"
+          "name": "Bandeja Paisa",
+          "img": "bandeja.jpeg"
         },
         {
-            "name": "Lasagna",
-            "img": "lasgna.jpeg"
+            "name": "Ceviche",
+            "img": "ceviche.jpeg"
         },
         {
-            "name": "Risotto",
-            "img": "risotto.jpeg"
+            "name": "Empanadas",
+            "img": "empanada.jpeg"
         },
         {
-            "name": "Spaghetti",
-            "img": "spaghetti.jpeg"
+            "name": "Posole",
+            "img": "posole.jpeg"
         },
         {
-            "name": "Ravioli",
-            "img": "ravioli.jpeg"
+            "name": "Pupusas",
+            "img": "pupusa.jpeg"
         },
         {
-            "name": "Insalata Caprese",
-            "img": "insalata.jpeg"
+            "name": "Tacos",
+            "img": "tacos.jpeg"
         }
       ]
     },
     {
       "name": "Japanese",
-      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
-      "thumbnail": "italian.jpeg",
+      "description": "Japanese Cuisine is primarily based on seasonal ingredients. Aside from the well sought-after sushi dish, other foods can include a combination of rice, miso soup, or noodles.",
+      "thumbnail": "japanese.jpeg",
       "dishes": [
         {
-          "name": "Pizza",
-          "img": "margherita.jpeg"
+          "name": "Ramen",
+          "img": "ramen.jpeg"
         },
         {
-            "name": "Lasagna",
-            "img": "lasgna.jpeg"
+            "name": "Miso Soup",
+            "img": "miso.jpeg"
         },
         {
-            "name": "Risotto",
-            "img": "risotto.jpeg"
+            "name": "Chicken teriyaki",
+            "img": "teriyaki.jpeg"
         },
         {
-            "name": "Spaghetti",
-            "img": "spaghetti.jpeg"
+            "name": "Sushi",
+            "img": "sushi.jpeg"
         },
         {
-            "name": "Ravioli",
-            "img": "ravioli.jpeg"
+            "name": "Udon",
+            "img": "udon.jpeg"
         },
         {
-            "name": "Insalata Caprese",
-            "img": "insalata.jpeg"
+            "name": "Onigiri",
+            "img": "onigiri.jpeg"
         }
       ]
     },
     {
       "name": "American",
-      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
-      "thumbnail": "italian.jpeg",
+      "description": "American Cuisine is comprised of traditional ethnic dishes from around the world with a \"twist\". Take for instance Chicago's deep-dish pizza, a unique take on traditional italian pizza.",
+      "thumbnail": "american.jpeg",
       "dishes": [
         {
-          "name": "Pizza",
-          "img": "margherita.jpeg"
+          "name": "Hot Dogs",
+          "img": "hotdogs.jpeg"
         },
         {
-            "name": "Lasagna",
-            "img": "lasgna.jpeg"
+            "name": "BBQ Ribs",
+            "img": "bbq.png"
         },
         {
-            "name": "Risotto",
-            "img": "risotto.jpeg"
+            "name": "Deep-Dish Pizza",
+            "img": "pizza.jpeg"
         },
         {
-            "name": "Spaghetti",
-            "img": "spaghetti.jpeg"
+            "name": "Burgers",
+            "img": "burgers.jpeg"
         },
         {
-            "name": "Ravioli",
-            "img": "ravioli.jpeg"
+            "name": "Philly Cheesesteak",
+            "img": "philly.jpeg"
         },
         {
-            "name": "Insalata Caprese",
-            "img": "insalata.jpeg"
+            "name": "Buffalo Wings",
+            "img": "buffalo.jpeg"
         }
       ]
     },
     {
       "name": "Indian",
-      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
-      "thumbnail": "italian.jpeg",
+      "description": "When it comes to spicy and savory dishes, Indian cuisine is champion. The diverse range of spices, chilies, and herbs fuse together to create the spiciest foods one can eat.",
+      "thumbnail": "indian.jpeg",
       "dishes": [
         {
-          "name": "Pizza",
-          "img": "margherita.jpeg"
+          "name": "Butter Chicken",
+          "img": "butter-chicken.jpeg"
         },
         {
-            "name": "Lasagna",
-            "img": "lasgna.jpeg"
+            "name": "Tandoori Chicken",
+            "img": "tandoori-chicken.jpeg"
         },
         {
-            "name": "Risotto",
-            "img": "risotto.jpeg"
+            "name": "Palak Paneer",
+            "img": "palak-paneer.jpeg"
         },
         {
-            "name": "Spaghetti",
-            "img": "spaghetti.jpeg"
+            "name": "Naan",
+            "img": "naan.jpeg"
         },
         {
-            "name": "Ravioli",
-            "img": "ravioli.jpeg"
+            "name": "Chicken Tikka Masala",
+            "img": "tikka.jpeg"
         },
         {
-            "name": "Insalata Caprese",
-            "img": "insalata.jpeg"
+            "name": "Samosas",
+            "img": "samosa.jpeg"
         }
       ]
     }
+    
 ]

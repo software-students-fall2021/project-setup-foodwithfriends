@@ -6,6 +6,10 @@
     border: solid black 1px;
 }
 
+.title {
+    text-align: center;
+}
+
 .description {
     padding: 5%;
 }
@@ -24,4 +28,44 @@
     height: 35px;
     border-radius: 20px;
     margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+    inset: 5% 2%!important;
+}
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open{
+    background-color: rgb(26 25 25 / 75%)!important;
+}
+
+#dishes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dish-item {
+    width: 50%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.dish-item img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dish-item p {
+    font-weight: bold;
+    font-style: italic;
+}
+
+@media only screen and (min-width: 600px) {
+    .dish-item {
+        width: 33%;
+        margin: 40px 0;
+    }
 }
