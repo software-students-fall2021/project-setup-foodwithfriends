@@ -1,0 +1,188 @@
+[
+    {
+      "name": "Italian",
+      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
+      "thumbnail": "italian.jpeg",
+      "dishes": [
+        {
+          "name": "Pizza",
+          "img": "margherita.jpeg"
+        },
+        {
+            "name": "Lasagna",
+            "img": "lasgna.jpeg"
+        },
+        {
+            "name": "Risotto",
+            "img": "risotto.jpeg"
+        },
+        {
+            "name": "Spaghetti",
+            "img": "spaghetti.jpeg"
+        },
+        {
+            "name": "Ravioli",
+            "img": "ravioli.jpeg"
+        },
+        {
+            "name": "Insalata Caprese",
+            "img": "insalata.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Chinese",
+      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
+      "thumbnail": "italian.jpeg",
+      "dishes": [
+        {
+          "name": "Pizza",
+          "img": "margherita.jpeg"
+        },
+        {
+            "name": "Lasagna",
+            "img": "lasgna.jpeg"
+        },
+        {
+            "name": "Risotto",
+            "img": "risotto.jpeg"
+        },
+        {
+            "name": "Spaghetti",
+            "img": "spaghetti.jpeg"
+        },
+        {
+            "name": "Ravioli",
+            "img": "ravioli.jpeg"
+        },
+        {
+            "name": "Insalata Caprese",
+            "img": "insalata.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Latin American",
+      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
+      "thumbnail": "italian.jpeg",
+      "dishes": [
+        {
+          "name": "Pizza",
+          "img": "margherita.jpeg"
+        },
+        {
+            "name": "Lasagna",
+            "img": "lasgna.jpeg"
+        },
+        {
+            "name": "Risotto",
+            "img": "risotto.jpeg"
+        },
+        {
+            "name": "Spaghetti",
+            "img": "spaghetti.jpeg"
+        },
+        {
+            "name": "Ravioli",
+            "img": "ravioli.jpeg"
+        },
+        {
+            "name": "Insalata Caprese",
+            "img": "insalata.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Japanese",
+      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
+      "thumbnail": "italian.jpeg",
+      "dishes": [
+        {
+          "name": "Pizza",
+          "img": "margherita.jpeg"
+        },
+        {
+            "name": "Lasagna",
+            "img": "lasgna.jpeg"
+        },
+        {
+            "name": "Risotto",
+            "img": "risotto.jpeg"
+        },
+        {
+            "name": "Spaghetti",
+            "img": "spaghetti.jpeg"
+        },
+        {
+            "name": "Ravioli",
+            "img": "ravioli.jpeg"
+        },
+        {
+            "name": "Insalata Caprese",
+            "img": "insalata.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "American",
+      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
+      "thumbnail": "italian.jpeg",
+      "dishes": [
+        {
+          "name": "Pizza",
+          "img": "margherita.jpeg"
+        },
+        {
+            "name": "Lasagna",
+            "img": "lasgna.jpeg"
+        },
+        {
+            "name": "Risotto",
+            "img": "risotto.jpeg"
+        },
+        {
+            "name": "Spaghetti",
+            "img": "spaghetti.jpeg"
+        },
+        {
+            "name": "Ravioli",
+            "img": "ravioli.jpeg"
+        },
+        {
+            "name": "Insalata Caprese",
+            "img": "insalata.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Indian",
+      "description": "Simple, fresh, & delicious. The Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
+      "thumbnail": "italian.jpeg",
+      "dishes": [
+        {
+          "name": "Pizza",
+          "img": "margherita.jpeg"
+        },
+        {
+            "name": "Lasagna",
+            "img": "lasgna.jpeg"
+        },
+        {
+            "name": "Risotto",
+            "img": "risotto.jpeg"
+        },
+        {
+            "name": "Spaghetti",
+            "img": "spaghetti.jpeg"
+        },
+        {
+            "name": "Ravioli",
+            "img": "ravioli.jpeg"
+        },
+        {
+            "name": "Insalata Caprese",
+            "img": "insalata.jpeg"
+        }
+      ]
+    }
+]

@@ -1,0 +1,27 @@
+.cuisine-item {
+    background-color: #f5f3ea;
+    width: 80%;
+    margin: auto;
+    border-radius: 15px;
+    border: solid black 1px;
+}
+
+.description {
+    padding: 5%;
+}
+
+.thumbnail {
+    width: 80%!important;
+    border-radius: 15px;
+}
+
+.info {
+    width: 120px;
+    background-color: #000;
+    color: white;
+    border: none;
+    font-weight: bold;
+    height: 35px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}

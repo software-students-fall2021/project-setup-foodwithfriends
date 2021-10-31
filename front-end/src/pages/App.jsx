@@ -7,12 +7,13 @@ import InviteCode from "./InviteCode";
 import JoinRoom from "./JoinRoom";
 import TeamPage from "./TeamPage";
 import User from "./User";
+import CuisineVote from './CuisineVote';
+import ChooseCuisine from './ChooseCuisine';
+import ResultsPage from "./ResultsPage";
+import RestaurauntDetails from "../pages/RestaurantDetails";
+import Wait from './Wait';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import RestaurauntDetails from "../pages/RestaurantDetails";
-import ResultsPage from "./ResultsPage";
-import Wait from './Wait';
-import CuisineVote from './CuisineVote';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
         />
         <Route path="/results" component={ResultsPage} exact />
         <Route path='/wait' component={Wait} exact />
-        <Route path='/cuisine-vote' component={CuisineVote} exact />
+        <Route path='/cuisine' component={CuisineVote} exact />
+        <Route path='/choose-cuisine' component={ChooseCuisine} exact />
       </Switch>
       <Footer />
     </div>

@@ -39,14 +39,14 @@ function CuisineVote(props) {
         <div className = "panelButton">
           <div className = "circle"
             onClick={() => {
-              history.push("/cuisine");
+              history.push("/choose-cuisine");
           }}
           >
             <img src={SelectChoice} className="selectChoice" alt=""></img>
           </div>
           <div className = "main-container"
             onClick={() => {
-              history.push("/cuisine");
+              history.push("/choose-cuisine");
           }}
           >
           <div id="text">

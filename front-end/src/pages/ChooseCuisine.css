@@ -1,0 +1,47 @@
+.Cuisine {
+    min-width: 100%;
+}
+
+#heading {
+    font-size: 1.8em;
+}
+
+.carousel .slider-wrapper {
+    margin-bottom: 100px!important;
+    width: 98%!important;
+}
+
+.control-dots {
+    margin: 30px 0!important;
+}
+
+.control-dots .dot {
+    background: #000!important;
+}
+
+.carousel-root {
+    margin-top: 50px;
+}
+
+button {
+    width: 350px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    background-color: #505050;
+    color: white;
+    margin: 10px auto 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    .carousel .slider-wrapper {
+        width: 500px!important;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    button {
+        width: 250px;
+    }
+}
