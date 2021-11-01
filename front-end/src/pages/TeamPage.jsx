@@ -3,7 +3,7 @@ import React from 'react';
 import BackButton from '../components/BackButton';
 import { Link } from "react-router-dom";
 
-function TeamPage(props) {
+function TeamPage() {
   return (
     <div className="TeamPage">
         <div id="full-page">

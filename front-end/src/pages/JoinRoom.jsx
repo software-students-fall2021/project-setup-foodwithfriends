@@ -2,7 +2,7 @@ import './JoinRoom.css';
 
 import React from 'react';
 
-function JoinRoom(props) {
+function JoinRoom() {
   return (
     <div className="JoinRoom">
       Join

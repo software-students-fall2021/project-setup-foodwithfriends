@@ -2,7 +2,7 @@ import './InviteCode.css';
 
 import React from 'react';
 
-function InviteCode(props) {
+function InviteCode() {
   return (
     <div className="InviteCode">
       invite
