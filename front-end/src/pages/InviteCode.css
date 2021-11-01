@@ -13,11 +13,12 @@
 
   .InviteCode__invite__button {
     height: 40px;
+    width: 70px;
+    color: black;
     border: none;
-    background-color: #8D5240;
+    background-color: #ECECEC;
     font-weight: 700;
     font-style: Roboto;
     border-radius: 10px;
     margin-left: 5px;
-    color: white;
   }

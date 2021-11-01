@@ -7,6 +7,6 @@ function Spacer({ space }) {
     <div className="Spacer" style={{ height: space + 'px'}}>
     </div>
   );
-};
+}
 
 export default Spacer;
