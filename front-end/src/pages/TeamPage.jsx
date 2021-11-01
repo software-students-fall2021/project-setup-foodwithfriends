@@ -20,7 +20,7 @@ function TeamPage(props) {
                 The Team 
             </div>
             <div id = "photo-container">
-                <div class="flex-container">
+                <div className="flex-container">
                     <div id = "photo-1"> 
                       <div id = "photo-1-title"> Person 1 </div>
                     </div>
