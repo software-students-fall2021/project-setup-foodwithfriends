@@ -36,7 +36,7 @@ function TeamPage(props) {
                       <div id="photo-4-title"> Person 4 </div>
                     </div>
                 </div>
-                <div class="flex-container">
+                <div className="flex-container">
                     <div id = "photo-5"> 
                       <div id="photo-5-title"> Person 5 </div>
                     </div>
