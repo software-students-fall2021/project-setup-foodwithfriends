@@ -9,7 +9,7 @@ function ResultsCell(props) {
     <div className="ResultsCell">
       <div className="flex">
         <div className="left">
-          <img src={restaurauntPlaceholder} alt=""></img>
+          <img src={restaurauntPlaceholder} alt=""/>
         </div>
         <div className="right">
           <h4 className="name">{name}</h4>
