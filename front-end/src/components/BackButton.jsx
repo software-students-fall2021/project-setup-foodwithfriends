@@ -2,7 +2,7 @@ import './BackButton.css';
 import { useHistory } from "react-router-dom";
 import React from 'react';
 
-function BackButton(props) {
+function BackButton() {
   let history = useHistory();
   const goToPrevPage = () => {
     history.goBack()
@@ -12,6 +12,6 @@ function BackButton(props) {
       <button onClick ={goToPrevPage}> Back </button>
     </div>
   );
-};
+}
 
 export default BackButton;

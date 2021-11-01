@@ -2,7 +2,7 @@ import './CreateRoom.css';
 
 import React from 'react';
 
-function CreateRoom(props) {
+function CreateRoom() {
   return (
     <div className="CreateRoom">
       create
