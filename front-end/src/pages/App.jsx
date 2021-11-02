@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ResultsPage from "./ResultsPage";
 import Wait from './Wait';
+import CuisineVote from './CuisineVote';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/new-user" component={User} exact />
         <Route path="/results" component={ResultsPage} exact />
         <Route path='/wait' component={Wait} exact />
+        <Route path='/cuisine-vote' component={CuisineVote} exact />
       </Switch>
       <Footer />
     </div>

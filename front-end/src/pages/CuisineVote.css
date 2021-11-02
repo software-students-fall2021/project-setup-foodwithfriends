@@ -1,0 +1,111 @@
+.CuisineVote {
+    align-items: center;
+}
+
+.text-container{
+    margin-bottom: 3%;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.panelButton-1{
+    z-index: 1;
+    margin-bottom: 4%;
+}
+
+.panelButton-2{
+    z-index: 1;
+    margin-bottom: 4%;
+}
+.main-container-1{
+    position: relative;
+    margin: 0 auto;  
+    z-index: 1;
+    width: 260px;
+    height: 240px;
+    border-radius: 5%;
+    background-color: #d4d4d4;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main-container-2{
+    position: relative;
+    margin: 0 auto;  
+    z-index: 1;
+    width: 260px;
+    height: 240px;
+    border-radius: 5%;
+    background-color: #d4d4d4;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.circle-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 80%;
+    height: 130px;
+    width: 150px;
+    margin: 0 auto;
+    z-index: 2;
+    margin-bottom: -70px;
+    background-color: darkgray;
+    border-radius: 85%;
+    cursor: pointer;
+
+}
+
+.circle-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 80%;
+    height: 130px;
+    width: 150px;
+    margin: 0 auto;
+    z-index: 2;
+    margin-bottom: -70px;
+    background:darkgray;
+    border-radius: 85%;
+    cursor: pointer;
+
+}
+
+.selectChoice{
+    width: 75x;
+    height: 75px;
+    z-index: 4;
+    margin: auto;
+}
+
+.questionMark{
+    width: 65px;
+    height: 65px;
+    z-index: 4;
+    margin: auto;
+}
+
+#text{
+    padding-top: 35%;
+    text-decoration: none;
+}
+#info-text, #title-text{
+    text-align: center;
+    text-decoration: none;
+}
+
+#title-text{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#info-text{
+    padding-top: 5%;
+    padding-bottom: auto;
+    font-style: italic;
+    text-decoration: none;
+}
