@@ -60,13 +60,14 @@ const restaurauntList = [
   },
 ];
 
-function ResultsPage(props) {
+function ResultsPage() {
   return (
     <div className="ResultsPage">
       <h2>Recommended Restauraunts</h2>
       <div className="restauraunt-grid">
-        {restaurauntList.map((restauraunt) => (
+        {restaurauntList.map((restauraunt, index) => (
           <ResultsCell
+            key={index}
             name={restauraunt.name}
             description={restauraunt.description}
             percentageMatch={restauraunt.percentageMatch}

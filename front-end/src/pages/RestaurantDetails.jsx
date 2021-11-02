@@ -24,7 +24,7 @@ const data = {
   last_updated: "2020-10-01T15:13:42.654Z",
 };
 
-function RestaurantDetails(props) {
+function RestaurantDetails() {
   return (
     <div className="RestaurantDetails">
       <div className="page-container">
@@ -59,7 +59,7 @@ function RestaurantDetails(props) {
               height="450"
               loading="lazy"
               className="google-maps-iframe"
-              allowfullscreen
+              allowFullScreen
               src={`https://www.google.com/maps/embed/v1/place?q=${data.geo.lat},${data.geo.lon}&key=AIzaSyB_AxybqGJ-K6-3Jr9efLKXdZX_L7pMJ8I`}
             ></iframe>
           </div>

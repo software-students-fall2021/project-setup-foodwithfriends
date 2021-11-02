@@ -8,6 +8,10 @@
   height: 130px;
 }
 
+.ResultsCell:hover {
+  cursor: pointer;
+}
+
 .ResultsCell img {
   height: 130px;
   border-radius: 10px 0px 0px 10px;
