@@ -10,6 +10,7 @@ import User from "./User";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import RestaurauntDetails from "../pages/RestaurantDetails";
+import ResultsPage from "./ResultsPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           component={RestaurauntDetails}
           exact
         />
+        <Route path="/results" component={ResultsPage} exact />
       </Switch>
       <Footer />
     </div>
