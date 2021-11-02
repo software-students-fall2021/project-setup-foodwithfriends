@@ -60,7 +60,7 @@ const restaurauntList = [
   },
 ];
 
-function ResultsPage(props) {
+function ResultsPage() {
   return (
     <div className="ResultsPage">
       <h2>Recommended Restauraunts</h2>
