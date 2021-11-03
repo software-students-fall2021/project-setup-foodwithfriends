@@ -12,10 +12,10 @@ function Home() {
     </div>
     <Link to="/join">
       <button className = "tempButton">Join a Room </button>
-    </Link> 
+    </Link>
     <Link to="/create">
       <button className = "tempButton">Create a Room </button>
-    </Link> 
+    </Link>
   </Fragment>
   );
 }

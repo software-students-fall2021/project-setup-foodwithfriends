@@ -1,2 +1,16 @@
 .JoinRoom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+  .JoinRoom__title {
+    font-weight: 700;
+    font-style: Roboto;
+    margin-bottom: 40px;
+  }
+
+  .JoinRoom__input {
+    margin-bottom: 75px;
+  }
