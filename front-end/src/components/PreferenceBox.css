@@ -1,0 +1,21 @@
+.PreferenceBox {
+    background-color: lightgray;
+    padding: 40px 10px;
+    margin: 10px 20px;
+    border-radius: 20px;
+    border: 1px black solid;
+    flex: 33%;
+}
+
+
+@media screen and (max-width: 650px) {
+    .PreferenceBox {
+        margin: 10px; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .PreferenceBox {
+        margin: 5px;
+    }
+}

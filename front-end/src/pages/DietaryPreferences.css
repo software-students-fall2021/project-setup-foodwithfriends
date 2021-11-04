@@ -1,4 +1,11 @@
-.DietaryPreferences {
+.DietaryPreferences #submit-button{
+    margin: 50px 10px;
+}
+
+#preferences-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #dp-select-text{
@@ -6,17 +13,26 @@
     margin-bottom: 50px;
 }
 
-#preferences-container{
-}
 .pref-container{
     display: flex;
     justify-content: center;
+    width: 40%;
 }
 
-#pref1, #pref2, #pref3, #pref4, #pref5, #pref6, #pref7, #pref8, #pref9 {
-    background-color: lightgray;
-    padding: 40px 10px;
-    margin: 10px;
-    border-radius: 20px;
-    border: 1px black solid;
-} 
+@media screen and (max-width: 1200px) {
+    .pref-container {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .pref-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .pref-container {
+        width: 100%;
+    }
+}
