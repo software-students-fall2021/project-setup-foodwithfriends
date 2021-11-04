@@ -7,6 +7,9 @@
     flex: 33%;
 }
 
+.active-box {
+    box-shadow: 5px 3px 5px grey;
+}
 
 @media screen and (max-width: 650px) {
     .PreferenceBox {

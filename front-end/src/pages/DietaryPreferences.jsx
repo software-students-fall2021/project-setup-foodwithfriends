@@ -7,25 +7,31 @@ import SubmitButton from '../components/SubmitButton';
 import React from 'react';
 
 function DietaryPreferences(props) {
+  const [active, setActive] = React.useState(-1);
+
+  const sendToParent = (index) => {
+    setActive(index);
+  }
+
   return (
     <div className="DietaryPreferences">
       <SkipButton/>
       <div id="dp-select-text">Select any dietary preferences</div>
       <div id="preferences-container">
         <div class="pref-container">
-          <PreferenceBox/>
-          <PreferenceBox/>
-          <PreferenceBox/>
+          <PreferenceBox value={1} sendToParent={sendToParent} currActive={active}/>
+          <PreferenceBox value={2} sendToParent={sendToParent} currActive={active}/>
+          <PreferenceBox value={3} sendToParent={sendToParent} currActive={active}/>
         </div>
         <div class="pref-container">
-          <PreferenceBox/>
-          <PreferenceBox/>
-          <PreferenceBox/>
+          <PreferenceBox value={4} sendToParent={sendToParent} currActive={active}/>
+          <PreferenceBox value={5} sendToParent={sendToParent} currActive={active}/>
+          <PreferenceBox value={6} sendToParent={sendToParent} currActive={active}/>
         </div>
         <div class="pref-container">
-          <PreferenceBox/>
-          <PreferenceBox/>
-          <PreferenceBox/>
+          <PreferenceBox value={7} sendToParent={setActive} currActive={active}/>
+          <PreferenceBox value={8} sendToParent={setActive} currActive={active}/>
+          <PreferenceBox value={9} sendToParent={setActive} currActive={active}/>
         </div>
       </div>
       <SubmitButton/>
