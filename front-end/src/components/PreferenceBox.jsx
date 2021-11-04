@@ -9,6 +9,6 @@ function PreferenceBox(props) {
       <p>Preference #{props.value}</p> 
     </div>
   );
-};
+}
 
 export default PreferenceBox;
