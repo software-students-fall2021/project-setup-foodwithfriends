@@ -26,8 +26,10 @@ function InviteCode() {
         </button>
       </div>
       <Spacer space="75" />
-      <Link to="/user" className="InviteCode__button">
-        <RoomButton content="Continue" />
+      <Link to="/new-user" className="InviteCode__button">
+        <RoomButton
+          content="Continue"
+        />
       </Link>
     </div>
   );

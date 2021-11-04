@@ -14,7 +14,7 @@ function JoinRoom() {
       </div>
       <InviteCodeInput />
       <Spacer space="75"/>
-      <Link to="/user" className="JoinRoom__button">
+      <Link to="/new-user" className="JoinRoom__button">
         <RoomButton
           content="Join"
         />
