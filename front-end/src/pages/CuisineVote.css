@@ -8,16 +8,13 @@
     text-decoration: none;
 }
 
-.panelButton-1{
+.panelButton{
     z-index: 1;
     margin-bottom: 4%;
 }
 
-.panelButton-2{
-    z-index: 1;
-    margin-bottom: 4%;
-}
-.main-container-1{
+
+.main-container{
     position: relative;
     margin: 0 auto;  
     z-index: 1;
@@ -29,19 +26,7 @@
     cursor: pointer;
 }
 
-.main-container-2{
-    position: relative;
-    margin: 0 auto;  
-    z-index: 1;
-    width: 260px;
-    height: 240px;
-    border-radius: 5%;
-    background-color: #d4d4d4;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.circle-1{
+.circle{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,23 +38,6 @@
     z-index: 2;
     margin-bottom: -70px;
     background-color: darkgray;
-    border-radius: 85%;
-    cursor: pointer;
-
-}
-
-.circle-2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-radius: 80%;
-    height: 130px;
-    width: 150px;
-    margin: 0 auto;
-    z-index: 2;
-    margin-bottom: -70px;
-    background:darkgray;
     border-radius: 85%;
     cursor: pointer;
 

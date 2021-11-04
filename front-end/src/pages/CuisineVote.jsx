@@ -16,15 +16,15 @@ function CuisineVote(props) {
         <p1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget est sed justo pretium laoreet. Donec placerat viverra quam, id posuere metus blandit eu. Maecenas tempor, elit et gravida volutpat, augue velit placerat leo, ut pharetra sem magna ac orci. Cras sit amet odio quis nunc tincidunt ultrices. </p1>
       </div>
 
-        <div className = "panelButton-1">
-          <div className = "circle-1"
+        <div className = "panelButton">
+          <div className = "circle"
             onClick={() => {
               history.push("/random-cuisine");
           }}
           > 
             <img src={QuestionMark} className="questionMark" alt=""></img>
             </div>
-          <div className= "main-container-1"
+          <div className= "main-container"
             onClick={() => {
               history.push("/random-cuisine");
           }}
@@ -36,15 +36,15 @@ function CuisineVote(props) {
           </div>
         </div>
 
-        <div className = "panelButton-2">
-          <div className = "circle-2"
+        <div className = "panelButton">
+          <div className = "circle"
             onClick={() => {
               history.push("/cuisine");
           }}
           >
             <img src={SelectChoice} className="selectChoice" alt=""></img>
           </div>
-          <div className = "main-container-2"
+          <div className = "main-container"
             onClick={() => {
               history.push("/cuisine");
           }}
