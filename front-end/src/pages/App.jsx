@@ -10,6 +10,7 @@ import User from "./User";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ResultsPage from "./ResultsPage";
+import Wait from './Wait';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/team" component={TeamPage} exact />
         <Route path="/new-user" component={User} exact />
         <Route path="/results" component={ResultsPage} exact />
+        <Route path='/wait' component={Wait} exact />
       </Switch>
       <Footer />
     </div>
