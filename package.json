@@ -1,0 +1,24 @@
+{
+  "name": "project-setup-tanya-singh",
+  "version": "1.0.0",
+  "description": "Food with Friends App",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd front-end && npm start",
+    "server": "cd back-end && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/software-students-fall2021/project-setup-foodwithfriends.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/software-students-fall2021/project-setup-foodwithfriends/issues"
+  },
+  "homepage": "https://github.com/software-students-fall2021/project-setup-foodwithfriends#readme",
+  "devDependencies": {
+    "concurrently": "^6.3.0"
+  }
+}
