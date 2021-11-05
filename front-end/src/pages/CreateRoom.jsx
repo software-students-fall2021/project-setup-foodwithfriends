@@ -1,31 +1,34 @@
-import './CreateRoom.css';
+import "./CreateRoom.css";
 
-import React from 'react';
-import { Link } from "react-router-dom";
-import RoomButton from '../components/RoomButton';
-import Spacer from '../components/Spacer';
+import React from "react";
+import { useHistory } from "react-router-dom";
+import RoomButton from "../components/RoomButton";
+import Spacer from "../components/Spacer";
+import { room_post } from "../utils/api";
 
 const MAX_CAPACITY = 20;
 const MIN_CAPACITY = 0;
 
 function CreateRoom() {
-  const [name, setName] = React.useState('');
-  const [location, setLocation] = React.useState('');
+  const history = useHistory();
+  const [name, setName] = React.useState("");
+  const [location, setLocation] = React.useState("");
   const [capacity, setCapacity] = React.useState(0);
+
+  const makeRoom = async () => {
+    const data = await room_post(name, location, capacity);
+    const roomId = data.roomId;
+    history.push(`/invite`, { roomId: roomId });
+  };
 
   return (
     <div className="CreateRoom">
+      <div className="CreateRoom__title">Create a Room</div>
 
-      <div className="CreateRoom__title">
-        Create a Room
-      </div>
-
-      <Spacer space="75"/>
+      <Spacer space="75" />
 
       <div className="CreateRoom__group">
-        <div>
-          Group Name
-        </div>
+        <div>Group Name</div>
         <input
           className="CreateRoom__group__input"
           onChange={(e) => setName(e.target.value)}
@@ -33,12 +36,10 @@ function CreateRoom() {
         />
       </div>
 
-      <Spacer space="25"/>
+      <Spacer space="25" />
 
       <div className="CreateRoom__location">
-        <div>
-          Location
-        </div>
+        <div>Location</div>
         <div className="CreateRoom__container">
           <input
             className="CreateRoom__location__input"
@@ -47,18 +48,16 @@ function CreateRoom() {
           />
           <img
             className="CreateRoom__location__logo"
-            src={process.env.PUBLIC_URL + '/location.png'}
+            src={process.env.PUBLIC_URL + "/location.png"}
             alt="location"
           />
         </div>
       </div>
 
-      <Spacer space="25"/>
+      <Spacer space="25" />
 
       <div className="CreateRoom__friends">
-        <div>
-          Number of Friends
-        </div>
+        <div>Number of Friends</div>
         <div className="CreateRoom__friends__number">
           <div
             className="CreateRoom__friends__number__increment"
@@ -76,25 +75,23 @@ function CreateRoom() {
         </div>
       </div>
 
-      <Spacer space="110"/>
-
-      <Link to="/invite" className="CreateRoom__button">
-        <RoomButton
-          content="Continue"
-        />
-      </Link>
+      <Spacer space="110" />
+      <RoomButton
+        onClick={() => {
+          makeRoom();
+        }}
+        content="Continue"
+      />
     </div>
   );
 
   function onClickInclement() {
-    if (capacity >= MAX_CAPACITY)
-      return;
+    if (capacity >= MAX_CAPACITY) return;
     setCapacity(capacity + 1);
   }
 
   function onClickDecrement() {
-    if (capacity <= MIN_CAPACITY)
-      return;
+    if (capacity <= MIN_CAPACITY) return;
     setCapacity(capacity - 1);
   }
 }
