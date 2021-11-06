@@ -9,6 +9,7 @@ import TeamPage from "./TeamPage";
 import User from "./User";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import RestaurauntDetails from "../pages/RestaurantDetails";
 import ResultsPage from "./ResultsPage";
 import Wait from './Wait';
 import CuisineVote from './CuisineVote';
@@ -24,6 +25,11 @@ function App() {
         <Route path="/join" component={JoinRoom} exact />
         <Route path="/team" component={TeamPage} exact />
         <Route path="/new-user" component={User} exact />
+        <Route
+          path="/restauraunt-detail"
+          component={RestaurauntDetails}
+          exact
+        />
         <Route path="/results" component={ResultsPage} exact />
         <Route path='/wait' component={Wait} exact />
         <Route path='/cuisine-vote' component={CuisineVote} exact />
