@@ -11,6 +11,7 @@ import CuisineVote from './CuisineVote';
 import ChooseCuisine from './ChooseCuisine';
 import RandomCuisine from './RandomCuisine';
 import WinningCuisine from './WinningCuisine';
+import PreferredDish from './PreferredDish';
 import DietaryPreferences from './DietaryPreferences';
 import ResultsPage from "./ResultsPage";
 import RestaurauntDetails from "../pages/RestaurantDetails";
@@ -40,6 +41,7 @@ function App() {
         <Route path='/choose' component={ChooseCuisine} exact />
         <Route path='/random' component={RandomCuisine} exact />
         <Route path='/win' component={WinningCuisine} exact />
+        <Route path='/preferred-dish' component={PreferredDish} exact />
         <Route path='/dietary' component={DietaryPreferences} exact/>
       </Switch>
       <Footer />
