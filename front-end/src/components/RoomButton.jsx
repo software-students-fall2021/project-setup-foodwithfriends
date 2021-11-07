@@ -1,10 +1,10 @@
-import './RoomButton.css';
+import "./RoomButton.css";
 
-import React from 'react';
+import React from "react";
 
-function RoomButton({ content }) {
+function RoomButton({ content, onClick }) {
   return (
-    <button className="RoomButton">
+    <button className="RoomButton" onClick={onClick}>
       {content}
     </button>
   );
