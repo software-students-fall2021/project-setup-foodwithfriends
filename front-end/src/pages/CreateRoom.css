@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  font-style: Roboto;
 }
 
   .CreateRoom__group__input {
@@ -42,11 +41,11 @@
   }
 
   .CreateRoom__location__logo {
-    position: absolute;
+    /* position: absolute; */
     width: 25px;
     height: 25px;
-    right: 15px;
-    top: 20px;
+    /* right: 15px; */
+    /* top: 20px; */
   }
 
   .CreateRoom__friends__number {
@@ -84,4 +83,58 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    .error-border {
+      border: 2px solid #d1afaf;
+      box-shadow: 0px 4px rgb(181 143 144);
+    }
+
+    .tooltip {
+      position: absolute;
+      top: 20px;
+      right: 15px;
+      cursor: pointer;
+    }
+
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      width: 130px;
+      position: absolute;
+      background-color: black;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      z-index: 1;
+      top: -30px;
+      right: -58px;
+      font-size: 12px;
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+    }
+
+    .tooltip .tooltip-text::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+    }
+
+
+    @media screen and (max-width: 500px) {
+      .tooltip .tooltip-text {
+        right: -15px;
+        left: auto;
+      }
+
+      .tooltip .tooltip-text::after {
+        left: auto;
+        right: 22px;
+      }
     }
