@@ -1,0 +1,24 @@
+.WinningCuisine {
+}
+
+.WinningImage {
+    padding-top: 30px;
+}
+
+.WinningHeader {
+    padding: 10px;
+    font-weight: bold;
+}
+
+.WinningFacts {
+    padding: 10px;
+    font-size: 10pt;
+}
+
+#winImg {
+    width: 280px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 10% 35%;
+    border-radius: 15px;
+}
