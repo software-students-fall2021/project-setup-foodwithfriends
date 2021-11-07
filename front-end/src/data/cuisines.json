@@ -1,0 +1,194 @@
+[
+    {
+      "name": "Italian",
+      "description": "Simple, fresh, & delicious. Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
+      "cuisine": "italian",
+      "thumbnail": "italian.jpeg",
+      "dishes": [
+        {
+          "name": "Pizza",
+          "img": "margherita.jpeg"
+        },
+        {
+            "name": "Lasagna",
+            "img": "lasagna.jpeg"
+        },
+        {
+            "name": "Risotto",
+            "img": "risotto.jpeg"
+        },
+        {
+            "name": "Spaghetti",
+            "img": "spaghetti.jpeg"
+        },
+        {
+            "name": "Ravioli",
+            "img": "ravioli.jpeg"
+        },
+        {
+            "name": "Insalata Caprese",
+            "img": "insalata.jpeg"
+        }
+      ]
+    }, {
+      "name": "Chinese",
+      "description": "One of the most diverse in the world, Chinese Cuisine has had great influence on other East Asian foods. Most dishes are traditionally served with noodles or rice.",
+      "cuisine": "chinese",
+      "thumbnail": "chinese.png",
+      "dishes": [
+        {
+          "name": "Dumplings",
+          "img": "dumplings.jpeg"
+        },
+        {
+            "name": "Chow Mein",
+            "img": "chowmein.jpeg"
+        },
+        {
+            "name": "Spring Rolls",
+            "img": "springrolls.jpeg"
+        },
+        {
+            "name": "Dim Sum",
+            "img": "dimsum.jpeg"
+        },
+        {
+            "name": "Sesame Chicken",
+            "img": "sesame.jpeg"
+        },
+        {
+            "name": "Wonton Soup",
+            "img": "wonton.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Latin American",
+      "description": "Latin America is home to a diverse range of cuisines, made of flavorful spices and fresh ingredients. A few popular staples include arroz con pollo, tamales, and empanadas.",
+      "cuisine": "latin",
+      "thumbnail": "latin-america.jpeg",
+      "dishes": [
+        {
+          "name": "Bandeja Paisa",
+          "img": "bandeja.jpeg"
+        },
+        {
+            "name": "Ceviche",
+            "img": "ceviche.jpeg"
+        },
+        {
+            "name": "Empanadas",
+            "img": "empanada.jpeg"
+        },
+        {
+            "name": "Posole",
+            "img": "posole.jpeg"
+        },
+        {
+            "name": "Pupusas",
+            "img": "pupusa.jpeg"
+        },
+        {
+            "name": "Tacos",
+            "img": "tacos.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Japanese",
+      "description": "Japanese Cuisine is primarily based on seasonal ingredients. Aside from the well sought-after sushi dish, other foods can include a combination of rice, miso soup, or noodles.",
+      "cuisine": "japanese",
+      "thumbnail": "japanese.jpeg",
+      "dishes": [
+        {
+          "name": "Ramen",
+          "img": "ramen.jpeg"
+        },
+        {
+            "name": "Miso Soup",
+            "img": "miso.jpeg"
+        },
+        {
+            "name": "Chicken teriyaki",
+            "img": "teriyaki.jpeg"
+        },
+        {
+            "name": "Sushi",
+            "img": "sushi.jpeg"
+        },
+        {
+            "name": "Udon",
+            "img": "udon.jpeg"
+        },
+        {
+            "name": "Onigiri",
+            "img": "onigiri.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "American",
+      "description": "American Cuisine is comprised of traditional ethnic dishes from around the world with a \"twist\". Take for instance Chicago's deep-dish pizza, a unique take on traditional italian pizza.",
+      "cuisine": "american",
+      "thumbnail": "american.jpeg",
+      "dishes": [
+        {
+          "name": "Hot Dogs",
+          "img": "hotdogs.jpeg"
+        },
+        {
+            "name": "BBQ Ribs",
+            "img": "bbq.png"
+        },
+        {
+            "name": "Deep-Dish Pizza",
+            "img": "pizza.jpeg"
+        },
+        {
+            "name": "Burgers",
+            "img": "burgers.jpeg"
+        },
+        {
+            "name": "Philly Cheesesteak",
+            "img": "philly.jpeg"
+        },
+        {
+            "name": "Buffalo Wings",
+            "img": "buffalo.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Indian",
+      "description": "When it comes to spicy and savory dishes, Indian cuisine is champion. The diverse range of spices, chilies, and herbs fuse together to create the spiciest foods one can eat.",
+      "cuisine": "indian",
+      "thumbnail": "indian.jpeg",
+      "dishes": [
+        {
+          "name": "Butter Chicken",
+          "img": "butter-chicken.jpeg"
+        },
+        {
+            "name": "Tandoori Chicken",
+            "img": "tandoori-chicken.jpeg"
+        },
+        {
+            "name": "Palak Paneer",
+            "img": "palak-paneer.jpeg"
+        },
+        {
+            "name": "Naan",
+            "img": "naan.jpeg"
+        },
+        {
+            "name": "Chicken Tikka Masala",
+            "img": "tikka.jpeg"
+        },
+        {
+            "name": "Samosas",
+            "img": "samosa.jpeg"
+        }
+      ]
+    }
+    
+]

@@ -3,7 +3,6 @@ import './CuisineVote.css';
 import React from 'react';
 import QuestionMark from '../img/question-mark.svg';
 import SelectChoice from '../img/select-choice.svg';
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 
@@ -39,14 +38,14 @@ function CuisineVote(props) {
         <div className = "panelButton">
           <div className = "circle"
             onClick={() => {
-              history.push("/cuisine");
+              history.push("/choose-cuisine");
           }}
           >
             <img src={SelectChoice} className="selectChoice" alt=""></img>
           </div>
           <div className = "main-container"
             onClick={() => {
-              history.push("/cuisine");
+              history.push("/choose-cuisine");
           }}
           >
           <div id="text">
