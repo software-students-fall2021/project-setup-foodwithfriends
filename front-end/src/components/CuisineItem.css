@@ -6,6 +6,10 @@
     border: solid black 1px;
 }
 
+label .radio {
+    display: none;
+}
+
 .title {
     text-align: center;
 }

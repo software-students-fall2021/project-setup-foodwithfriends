@@ -12,10 +12,14 @@ function ChooseCuisine() {
     <div className="Cuisine">
       <h1 id = "heading">Choose a Cuisine</h1>
       <p>Then we'll determine the group's favorite</p>
-      <Carousel showThumbs={false} showArrows={false} showStatus={false} emulateTouch={true} infiniteLoop={true}>
-        {data.map((item, i) => <CuisineItem key={item.name} cuisine={item} index={i}/>)}
-      </Carousel>
-      <button type="button" className="continue">Continue</button>
+      <form action="#">
+        <Carousel showThumbs={false} showArrows={false} showStatus={false} emulateTouch={true} infiniteLoop={true}>
+            {data.map((item, i) =>
+              <CuisineItem key={item.name} cuisine={item} index={i} value={item.cuisine}/>
+            )}
+        </Carousel>
+        <button type="submit" className="continue">Continue</button>
+      </form>
     </div>
   );
 };

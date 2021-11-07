@@ -2,6 +2,7 @@
     {
       "name": "Italian",
       "description": "Simple, fresh, & delicious. Italian Cuisine is regarded as one of the most popular in the world with pasta, tomatoes, and cheese being the backbone of well-liked dishes.",
+      "cuisine": "italian",
       "thumbnail": "italian.jpeg",
       "dishes": [
         {
@@ -32,6 +33,7 @@
     }, {
       "name": "Chinese",
       "description": "One of the most diverse in the world, Chinese Cuisine has had great influence on other East Asian foods. Most dishes are traditionally served with noodles or rice.",
+      "cuisine": "chinese",
       "thumbnail": "chinese.png",
       "dishes": [
         {
@@ -63,6 +65,7 @@
     {
       "name": "Latin American",
       "description": "Latin America is home to a diverse range of cuisines, made of flavorful spices and fresh ingredients. A few popular staples include arroz con pollo, tamales, and empanadas.",
+      "cuisine": "latin",
       "thumbnail": "latin-america.jpeg",
       "dishes": [
         {
@@ -94,6 +97,7 @@
     {
       "name": "Japanese",
       "description": "Japanese Cuisine is primarily based on seasonal ingredients. Aside from the well sought-after sushi dish, other foods can include a combination of rice, miso soup, or noodles.",
+      "cuisine": "japanese",
       "thumbnail": "japanese.jpeg",
       "dishes": [
         {
@@ -125,6 +129,7 @@
     {
       "name": "American",
       "description": "American Cuisine is comprised of traditional ethnic dishes from around the world with a \"twist\". Take for instance Chicago's deep-dish pizza, a unique take on traditional italian pizza.",
+      "cuisine": "american",
       "thumbnail": "american.jpeg",
       "dishes": [
         {
@@ -156,6 +161,7 @@
     {
       "name": "Indian",
       "description": "When it comes to spicy and savory dishes, Indian cuisine is champion. The diverse range of spices, chilies, and herbs fuse together to create the spiciest foods one can eat.",
+      "cuisine": "indian",
       "thumbnail": "indian.jpeg",
       "dishes": [
         {
