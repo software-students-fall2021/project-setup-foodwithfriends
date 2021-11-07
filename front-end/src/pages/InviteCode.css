@@ -7,7 +7,6 @@
 
   .InviteCode__title {
     font-weight: 700;
-    font-style: Roboto;
     margin-bottom: 40px;
   }
 
@@ -18,7 +17,21 @@
     border: none;
     background-color: #ECECEC;
     font-weight: 700;
-    font-style: Roboto;
     border-radius: 10px;
     margin-left: 5px;
+    cursor: pointer;
+  }
+
+  #copy-msg {
+    position: absolute;
+    background-color: #d9e3f9;
+    top: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #6b7484;
+    display: none;
+  }
+
+  #copy-msg span {
+    font-size: 14px;
   }
