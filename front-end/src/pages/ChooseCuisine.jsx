@@ -15,7 +15,7 @@ function ChooseCuisine() {
       <Carousel showThumbs={false} showArrows={false} showStatus={false} emulateTouch={true} infiniteLoop={true}>
         {data.map((item, i) => <CuisineItem key={item.name} cuisine={item} index={i}/>)}
       </Carousel>
-      <button type="button">Continue</button>
+      <button type="button" className="continue">Continue</button>
     </div>
   );
 };

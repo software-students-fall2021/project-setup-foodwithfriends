@@ -3,7 +3,6 @@ import './CuisineVote.css';
 import React from 'react';
 import QuestionMark from '../img/question-mark.svg';
 import SelectChoice from '../img/select-choice.svg';
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 

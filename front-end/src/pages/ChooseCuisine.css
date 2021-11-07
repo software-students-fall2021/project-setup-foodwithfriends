@@ -24,7 +24,7 @@
     margin-top: 50px;
 }
 
-button {
+.Cuisine .continue {
     width: 350px;
     height: 40px;
     font-weight: bold;
@@ -43,7 +43,7 @@ button {
 }
 
 @media only screen and (max-width: 450px) {
-    button {
+    .Cuisine .continue{
         width: 250px;
     }
 }
