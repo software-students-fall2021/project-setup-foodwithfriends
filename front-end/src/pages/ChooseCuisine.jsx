@@ -13,7 +13,7 @@ function ChooseCuisine() {
       <h1 id = "heading">Choose a Cuisine</h1>
       <p>Then we'll determine the group's favorite</p>
       <form action="#">
-        <Carousel showThumbs={false} showArrows={false} showStatus={false} emulateTouch={true} infiniteLoop={true}>
+        <Carousel showThumbs={false} showArrows={false} showStatus={false} emulateTouch={true} infiniteLoop={true} onChange={(_, item) => setInputOnSwipe(item)}>
             {data.map((item, i) =>
               <CuisineItem key={item.name} cuisine={item} index={i} value={item.cuisine}/>
             )}
@@ -22,6 +22,16 @@ function ChooseCuisine() {
       </form>
     </div>
   );
-};
+}
+
+function setInputOnSwipe(item) {
+  let choices = document.getElementsByName("chosen-cuisine")
+  for (let i = 0; i < choices.length; i++) {
+    if (choices[i].value == item.props.value ) {
+      choices[i].checked = true;
+      return;
+    }
+  }
+}
 
 export default ChooseCuisine;

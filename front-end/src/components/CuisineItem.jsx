@@ -51,6 +51,6 @@ function CuisineItem(props) {
       </div>
     </label>
   );
-};
+}
 
 export default CuisineItem;
