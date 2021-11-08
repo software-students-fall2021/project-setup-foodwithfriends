@@ -138,3 +138,5 @@
         right: 22px;
       }
     }
+
+    .pac-container { z-index: 10000!important; } 
