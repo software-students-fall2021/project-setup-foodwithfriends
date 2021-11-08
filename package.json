@@ -20,5 +20,8 @@
   "homepage": "https://github.com/software-students-fall2021/project-setup-foodwithfriends#readme",
   "devDependencies": {
     "concurrently": "^6.3.0"
+  },
+  "dependencies": {
+    "react-places-autocomplete": "^7.3.0"
   }
 }
