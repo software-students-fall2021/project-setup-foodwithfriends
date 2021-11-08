@@ -42,6 +42,7 @@ function CreateRoom() {
         <div class = "title">Location</div>
         <div className="CreateRoom__container">
           <input
+            id = "location-bar"
             className="CreateRoom__location__input"
             onChange={(e) => setLocation(e.target.value)}
             value={location}
@@ -51,7 +52,7 @@ function CreateRoom() {
               className="CreateRoom__location__logo"
               src={process.env.PUBLIC_URL + "/location.png"}
               alt="location"
-              onClick= {()=> {console.log("get the current location!")}}
+              onClick= {getCurrentLocation}
             />
             <span className="tooltip-text">Use Current location</span>
           </div>
@@ -106,6 +107,26 @@ function CreateRoom() {
     }
 
     return true;
+  }
+
+  function getCurrentLocation() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const {latitude, longitude} = position.coords;
+
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&location_type=APPROXIMATE&result_type=postal_code&key=${process.env.REACT_APP_GOOGLE_KEY}`)
+        .then(response => response.json())
+        .then(data => {
+          const results = data["results"];
+          const locationBar = document.getElementById("location-bar");
+          
+          if (results.length == 0) {
+            locationBar.value = "Unable to determine location."
+          }
+          else {
+            locationBar.value = results[0]["formatted_address"];
+          }
+        });
+    });
   }
 
   function onClickInclement() {
