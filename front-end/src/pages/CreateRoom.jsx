@@ -57,6 +57,7 @@ function CreateRoom() {
                 />
                 <div className="tooltip">
                   <img
+                  id = "currLocIcon"
                   className="CreateRoom__location__logo"
                   src={process.env.PUBLIC_URL + "/location.png"}
                   alt="location"
@@ -132,6 +133,8 @@ function CreateRoom() {
   }
 
   function getCurrentLocation() {
+    const logo = document.getElementById("currLocIcon");
+    logo.src = `${process.env.PUBLIC_URL}/loop.png`;
     navigator.geolocation.getCurrentPosition((position) => {
       const {latitude, longitude} = position.coords;
 
@@ -145,6 +148,7 @@ function CreateRoom() {
           }
           else {
             setLocation(results[0]["formatted_address"]);
+            logo.src = `${process.env.PUBLIC_URL}/location.png`;
           }
         });
     });
