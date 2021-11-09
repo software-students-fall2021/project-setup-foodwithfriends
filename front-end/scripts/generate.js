@@ -5,12 +5,12 @@ import './${Component}.css';
 
 import React from 'react';
 
-function ${Component}(props) {
+function ${Component}() {
   return (
     <div className="${Component}">
     </div>
   );
-};
+}
 
 export default ${Component};
 `;
@@ -18,12 +18,12 @@ export default ${Component};
 const createContainerTemplate = (Component) => `
 import React from 'react';
 
-function ${Component}(props) {
+function ${Component}() {
   return (
     <div className="${Component}"}>
     </div>
   );
-};
+}
 
 export default ${Component};
 `;

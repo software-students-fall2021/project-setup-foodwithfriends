@@ -11,7 +11,7 @@ function ChooseCuisine() {
   return (
     <div className="Cuisine">
       <h1 id = "heading">Choose a Cuisine</h1>
-      <p>Then we'll determine the group's favorite</p>
+      <p>Then we&apos;ll determine the group&apos;s favorite</p>
       <form action="#">
         <Carousel showThumbs={false} showArrows={false} showStatus={false} emulateTouch={true} infiniteLoop={true} onChange={(_, item) => setInputOnSwipe(item)}>
             {data.map((item, i) =>

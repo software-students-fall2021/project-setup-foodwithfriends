@@ -6,7 +6,7 @@ import SelectChoice from '../img/select-choice.svg';
 import { useHistory } from "react-router-dom";
 
 
-function CuisineVote(props) {
+function CuisineVote() {
   const history = useHistory();
   return (
     <div className="Cuisine">
@@ -20,14 +20,14 @@ function CuisineVote(props) {
             onClick={() => {
               history.push("/random-cuisine");
           }}
-          > 
+          >
             <img src={QuestionMark} className="questionMark" alt=""></img>
             </div>
           <div className= "main-container"
             onClick={() => {
               history.push("/random-cuisine");
           }}
-          > 
+          >
             <div id="text">
                 <div id="title-text">Random Choice</div>
                 <div id="info-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -56,6 +56,6 @@ function CuisineVote(props) {
         </div>
     </div>
   );
-};
+}
 
 export default CuisineVote;
