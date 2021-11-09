@@ -2,6 +2,7 @@ import './SkipButton.css';
 
 import React from 'react';
 
+
 function SkipButton() {
   return (
     <div className="SkipButton">

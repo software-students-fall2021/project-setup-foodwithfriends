@@ -1,0 +1,47 @@
+.PreferredDish #title{
+    margin: 50px 0;
+}
+
+.pref-dish-row {
+    background-color: #ECECEC;
+    display: flex;
+    margin: 50px auto;
+    height: 55px;
+    align-items: center;
+    width: 50%;
+}
+
+.pref-dish-row input {
+    flex: 15%;
+}
+
+.pref-dish-row label {
+    flex: 85%;
+    text-align: right;
+    margin-right: 10%;
+}
+
+@media screen and (max-width: 800px) {
+    .pref-dish-row {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .pref-dish-row {
+        width: 85%;
+    }
+}
+
+.PreferredDish .select{
+    width: 350px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    background-color: #505050;
+    color: white;
+    margin: 10px auto 20px;
+    cursor: pointer;
+}
+
