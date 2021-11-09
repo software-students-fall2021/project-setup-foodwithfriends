@@ -1,0 +1,38 @@
+.DietaryPreferences #submit-button{
+    margin: 50px 10px;
+}
+
+#preferences-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dp-select-text{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.pref-container{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+@media screen and (max-width: 1200px) {
+    .pref-container {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .pref-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .pref-container {
+        width: 100%;
+    }
+}
