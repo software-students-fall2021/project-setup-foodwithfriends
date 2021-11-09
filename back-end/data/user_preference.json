@@ -1,0 +1,38 @@
+[
+  {
+    "user": {
+      "id": 1,
+      "first_name": "Bob",
+      "last_name": "Ross"
+    },
+    "cuisines": ["Italian", "Japanese", "American"],
+    "price": "$$$",
+    "geo": {
+      "lat": 40.723324,
+      "lon": -73.989656
+    },
+    "dishes": [
+      "Mozzarella Sticks",
+      "Catfish Strips With Homemade Lemon Aioli",
+      "Potato Skins With Cheddar And Bacon"
+    ]
+  },
+  {
+    "user": {
+      "id": 2,
+      "first_name": "Barack",
+      "last_name": "Obama"
+    },
+    "cuisines": ["Chinese", "Indian", "American"],
+    "price": "$$$$",
+    "geo": {
+      "lat": 40.723345,
+      "lon": -73.989627
+    },
+    "dishes": [
+      "Pulled Pork Or Pulled Chicken Nachos",
+      "Catfish Strips With Homemade Lemon Aioli",
+      "Bbq Sandwiches"
+    ]
+  }
+]
