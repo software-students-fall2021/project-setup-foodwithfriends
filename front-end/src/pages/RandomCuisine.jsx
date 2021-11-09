@@ -16,6 +16,6 @@ function RandomCuisine() {
       </div>
     </div>
   );
-};
+}
 
 export default RandomCuisine;

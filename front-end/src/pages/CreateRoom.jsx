@@ -4,7 +4,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import RoomButton from "../components/RoomButton";
 import Spacer from "../components/Spacer";
-import { room_post } from "../utils/api";
+import { post } from '../utils/request';
 
 const MAX_CAPACITY = 20;
 const MIN_CAPACITY = 0;
@@ -16,8 +16,16 @@ function CreateRoom() {
   const [capacity, setCapacity] = React.useState(0);
 
   const makeRoom = async () => {
-    const data = await room_post(name, location, capacity);
-    const roomId = data.roomId;
+    const response = await post(
+      '/room',
+      {
+        name,
+        location,
+        capacity
+      },
+    );
+
+    const roomId = response.roomId;
     history.push(`/invite`, { roomId: roomId });
   };
 
