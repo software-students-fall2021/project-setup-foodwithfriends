@@ -78,3 +78,4 @@ app.post("/invite/:roomId", async function(req, res) {
 })
 
 app.listen(8000);
+export app;
