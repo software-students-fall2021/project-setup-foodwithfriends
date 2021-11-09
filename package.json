@@ -22,6 +22,10 @@
     "concurrently": "^6.3.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "react-places-autocomplete": "^7.3.0"
+=======
+    "axios": "^0.24.0"
+>>>>>>> #80 part of User Story #12. Almost polished front-end (error message CSS needs to be fixed). Functioning Back-end with mockaroo. Need to implement unit tests
   }
 }

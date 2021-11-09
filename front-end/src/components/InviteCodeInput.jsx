@@ -2,8 +2,7 @@ import './InviteCodeInput.css';
 
 import React from 'react';
 
-function InviteCodeInput({ disabled = false, value }) {
-  const [curValue, setCurValue] = React.useState('');
+function InviteCodeInput({ disabled = false, value, handleValue }) {
 
   return (
     <input
@@ -11,16 +10,12 @@ function InviteCodeInput({ disabled = false, value }) {
       type="text"
       name="name"
       placeholder="code"
-      value={value || curValue}
+      value={value}
       onChange={handleValue}
       disabled={!!disabled}
       style={{ backgroundColor: disabled ? '#C4C4C4' : '#EFEBEB' }}
     />
   );
-
-  function handleValue(event) {
-    setCurValue(event.target.value);
-  }
 }
 
 export default InviteCodeInput;
