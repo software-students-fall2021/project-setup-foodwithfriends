@@ -1,6 +1,3 @@
-const restauraunts_data = require("../data/restauraunts.json");
-const user_preferences_data = require("../data/user_preference.json");
-
 const generate_restuaraunts_map = (restauraunts) => {
   // Generates a list of restauraunt ids to their point values,
   // Initialized to zero
@@ -43,12 +40,6 @@ const loss_function = (restauraunts, user_preferences) => {
       if (user.price === restauraunt.price_range) {
         restauraunt_ranking[restauraunt.restaurant_id]["points"] += 1;
       }
-      // Match user cuisine preference
-      user.cuisines.forEach((cuisine) => {
-        if (restauraunt.cuisines.indexOf(cuisine) != -1) {
-          restauraunt_ranking[restauraunt.restaurant_id]["points"] += 1;
-        }
-      });
       // Match user menu item preference
       restauraunt_ranking[restauraunt.restaurant_id]["points"] += check_menu(
         restauraunt.menus,

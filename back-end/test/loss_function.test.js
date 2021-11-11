@@ -23,8 +23,8 @@ describe("Loss Function Works", function () {
   });
   describe("loss_function works", function () {
     const expected_result = {
-      4072332573989656: { restaurant_name: "Dallas Jones BBQ", points: 7 },
-      4072055173984543: { restaurant_name: "Ivan Ramen", points: 2 },
+      4072332573989656: { restaurant_name: "Dallas Jones BBQ", points: 5 },
+      4072055173984543: { restaurant_name: "Ivan Ramen", points: 1 },
       4071913973985926: { restaurant_name: "Stop 1 Deli", points: 0 },
     };
     it("returns expected list of restauraunts and points", function () {
