@@ -5,7 +5,7 @@ import React from 'react';
 const fake_users = [{name: "Jen"}, {name: "Tanya"}, {name: "Thomas"}];
 const total = 6;
 
-function Wait(props) {
+function Wait() {
   return (
     <div className="Wait">
       <h1>Waiting Room</h1>
@@ -21,6 +21,6 @@ function Wait(props) {
       </div>
     </div>
   );
-};
+}
 
 export default Wait;

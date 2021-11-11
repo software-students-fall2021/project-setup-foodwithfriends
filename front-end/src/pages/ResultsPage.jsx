@@ -71,7 +71,6 @@ function ResultsPage() {
             name={restauraunt.name}
             description={restauraunt.description}
             percentageMatch={restauraunt.percentageMatch}
-            key={restauraunt.name}
           />
         ))}
       </div>

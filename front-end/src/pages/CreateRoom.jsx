@@ -4,7 +4,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import RoomButton from "../components/RoomButton";
 import Spacer from "../components/Spacer";
-import { room_post } from "../utils/api";
+import { post } from '../utils/request';
 import PlacesAutocomplete from 'react-places-autocomplete';
 
 const MAX_CAPACITY = 20;
@@ -17,8 +17,16 @@ function CreateRoom() {
   const [capacity, setCapacity] = React.useState(2);
 
   const makeRoom = async () => {
-    const data = await room_post(name, location, capacity);
-    const roomId = data.roomId;
+    const response = await post(
+      '/room',
+      {
+        name,
+        location,
+        capacity
+      },
+    );
+
+    const roomId = response.roomId;
     history.push(`/invite`, { roomId: roomId });
   };
 
@@ -29,7 +37,7 @@ function CreateRoom() {
       <Spacer space="75" />
 
       <div className="CreateRoom__group">
-        <div class = "title">Group Name</div>
+        <div className="title">Group Name</div>
         <input
           className="CreateRoom__group__input"
           onChange={(e) => setName(e.target.value)}
@@ -40,9 +48,9 @@ function CreateRoom() {
       <Spacer space="25" />
 
       <div className="CreateRoom__location">
-        <div class = "title">Location</div>
+        <div className="title">Location</div>
         <div className="CreateRoom__container">
-          <PlacesAutocomplete 
+          <PlacesAutocomplete
             value={location}
             onChange={setLocation}
             onSelect={setLocation}>
@@ -64,7 +72,7 @@ function CreateRoom() {
                   onClick= {getCurrentLocation}
                   />
                   <span className="tooltip-text">Use Current location</span>
-                </div> 
+                </div>
                 <div id ="search-results">
                   {loading && <div>Loading...</div>}
                   {suggestions.map((suggestion, i) => {
@@ -76,8 +84,8 @@ function CreateRoom() {
                   })}
                 </div>
               </div>
-            )} 
-           
+            )}
+
           </PlacesAutocomplete>
         </div>
       </div>
@@ -85,7 +93,7 @@ function CreateRoom() {
       <Spacer space="25" />
 
       <div className="CreateRoom__friends">
-        <div class = "title">Number of Friends</div>
+        <div className="title">Number of Friends</div>
         <div className="CreateRoom__friends__number">
           <div
             className="CreateRoom__friends__number__increment"

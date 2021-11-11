@@ -12,6 +12,7 @@ export const room_post = async (name, location, capacity) => {
       capacity: capacity,
     }),
   };
+
   return await fetch(base_url + "/room", requestOptions)
     .then(async (response) => {
       const text = await response.text();
