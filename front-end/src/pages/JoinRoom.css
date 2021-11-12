@@ -14,3 +14,11 @@
   .JoinRoom__input {
     margin-bottom: 75px;
   }
+
+  .JoinRoom__error {
+    position: absolute;
+    top: 425px;
+    color: red;
+    font-style: Roboto;
+    font-weight: bold;
+  }

@@ -11,8 +11,11 @@
   "author": "Food with Friends",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
+    "expect.js": "^0.3.1",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "faker": "^5.5.3",
