@@ -5,6 +5,7 @@ const session = require("express-session");
 const app = express();
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
+const { restauraunt_rankings } = require("./utils/loss_function");
 require("./utils/database.js");
 
 app.use(express.urlencoded({ extended: true }));
@@ -32,6 +33,12 @@ app.post("/room", function (req, res) {
   app.locals.rooms.push(newRoom);
   res.status(200);
   res.send({ roomId });
+});
+
+app.get("/restaurants", function (req, res) {
+  const result = restauraunt_rankings();
+  res.status(200);
+  res.send(result);
 });
 
 app.listen(8000);
