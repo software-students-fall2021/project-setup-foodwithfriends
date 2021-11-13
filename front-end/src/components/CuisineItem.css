@@ -10,20 +10,20 @@ label .radio {
     display: none;
 }
 
-.title {
+.cuisine-item .title {
     text-align: center;
 }
 
-.description {
+.cuisine-item .description {
     padding: 5%;
 }
 
-.thumbnail {
+.cuisine-item  .thumbnail {
     width: 80%!important;
     border-radius: 15px;
 }
 
-.info {
+.cuisine-item .info {
     width: 120px;
     background-color: #000;
     color: white;
