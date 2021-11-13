@@ -11,6 +11,7 @@ const cors = require("cors");
 const { restauraunt_rankings } = require("./utils/loss_function");
 
 const User = require("./models/user");
+const Group = require("./models/group");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -76,9 +77,22 @@ app.post("/invite/:roomId", async function(req, res) {
 
 })
 
-// Added this as a test
-app.get("/", (req, res) => {
-  const user = new User({groupId: "2839297429", name: "Jen", dishPreferences: ["chicken parm"]});
+// The functions below are examples, which will be removed once we start routing
+app.get("/new-group", (req, res) => {
+  const group = new Group({groupId: "abc123", groupName: "TestGroup", numOfFriends: 3, friends:[], selectedCuisines: ["italian", "american", "italian"], winningCuisine: "italian"});
+  group.save((err, result) => {
+    if (err){
+        console.log(err);
+    }
+    else {
+        console.log(result)
+    }
+  });
+  res.send("successfully added new group to DB");
+});
+
+app.get("/new-user", (req, res) => {
+  const user = new User({groupId:"abc123", name:"TestUser", dishPreferences: ["chicken parmesan", "spaghetti","penne ala vodka"]});
   user.save((err, result) => {
     if (err){
         console.log(err);
@@ -87,7 +101,8 @@ app.get("/", (req, res) => {
         console.log(result)
     }
   });
-  res.send("successfully added to DB");
+  res.send("successfully added user to DB");
 });
+
 
 app.listen(8000);
