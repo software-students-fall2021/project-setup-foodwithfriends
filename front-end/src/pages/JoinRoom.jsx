@@ -2,7 +2,8 @@ import './JoinRoom.css';
 
 import React from 'react';
 import InviteCodeInput from '../components/InviteCodeInput';
-import RoomButton from '../components/RoomButton';
+import Button from '../components/Button';
+
 import Spacer from '../components/Spacer';
 import { join_post } from "../utils/api";
 import { useHistory } from "react-router-dom";
@@ -23,8 +24,8 @@ function JoinRoom() {
       /> 
       <Spacer space="75"/> 
       {errorMessage !== '' && (<div className="JoinRoom__error">{errorMessage}</div>)}
-      <RoomButton
-        onClick={async () => {
+      <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf" 
+      onClick={async () => {
           const response = await join_post(curValue);
           const result = response.result;
           if(result){
@@ -34,9 +35,7 @@ function JoinRoom() {
           else{
             setErrorMessage('Invalid RoomID!')
           }
-        }}
-        content="Join"
-      />
+        }}/>
     </div>
   );
 

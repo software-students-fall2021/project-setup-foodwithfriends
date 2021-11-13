@@ -2,7 +2,7 @@ import "./CreateRoom.css";
 
 import React from "react";
 import { useHistory } from "react-router-dom";
-import RoomButton from "../components/RoomButton";
+import Button from "../components/Button";
 import Spacer from "../components/Spacer";
 import { post } from '../utils/request';
 import PlacesAutocomplete from 'react-places-autocomplete';
@@ -112,13 +112,12 @@ function CreateRoom() {
       </div>
 
       <Spacer space="110" />
-      <RoomButton
-        onClick={() => {
+      <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf"   
+      onClick={() => {
           if (validateForm()) {
             makeRoom();
           }
-        }}
-        content="Continue"
+      }}
       />
     </div>
   );

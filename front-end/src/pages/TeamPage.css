@@ -1,33 +1,29 @@
 .TeamPage {
+    margin-bottom: 40px;
 }
-
 
 #back-button {
-    margin-top: 12px;
     margin-left: 80%;
-    font-weight: 600;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
-
 #introduction-title {
-    margin-top: 20px;
+    margin: 20px;
     font-weight: bold;
     text-align: left;
-    margin-left: 20px;
     font-size: 18px;
 }
 
 #introduction-text {
     text-align: left;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin: 20px;
 }
 
 #the-team-title {
     font-weight: bold;
     text-align: left;
-    margin-left: 20px;
-    margin-top: 40px;
+    margin: 40px 20px 20px;
     font-size: 18px;
 }
 
@@ -57,14 +53,3 @@
     font-size: 14px;
 }
 
-#try-now-button {
-    margin-top: 80px;
-    margin-bottom: 40px;
-}
-
-#try-button {
-    padding: 10px 100px;
-    background-color: #3F3F3F;
-    color: white;
-    font-weight: bold;
-}

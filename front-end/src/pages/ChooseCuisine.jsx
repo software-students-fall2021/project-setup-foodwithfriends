@@ -2,6 +2,8 @@ import './ChooseCuisine.css';
 
 import React from 'react';
 import CuisineItem from "../components/CuisineItem";
+import Button from "../components/Button";
+
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
@@ -18,7 +20,7 @@ function ChooseCuisine() {
               <CuisineItem key={item.name} cuisine={item} index={i} value={item.cuisine}/>
             )}
         </Carousel>
-        <button type="submit" className="continue">Continue</button>
+        <Button id ="continueButton" type="submit" width= "350px" height="40px" text="Continue"/>
       </form>
     </div>
   );

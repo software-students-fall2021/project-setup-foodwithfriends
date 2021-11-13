@@ -60,19 +60,32 @@
     padding-top: 35%;
     text-decoration: none;
 }
-#info-text, #title-text{
+.title-text, .info-text{
     text-align: center;
     text-decoration: none;
 }
 
-#title-text{
+.title-text{
     font-weight: bold;
     text-decoration: none;
 }
 
-#info-text{
-    padding-top: 5%;
-    padding-bottom: auto;
+.info-text{
+    /* padding-top: 5%; */
+    padding: 10px;
     font-style: italic;
     text-decoration: none;
+}
+
+#choice-container {
+    margin-bottom: 50px;
+}
+
+#cuisine-heading {
+    margin-top: 50px;
+}
+
+#cuisine-description {
+    width: 80%;
+    margin: auto auto 40px auto;
 }

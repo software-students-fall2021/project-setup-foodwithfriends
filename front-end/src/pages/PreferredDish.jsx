@@ -1,14 +1,17 @@
 import './PreferredDish.css';
-import SkipButton from '../components/SkipButton';
 
 import React from 'react';
+import { Link } from "react-router-dom";
+import Button from '../components/Button';
 
 const dishes = [{name: "dish name 1", value: "dish-1"}, {name: "dish name 2", value: "dish-2"}, {name: "dish name 3", value: "dish-3"}];
 
 function PreferredDish(props) {
   return (
     <div className="PreferredDish">
-      <SkipButton/>
+      <Link to="/Wait">
+        <Button id="skipButton" text="skip" width="65px" height="30px" bg="#9d9287"/>
+      </Link>
       <p id ="title"> Select your preferred dish </p>
       <form action="#">
         <div id = "checkbox-group">

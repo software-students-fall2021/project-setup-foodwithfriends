@@ -1,12 +1,6 @@
-.Button {    
-}
-
 .button {
-    color: white;
     font-weight: bold;
-    background-color: black;
-    padding: 10px;
-    /* padding-left: 50px;
-    padding-right: 50px; */
-    width: 80%;
+    margin: 10px 0;
+    cursor: pointer;
+    border: none;
 }
