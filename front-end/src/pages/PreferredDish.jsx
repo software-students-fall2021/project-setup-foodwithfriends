@@ -6,7 +6,7 @@ import Button from '../components/Button';
 
 const dishes = [{name: "dish name 1", value: "dish-1"}, {name: "dish name 2", value: "dish-2"}, {name: "dish name 3", value: "dish-3"}];
 
-function PreferredDish(props) {
+function PreferredDish() {
   return (
     <div className="PreferredDish">
       <Link to="/Wait">
@@ -15,8 +15,8 @@ function PreferredDish(props) {
       <p id ="title"> Select your preferred dish </p>
       <form action="#">
         <div id = "checkbox-group">
-          {dishes.map((dish) => (
-            <div className="pref-dish-row">
+          {dishes.map((dish, i) => (
+            <div className="pref-dish-row" key={i}>
               <input type="checkbox" name={dish.value}></input>
               <label>{dish.name}</label>
             </div>
@@ -27,6 +27,6 @@ function PreferredDish(props) {
 
     </div>
   );
-};
+}
 
 export default PreferredDish;
