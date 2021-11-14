@@ -1,13 +1,16 @@
-// app.js
-const mongoose = require("mongoose");
 const express = require("express");
-const axios = require("axios");
-const session = require("express-session");
 const app = express();
+
+const session = require("express-session");
+require('dotenv').config()
+require("./utils/database.js");
+
+const axios = require("axios");
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
 const { restauraunt_rankings } = require("./utils/loss_function");
-require("./utils/database.js");
+
+const User = require("./models/user");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -23,10 +26,6 @@ const sessionOptions = {
 
 app.use(session(sessionOptions));
 app.use(express.urlencoded({ extended: false }));
-
-app.get("/", function (req, res) {
-  res.send("test");
-});
 
 app.post("/room", function (req, res) {
   const roomId = uuidv4().substr(0, 5);
@@ -77,5 +76,18 @@ app.post("/invite/:roomId", async function(req, res) {
 
 })
 
+// Added this as a test
+app.get("/", (req, res) => {
+  const user = new User({groupId: "2839297429", name: "Jen", dishPreferences: ["chicken parm"]});
+  user.save((err, result) => {
+    if (err){
+        console.log(err);
+    }
+    else{
+        console.log(result)
+    }
+  });
+  res.send("successfully added to DB");
+});
+
 app.listen(8000);
-// export app;
