@@ -79,7 +79,7 @@ app.post("/invite/:roomId", async function(req, res) {
 
 // The functions below are examples, which will be removed once we start routing
 app.get("/new-group", (req, res) => {
-  const group = new Group({groupId: "abc123", groupName: "TestGroup", numOfFriends: 3, friends:[], selectedCuisines: ["italian", "american", "italian"], winningCuisine: "italian"});
+  const group = new Group({groupId: "abc123", groupName: "TestGroup", numOfFriends: 3, location: [{latitude: "40.7294", longitude: "73.9936"}], friends:[], selectedCuisines: ["italian", "american", "italian"], winningCuisine: "italian"});
   group.save((err, result) => {
     if (err){
         console.log(err);
