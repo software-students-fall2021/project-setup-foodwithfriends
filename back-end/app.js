@@ -17,8 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 
-app.locals.rooms = [];
-
 const sessionOptions = {
   secret: "secret for signing session id",
   saveUninitialized: false,
@@ -30,8 +28,15 @@ app.use(express.urlencoded({ extended: false }));
 
 app.post("/room", function (req, res) {
   const roomId = uuidv4().substr(0, 5);
-  const newRoom = { id: roomId, room: req.body };
-  app.locals.rooms.push(newRoom);
+  const newGroup = new Group({groupId: roomId, groupName: req.body.name, numOfFriends: req.body.capacity, location: {latitude: req.body.latitude, longitude: req.body.longitude}, friends:[], selectedCuisines: [], winningCuisine: ""});
+  newGroup.save((err, result) => {
+    if (err){
+        console.log(err);
+    }
+    else {
+        console.log(result)
+    }
+  });
   res.status(200);
   res.send({ roomId });
 });
@@ -78,31 +83,31 @@ app.post("/invite/:roomId", async function(req, res) {
 })
 
 // The functions below are examples, which will be removed once we start routing
-app.get("/new-group", (req, res) => {
-  const group = new Group({groupId: "abc123", groupName: "TestGroup2", numOfFriends: 3, location: {latitude: "40.7294", longitude: "73.9936"}, friends:[], selectedCuisines: ["italian", "american", "italian"], winningCuisine: "italian"});
-  group.save((err, result) => {
-    if (err){
-        console.log(err);
-    }
-    else {
-        console.log(result)
-    }
-  });
-  res.send("successfully added new group to DB");
-});
+// app.get("/new-group", (req, res) => {
+//   const group = new Group({groupId: "abc123", groupName: "TestGroup2", numOfFriends: 3, location: {latitude: "40.7294", longitude: "73.9936"}, friends:[], selectedCuisines: ["italian", "american", "italian"], winningCuisine: "italian"});
+//   group.save((err, result) => {
+//     if (err){
+//         console.log(err);
+//     }
+//     else {
+//         console.log(result)
+//     }
+//   });
+//   res.send("successfully added new group to DB");
+// });
 
-app.get("/new-user", (req, res) => {
-  const user = new User({groupId:"abc123", name:"TestUser", dishPreferences: ["chicken parmesan", "spaghetti","penne ala vodka"]});
-  user.save((err, result) => {
-    if (err){
-        console.log(err);
-    }
-    else{
-        console.log(result)
-    }
-  });
-  res.send("successfully added user to DB");
-});
+// app.get("/new-user", (req, res) => {
+//   const user = new User({groupId:"abc123", name:"TestUser", dishPreferences: ["chicken parmesan", "spaghetti","penne ala vodka"]});
+//   user.save((err, result) => {
+//     if (err){
+//         console.log(err);
+//     }
+//     else{
+//         console.log(result)
+//     }
+//   });
+//   res.send("successfully added user to DB");
+// });
 
 
 app.listen(8000);
