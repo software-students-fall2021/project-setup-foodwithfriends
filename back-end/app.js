@@ -92,39 +92,23 @@ app.get("/restaurants/:restaurantId", (req, res) => {
   }
 });
 
-app.post("/invite/:roomId", async function(req, res) {
-  try{
-    const roomId = req.body.roomId;
-    let result = false;
-    const response = await axios.get('https://api.mockaroo.com/api/af4d0310?count=20&key=980bdd40'); //COMMENT OUT for testing purposes (and uncomment next variable 'response')
-
-    //Comment previous variable and uncomment this variable assignment to response for more detailed testing. Otherwise, API will keep calling and changing.
-
-    // const response = [
-    //   { id: '0' },     { id: '94' },
-    //   { id: '272' },   { id: '096' },
-    //   { id: '52' },    { id: '57' },
-    //   { id: '994' },   { id: '74' },
-    //   { id: '45536' }, { id: '04762' },
-    //   { id: '39' },    { id: '5' },
-    //   { id: '9516' },  { id: '045' },
-    //   { id: '4' },     { id: '4' },
-    //   { id: '8508' },  { id: '28998' },
-    //   { id: '48740' }, { id: '7798' }
-    // ];
-
-    response.forEach(obj => {
-      if (obj.id === roomId) {
-        result = true
-      }
-    })
+app.post("/validate-code", function (req,res) {
+  const invCode = req.body.inviteCode;
+  Group.find({groupId: invCode}, (err, result) => {
+    if (err) {
+      console.log(err);
+      res.send({ valid: false, msg: "An error occured." });
+      return;
+    }
+    console.log(result);
+    if (result.length == 0) {
+      res.send({ valid: false, msg: "Invalid Invite Code" });
+      return;
+    }
+    req.session.groupID = invCode;
     res.status(200);
-    res.send({ result });
-  }
-  catch(error) {
-    res.send(error);
-  }
-
-})
+    res.send({ valid: true, msg: null });
+  });
+});
 
 app.listen(8000);
