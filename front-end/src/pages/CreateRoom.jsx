@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import Button from "../components/Button";
 import Spacer from "../components/Spacer";
 import { post } from '../utils/request';
-import PlacesAutocomplete from 'react-places-autocomplete';
+import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
 const MAX_CAPACITY = 20;
 const MIN_CAPACITY = 2;
@@ -34,6 +34,14 @@ function CreateRoom() {
     history.push(`/invite`, { roomId: roomId });
   };
 
+  const handleSelect = async value => {
+    setLocation(value);
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0]);
+    setLat(latLng.lat);
+    setLong(latLng.lng);
+  }
+
   return (
     <div className="CreateRoom">
       <div className="CreateRoom__title">Create a Room</div>
@@ -57,7 +65,7 @@ function CreateRoom() {
           <PlacesAutocomplete
             value={location}
             onChange={setLocation}
-            onSelect={setLocation}>
+            onSelect={(val) => {handleSelect(val)}}>
 
             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
               <div>
