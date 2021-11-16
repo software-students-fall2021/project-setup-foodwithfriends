@@ -14,6 +14,8 @@ function CreateRoom() {
   const history = useHistory();
   const [name, setName] = React.useState("");
   const [location, setLocation] = React.useState("");
+  const [latitude, setLat] = React.useState("");
+  const [longitude, setLong] = React.useState("");
   const [capacity, setCapacity] = React.useState(2);
 
   const makeRoom = async () => {
@@ -22,6 +24,8 @@ function CreateRoom() {
       {
         name,
         location,
+        latitude,
+        longitude,
         capacity
       },
     );
@@ -155,6 +159,8 @@ function CreateRoom() {
           }
           else {
             setLocation(results[0]["formatted_address"]);
+            setLat(latitude);
+            setLong(longitude);
             logo.src = `${process.env.PUBLIC_URL}/location.png`;
           }
         });
