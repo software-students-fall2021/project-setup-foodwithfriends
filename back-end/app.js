@@ -48,7 +48,7 @@ app.post("/new-user", function (req, res) {
   newUser.save((err, result) => {
     if (err) {
       console.log(err);
-      res.status(404);
+      res.status(500);
       res.send({ success: false });
       return;
     }
