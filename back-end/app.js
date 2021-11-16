@@ -56,7 +56,7 @@ app.post("/new-user", function (req, res) {
     Group.findOneAndUpdate({groupId: req.session.groupID}, {$addToSet: {friends: newUser}}, {new: true}, (err, doc) => {
       if (err) {
           console.log("Something wrong when updating the data");
-          res.status(404);
+          res.status(500);
           res.send({ success: false });
           return
       }
