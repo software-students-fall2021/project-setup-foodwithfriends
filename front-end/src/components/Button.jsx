@@ -27,7 +27,6 @@ function Button(props) {
   };
 
   if (props.backEnabled) {
-    console.log("yu back ennabledr")
     click = () => {goToPrevPage()}
   }
 
