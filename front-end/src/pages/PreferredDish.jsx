@@ -9,7 +9,7 @@ const dishes = [{name: "dish name 1", value: "dish-1"}, {name: "dish name 2", va
 function PreferredDish() {
   return (
     <div className="PreferredDish">
-      <Link to="/Wait">
+      <Link to="/wait">
         <Button id="skipButton" text="skip" width="65px" height="30px" bg="#9d9287"/>
       </Link>
       <p id ="title"> Select your preferred dish </p>
