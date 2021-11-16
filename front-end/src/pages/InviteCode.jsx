@@ -1,11 +1,10 @@
 import "./InviteCode.css";
 import React from "react";
 import InviteCodeInput from "../components/InviteCodeInput";
-import RoomButton from "../components/RoomButton";
+import Button from "../components/Button";
 import Spacer from "../components/Spacer";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import axios from "axios"
 
 function InviteCode() {
   const history = useHistory();
@@ -18,22 +17,16 @@ function InviteCode() {
       </div>
       <div className="InviteCode__title">Your Invite Code</div>
       <div className="InviteCode__invite">
-        <InviteCodeInput disabled value={inviteCode} />
-          <button
-            className="InviteCode__invite__button"
-            onClick={() => {
+          <InviteCodeInput disabled value={inviteCode} />
+          <Button id = "copyButton" text="Copy" width="70px" height="40px" bg="#ECECEC" color="#000"  onClick={() => {
               navigator.clipboard.writeText(getInviteCode());
               successMessage();
             }}
-          >
-            Copy
-          </button>
+          />
       </div>
       <Spacer space="75" />
       <Link to="/new-user" className="InviteCode__button">
-        <RoomButton
-          content="Continue"
-        />
+      <Button text="Continue" width="300px" height="50px"/>
       </Link>
     </div>
   );

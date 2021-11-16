@@ -4,35 +4,61 @@
 
 #preferences-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    width: 35%;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
 }
 
 #dp-select-text{
     margin-top: 50px;
     margin-bottom: 50px;
+    font-size: 25px;
+    font-weight: 300;
 }
 
 .pref-container{
     display: flex;
     justify-content: center;
-    width: 40%;
+    width: 50%;
 }
 
-@media screen and (max-width: 1200px) {
-    .pref-container {
-        width: 60%;
+.DietaryPreferences #submit {
+    margin: 50px 0;
+}
+
+.DietaryPreferences #skipButton {
+    margin-left: 78%;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 1400px) {
+    #preferences-container{
+        width: 45%;
     }
-}
+  }
 
-@media screen and (max-width: 900px) {
-    .pref-container {
+  @media only screen and (max-width: 1100px) {
+    #preferences-container{
+        width: 55%;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    #preferences-container{
+        width: 65%;
+    }
+  }
+
+  @media only screen and (max-width: 760px) {
+    #preferences-container{
+        width: 75%;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    #preferences-container{
         width: 80%;
     }
-}
-
-@media screen and (max-width: 650px) {
-    .pref-container {
-        width: 100%;
-    }
-}
+  }

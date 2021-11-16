@@ -1,14 +1,13 @@
 import './TeamPage.css';
 import React from 'react';
-import BackButton from '../components/BackButton';
-import { Link } from "react-router-dom";
+import Button from '../components/Button';
 
 function TeamPage() {
   return (
     <div className="TeamPage">
         <div id="full-page">
-            <div id="back-button">
-              <BackButton/>
+            <div>
+              <Button id="back-button" text="back" width="65px" height="30px" bg="#9d9287" backEnabled={true}/>
             </div>
             <div id="introduction-title">
                 Introduction
@@ -44,11 +43,6 @@ function TeamPage() {
                       <div id="photo-6-title"> Person 6 </div>
                     </div>
                 </div>
-            </div>
-            <div id="try-now-button">
-            <Link to="/">
-              <button id="try-button"> Try Now </button>
-            </Link>
             </div>
         </div>
     </div>

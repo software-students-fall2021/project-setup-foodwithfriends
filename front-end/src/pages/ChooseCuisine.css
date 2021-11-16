@@ -24,16 +24,8 @@
     margin-top: 50px;
 }
 
-.Cuisine .continue {
-    width: 350px;
-    height: 40px;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    background-color: #505050;
-    color: white;
-    margin: 10px auto 20px;
-    cursor: pointer;
+.Cuisine #continueButton {
+    margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 600px) {
