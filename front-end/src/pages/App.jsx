@@ -18,6 +18,8 @@ import RestaurauntDetails from "../pages/RestaurantDetails";
 import Wait from './Wait';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Error from './Error';
+
 
 function App() {
   return (
@@ -43,6 +45,7 @@ function App() {
         <Route path='/win' component={WinningCuisine} exact />
         <Route path='/preferred-dish' component={PreferredDish} exact />
         <Route path='/dietary' component={DietaryPreferences} exact/>
+        <Route path='/error' component={Error} exact/>
       </Switch>
       <Footer />
     </div>

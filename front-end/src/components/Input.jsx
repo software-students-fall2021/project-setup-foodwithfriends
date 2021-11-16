@@ -7,7 +7,7 @@ function Input(props) {
     <div className="input">
       <label htmlFor={props.labelFor}> 
         <span>{props.label}</span> 
-        <input type="text" name={props.inputName}/>
+        <input type="text" name={props.inputName} value={props.value} onChange={props.onChange}/>
       </label>
     </div>
   );

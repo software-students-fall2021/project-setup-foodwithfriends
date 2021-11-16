@@ -41,6 +41,32 @@ app.post("/room", function (req, res) {
   res.send({ roomId });
 });
 
+app.post("/new-user", function (req, res) {
+  req.session.groupID = "03307"; // this is temporary until Issue #73
+  const name = req.body.userName;
+  const newUser = new User({groupId:req.session.groupID, name: name, dishPreferences: []});
+  newUser.save((err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500);
+      res.send({ success: false });
+      return;
+    }
+    console.log(result);
+    Group.findOneAndUpdate({groupId: req.session.groupID}, {$addToSet: {friends: newUser}}, {new: true}, (err, doc) => {
+      if (err) {
+          console.log("Something wrong when updating the data");
+          res.status(500);
+          res.send({ success: false });
+          return
+      }
+      console.log(doc);
+      res.status(200);
+      res.send({ success: true });
+    }); 
+  })
+});
+
 app.get("/restaurants", function (req, res) {
   const result = restauraunt_rankings();
   res.status(200);
@@ -81,33 +107,5 @@ app.post("/invite/:roomId", async function(req, res) {
   }
 
 })
-
-// The functions below are examples, which will be removed once we start routing
-// app.get("/new-group", (req, res) => {
-//   const group = new Group({groupId: "abc123", groupName: "TestGroup2", numOfFriends: 3, location: {latitude: "40.7294", longitude: "73.9936"}, friends:[], selectedCuisines: ["italian", "american", "italian"], winningCuisine: "italian"});
-//   group.save((err, result) => {
-//     if (err){
-//         console.log(err);
-//     }
-//     else {
-//         console.log(result)
-//     }
-//   });
-//   res.send("successfully added new group to DB");
-// });
-
-// app.get("/new-user", (req, res) => {
-//   const user = new User({groupId:"abc123", name:"TestUser", dishPreferences: ["chicken parmesan", "spaghetti","penne ala vodka"]});
-//   user.save((err, result) => {
-//     if (err){
-//         console.log(err);
-//     }
-//     else{
-//         console.log(result)
-//     }
-//   });
-//   res.send("successfully added user to DB");
-// });
-
 
 app.listen(8000);
