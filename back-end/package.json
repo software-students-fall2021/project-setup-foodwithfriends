@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "mocha --reporter spec",
+    "test": "export NODE_ENV=test && mocha --reporter spec",
     "coverage": "nyc mocha --timeout=3000"
   },
   "author": "Food with Friends",

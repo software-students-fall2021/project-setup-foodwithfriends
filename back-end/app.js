@@ -101,6 +101,7 @@ app.get("/validate-code", function (req,res) {
     }
     console.log(result);
     if (result.length == 0) {
+      res.status(500);
       res.send({ valid: false, msg: "Invalid Invite Code" });
       return;
     }
@@ -111,3 +112,5 @@ app.get("/validate-code", function (req,res) {
 });
 
 app.listen(8000);
+
+module.exports = app;
