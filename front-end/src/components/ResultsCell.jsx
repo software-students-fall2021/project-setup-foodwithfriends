@@ -6,12 +6,13 @@ import React from "react";
 
 function ResultsCell(props) {
   const history = useHistory();
-  const { name, description, percentageMatch } = props;
+  const { restaurantId, name, description, percentageMatch } = props;
+
   return (
     <div
       className="ResultsCell"
       onClick={() => {
-        history.push("/restauraunt-detail");
+        history.push(`/results/${restaurantId}`);
       }}
     >
       <div className="flex">
