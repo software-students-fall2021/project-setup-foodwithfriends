@@ -9,6 +9,7 @@ const axios = require("axios");
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
 const { restauraunt_rankings } = require("./utils/loss_function");
+const restaurants = require("./data/restauraunts.json");
 
 const User = require("./models/user");
 const Group = require("./models/group");
@@ -63,14 +64,32 @@ app.post("/new-user", function (req, res) {
       console.log(doc);
       res.status(200);
       res.send({ success: true });
-    }); 
+    });
   })
 });
 
 app.get("/restaurants", function (req, res) {
-  const result = restauraunt_rankings();
+  // const result = restauraunt_rankings();
+  const result = restaurants.data;
   res.status(200);
   res.send(result);
+});
+
+app.get("/restaurants/:restaurantId", (req, res) => {
+  try {
+    const { restaurantId } = req.params;
+    const restaurantList = restaurants.data;
+    const restaurant = restaurantList.filter((restaurant) => {
+      return (
+        restaurant.restaurant_id === parseInt(restaurantId)
+      );
+    });
+
+    res.status(200);
+    res.send({ restaurant })
+  } catch (err) {
+    res.send(err);
+  }
 });
 
 app.post("/invite/:roomId", async function(req, res) {
@@ -78,9 +97,9 @@ app.post("/invite/:roomId", async function(req, res) {
     const roomId = req.body.roomId;
     let result = false;
     const response = await axios.get('https://api.mockaroo.com/api/af4d0310?count=20&key=980bdd40'); //COMMENT OUT for testing purposes (and uncomment next variable 'response')
-    
+
     //Comment previous variable and uncomment this variable assignment to response for more detailed testing. Otherwise, API will keep calling and changing.
-    
+
     // const response = [
     //   { id: '0' },     { id: '94' },
     //   { id: '272' },   { id: '096' },
