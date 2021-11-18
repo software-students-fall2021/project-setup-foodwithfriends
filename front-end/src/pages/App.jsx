@@ -32,12 +32,8 @@ function App() {
         <Route path="/join" component={JoinRoom} exact />
         <Route path="/team" component={TeamPage} exact />
         <Route path="/new-user" component={User} exact />
-        <Route
-          path="/restauraunt-detail"
-          component={RestaurauntDetails}
-          exact
-        />
         <Route path="/results" component={ResultsPage} exact />
+        <Route path="/results/:restaurantId" component={RestaurauntDetails} exact />
         <Route path='/wait' component={Wait} exact />
         <Route path='/cuisine' component={CuisineVote} exact />
         <Route path='/choose' component={ChooseCuisine} exact />

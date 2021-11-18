@@ -9,6 +9,7 @@ const axios = require("axios");
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
 const { restauraunt_rankings } = require("./utils/loss_function");
+const restaurants = require("./data/restauraunts.json");
 
 const User = require("./models/user");
 const Group = require("./models/group");
@@ -68,9 +69,27 @@ app.post("/new-user", function (req, res) {
 });
 
 app.get("/restaurants", function (req, res) {
-  const result = restauraunt_rankings();
+  // const result = restauraunt_rankings();
+  const result = restaurants.data;
   res.status(200);
   res.send(result);
+});
+
+app.get("/restaurants/:restaurantId", (req, res) => {
+  try {
+    const { restaurantId } = req.params;
+    const restaurantList = restaurants.data;
+    const restaurant = restaurantList.filter((restaurant) => {
+      return (
+        restaurant.restaurant_id === parseInt(restaurantId)
+      );
+    });
+
+    res.status(200);
+    res.send({ restaurant })
+  } catch (err) {
+    res.send(err);
+  }
 });
 
 app.post("/invite/:roomId", async function(req, res) {
