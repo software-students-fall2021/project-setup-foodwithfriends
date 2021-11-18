@@ -63,7 +63,7 @@ app.post("/new-user", function (req, res) {
       console.log(doc);
       res.status(200);
       res.send({ success: true });
-    }); 
+    });
   })
 });
 
@@ -78,9 +78,9 @@ app.post("/invite/:roomId", async function(req, res) {
     const roomId = req.body.roomId;
     let result = false;
     const response = await axios.get('https://api.mockaroo.com/api/af4d0310?count=20&key=980bdd40'); //COMMENT OUT for testing purposes (and uncomment next variable 'response')
-    
+
     //Comment previous variable and uncomment this variable assignment to response for more detailed testing. Otherwise, API will keep calling and changing.
-    
+
     // const response = [
     //   { id: '0' },     { id: '94' },
     //   { id: '272' },   { id: '096' },

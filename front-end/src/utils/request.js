@@ -1,3 +1,5 @@
+import { stringify } from 'query-string';
+
 const BASE_URL = process.env.REACT_APP_API_SERVER;
 
 const handleResult = async (result) => {
@@ -11,7 +13,7 @@ const handleResult = async (result) => {
 
 export async function get(path, query, options = {}) {
   // const requestUri = compactJoin([getApiUrl(url), query], '');
-  const url = BASE_URL + path;
+  const url = !query ? BASE_URL + path : BASE_URL + path + `?${stringify(query)}`;
 
   const result = await fetch(url, {
     ...options,

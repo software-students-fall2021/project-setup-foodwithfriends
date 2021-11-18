@@ -14,6 +14,7 @@ function CreateRoom() {
   const history = useHistory();
   const [name, setName] = React.useState("");
   const [location, setLocation] = React.useState("");
+  const [price, setPrice] = React.useState("");
   const [latitude, setLat] = React.useState("");
   const [longitude, setLong] = React.useState("");
   const [capacity, setCapacity] = React.useState(2);
@@ -104,27 +105,63 @@ function CreateRoom() {
 
       <Spacer space="25" />
 
+      <div className="CreateRoom__price">
+        <div className="title">Price</div>
+        <div className="CreateRoom__buttons">
+          <div
+            className="CreateRoom__buttons__option"
+            onClick={() => setPrice('$')}
+            style={setSelectedStyle('$')}
+          >
+            $
+          </div>
+          <div
+            className="CreateRoom__buttons__option"
+            onClick={() => setPrice('$$')}
+            style={setSelectedStyle('$$')}
+          >
+            $$
+          </div>
+          <div
+            className="CreateRoom__buttons__option"
+            onClick={() => setPrice('$$$')}
+            style={setSelectedStyle('$$$')}
+          >
+            $$$
+          </div>
+          <div
+            className="CreateRoom__buttons__option"
+            onClick={() => setPrice('$$$$')}
+            style={setSelectedStyle('$$$$')}
+          >
+            $$$$
+          </div>
+        </div>
+      </div>
+
+      <Spacer space="25" />
+
       <div className="CreateRoom__friends">
         <div className="title">Number of Friends</div>
         <div className="CreateRoom__friends__number">
-          <div
-            className="CreateRoom__friends__number__increment"
-            onClick={onClickIncrement}
-          >
-            +
-          </div>
-          <span className="CreateRoom__friends__number__value">{capacity}</span>
           <div
             className="CreateRoom__friends__number__decrement"
             onClick={onClickDecrement}
           >
             -
           </div>
+          <span className="CreateRoom__friends__number__value">{capacity}</span>
+          <div
+            className="CreateRoom__friends__number__increment"
+            onClick={onClickIncrement}
+          >
+            +
+          </div>
         </div>
       </div>
 
       <Spacer space="110" />
-      <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf"   
+      <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf"
       onClick={() => {
           if (validateForm()) {
             makeRoom();
@@ -183,6 +220,18 @@ function CreateRoom() {
   function onClickDecrement() {
     if (capacity <= MIN_CAPACITY) return;
     setCapacity(capacity - 1);
+  }
+
+  function setSelectedStyle(target) {
+    return (
+      price === target ? {
+        backgroundColor: '#404040',
+        color: '#FFFFFF'
+      } : {
+        backgroundColor: '#EFEBEB',
+        color: '#000000'
+      }
+    )
   }
 }
 
