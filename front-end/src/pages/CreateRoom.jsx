@@ -7,7 +7,6 @@ import { post } from '../utils/request';
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
 import { useHistory } from "react-router-dom";
-import { post } from '../utils/request';
 import { validateForm } from "../utils/validation"
 
 const MAX_CAPACITY = 20;

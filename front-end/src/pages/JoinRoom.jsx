@@ -7,7 +7,7 @@ import Button from '../components/Button';
 import Spacer from '../components/Spacer';
 import { validateForm } from "../utils/validation"
 import { useHistory } from "react-router-dom";
-import { post } from '../utils/request';
+import { get } from '../utils/request';
 
 function JoinRoom() {
   const [inviteCode, setInviteCode] = React.useState('');
@@ -15,7 +15,7 @@ function JoinRoom() {
   const history = useHistory();
 
   const joinGroup = async () => {
-    const response = await post(
+    const response = await get(
       '/validate-code',
       {
         inviteCode
@@ -26,7 +26,7 @@ function JoinRoom() {
       history.push(`/new-user`);
     }
     else {
-      console.log("invalid code! do something here")
+      console.log("invalid code! do something here");
       setErrorMessage(response.msg);
     }
   };

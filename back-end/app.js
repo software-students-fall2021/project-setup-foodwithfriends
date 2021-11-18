@@ -5,7 +5,6 @@ const session = require("express-session");
 require('dotenv').config()
 require("./utils/database.js");
 
-const axios = require("axios");
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
 const { restauraunt_rankings } = require("./utils/loss_function");
@@ -92,8 +91,8 @@ app.get("/restaurants/:restaurantId", (req, res) => {
   }
 });
 
-app.post("/validate-code", function (req,res) {
-  const invCode = req.body.inviteCode;
+app.get("/validate-code", function (req,res) {
+  const invCode = req.query.inviteCode;
   Group.find({groupId: invCode}, (err, result) => {
     if (err) {
       console.log(err);
