@@ -110,6 +110,14 @@ app.get("/validate-code", function (req,res) {
   });
 });
 
-app.listen(8000);
+const env = process.env.NODE_ENV || 'development';
+if (env === 'test') {
+  process.env.PORT = '80'
+}
+else {
+  process.env.PORT = '8000'
+}
+
+app.listen(process.env.PORT);
 
 module.exports = app;
