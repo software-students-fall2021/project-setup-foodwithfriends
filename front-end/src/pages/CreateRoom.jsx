@@ -8,6 +8,10 @@ import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-auto
 
 import { useHistory } from "react-router-dom";
 import { validateForm } from "../utils/validation"
+import { Redirect } from 'react-router';
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 const MAX_CAPACITY = 20;
 const MIN_CAPACITY = 2;
@@ -34,6 +38,8 @@ function CreateRoom() {
     );
 
     const roomId = response.roomId;
+    cookies.set("groupID", roomId, { expires: 0 });
+    cookies.set("groupName", name, { expires: 0 })
     history.push(`/invite`, { roomId: roomId });
   };
 
@@ -43,6 +49,15 @@ function CreateRoom() {
     const latLng = await getLatLng(results[0]);
     setLat(latLng.lat);
     setLong(latLng.lng);
+  }
+
+  if (cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "group", group: cookies.get("groupName"), next: "/create"}
+    }}
+    />)
   }
 
   return (

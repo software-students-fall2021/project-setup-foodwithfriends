@@ -27,14 +27,14 @@ router.get("/room", function (req,res) {
         res.send({ valid: false, msg: "An error occured." });
         return;
       }
-      console.log(result);
+      // console.log(result);
       if (result.length == 0) {
         res.send({ valid: false, msg: "Invalid Invite Code" });
         return;
       }
-      req.session.groupID = invCode;
+      const groupname = result[0].groupName;
       res.status(200);
-      res.send({ valid: true, msg: null });
+      res.send({ valid: true, msg: null, groupname: groupname });
     });
 });
   

@@ -4,7 +4,40 @@ import React from 'react';
 import Button from '../components/Button';
 import winningLogo from '../img/winningimg.jpeg';
 
+import { Redirect } from 'react-router';
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
 function WinningCuisine(props) {
+
+  if (!cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nogroup" }
+    }}
+    />)
+  }
+
+  if (!cookies.get("user")){
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nouser" }
+    }}
+    />)
+  }
+
+  if (!cookies.get("cuisine")){
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nocuisine", next: "/cuisine" }
+    }}
+    />)
+  }
+  
   return (
     <div className="WinningCuisine">
       <div className="WinningImage"><img id="winImg" src={winningLogo} alt="Winning cuisine image"/></div>

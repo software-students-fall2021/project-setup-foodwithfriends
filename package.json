@@ -24,6 +24,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "documenu": "^1.1.0",
+    "react-cookie": "^4.1.1",
     "react-places-autocomplete": "^7.3.0"
   }
 }
