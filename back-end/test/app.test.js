@@ -20,6 +20,7 @@ describe('Invite Code', () => {
           res.should.have.status(200);
           res.body.should.be.a('object');
           res.body.should.have.property('roomId');
+          server.close();
           done();
         });
 

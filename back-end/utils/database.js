@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
+const server = require("../app");
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -21,6 +22,7 @@ const env = process.env.NODE_ENV || 'development';
       async () => {
         mongoose.disconnect()
         await mock_mongodb.stop();
+        await server.close();
       },
       3000
     );

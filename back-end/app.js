@@ -36,6 +36,8 @@ app.use(documenuRoutes);
 const env = process.env.NODE_ENV || 'development';
 const port = env === "test" ? 80 : 8000;
 
-app.listen(port);
+let server = app.listen(port,  () => {
+  console.log(`server is running on port ${port}`);
+});
 
-module.exports = app;
+module.exports = server;
