@@ -13,16 +13,42 @@ cd project-setup-foodwithfriends
 Check out npm's docs [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to learn how to get both!
 
 ## 3. Install Project Dependencies
+Install main repository dependencies
+```
+npm install
+```
+Install frontend dependencies
 ```
 cd front-end && npm install
 ```
-
-## 4. Run the project
+Install backend dependencies
 ```
-npm start
+cd back-end && npm install
 ```
 
-## 5. Using ESLint
+## 4. Add environment variables
+Please look at the #team-oita slack channel or ask Jen for the files.
+
+Add .env file to backend directory (example)
+```
+DB_CONNECTION=VALUE
+DOCUMENU_KEY=VALUE
+```
+
+Add .env file to frontend directory (example)
+```
+REACT_APP_API_SERVER=http://localhost:8000
+REACT_APP_GOOGLE_KEY=VALUE
+ESLINT_NO_DEV_ERRORS=true
+```
+
+## 5. Run the project
+In the repository source directory, you can run both projects concurrently with this command
+```
+npm run dev
+```
+
+## 6. Using ESLint
 
 ESLint is a great tool that helps identify syntax errors in your code and help fix them.
 
@@ -34,4 +60,19 @@ npm run lint
 If you want to disable linting errors on the browser (to prevent compilation errors): 
 ```
 export ESLINT_NO_DEV_ERRORS=true
+```
+
+While not required, it is recommended to use prettier to format the files.
+Check out the prettier extension [here](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to install.
+
+### 7. Running tests
+
+To run unit tests on the backend
+```
+npm run test
+```
+
+To check code coverage
+```
+npm run coverage
 ```
