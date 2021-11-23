@@ -137,12 +137,29 @@ app.get("/wait", function (req, res) {
         res.send(err);
         return;
     }
-    const number_users = doc.friends.length;
-    const total_users = doc.numOfFriends;
-    console.log(doc.friends)
-    res.status(200);
-    res.send ( {num_users: number_users, tot_users: total_users});
-    return;
+
+    // User.find({ _id: friends[0] }, (err, doc) => {
+    //   if (err) {
+    //     console.log("Something wrong when finding the data");
+    //     // res.send(err);
+    //     return;
+    //   }
+    //   console.log(doc);
+    // });
+    User.find({ _id: doc.friends }, (err, userDoc) => {
+      if (err) {
+        console.log("Something wrong when finding the data");
+        // res.send(err);
+      }
+      const friends_array = userDoc;
+      const number_users = doc.friends.length;
+      const total_users = doc.numOfFriends;
+      res.status(200);
+      res.send ( {num_users: number_users, tot_users: total_users, friends: friends_array});
+      return;
+    });
+
+
   });
 });
 
