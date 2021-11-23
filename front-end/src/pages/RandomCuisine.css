@@ -8,12 +8,12 @@
 
 #random-cuisine-title-top {
     margin-top: 80px;
+    margin-bottom: 20px;
 }
 
 #cuisine-photo{
-    background-color: #C4C4C4;
-    margin: 40px 35px;
-    padding: 120px 100px;
+    width: 300px;
+    height: 200px;
 }
 
 #cuisine-text {

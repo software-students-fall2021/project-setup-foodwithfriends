@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import RoomButton from "../components/RoomButton";
 import Spacer from "../components/Spacer";
 import { room_post } from "../utils/api";
-import PlacesAutocomplete from 'react-places-autocomplete';
+
 
 const MAX_CAPACITY = 20;
 const MIN_CAPACITY = 2;
