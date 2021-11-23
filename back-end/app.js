@@ -17,7 +17,7 @@ const sessionOptions = {
 const roomRoutes = require("./routes/room");
 const userRoutes = require("./routes/user");
 const restRoutes = require("./routes/restaurant");
-const documenuRoutes = require("./routes/documenu");
+// const documenuRoutes = require("./routes/documenu");
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
@@ -31,11 +31,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(roomRoutes);
 app.use(userRoutes);
 app.use(restRoutes);
-app.use(documenuRoutes);
+// app.use(documenuRoutes);
 
 const env = process.env.NODE_ENV || 'development';
 const port = env === "test" ? 80 : 8000;
 
-app.listen(port);
+let server = app.listen(port,  () => {
+  console.log(`server is running on port ${port}`);
+});
 
-module.exports = app;
+module.exports = server;
