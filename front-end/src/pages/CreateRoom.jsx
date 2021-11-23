@@ -1,11 +1,13 @@
 import "./CreateRoom.css";
 
 import React from "react";
-import { useHistory } from "react-router-dom";
 import Button from "../components/Button";
 import Spacer from "../components/Spacer";
 import { post } from '../utils/request';
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
+
+import { useHistory } from "react-router-dom";
+import { validateForm } from "../utils/validation"
 
 const MAX_CAPACITY = 20;
 const MIN_CAPACITY = 2;
@@ -170,23 +172,6 @@ function CreateRoom() {
       />
     </div>
   );
-
-  function validateForm() {
-    const inputs = document.getElementsByTagName("input");
-
-    for (let i = 0; i < inputs.length; i++) {
-      inputs[i].classList.remove("error-border");
-    }
-
-    for (let i = 0; i < inputs.length; i++) {
-      if ((inputs[i].value).trim() == "") {
-        inputs[i].classList.add("error-border");
-        return false;
-      }
-    }
-
-    return true;
-  }
 
   function getCurrentLocation() {
     const logo = document.getElementById("currLocIcon");

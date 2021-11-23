@@ -5,13 +5,31 @@ import InviteCodeInput from '../components/InviteCodeInput';
 import Button from '../components/Button';
 
 import Spacer from '../components/Spacer';
-import { join_post } from "../utils/api";
+import { validateForm } from "../utils/validation"
 import { useHistory } from "react-router-dom";
+import { get } from '../utils/request';
 
 function JoinRoom() {
-  const [curValue, setCurValue] = React.useState('');
+  const [inviteCode, setInviteCode] = React.useState('');
   const [errorMessage, setErrorMessage] = React.useState('');
   const history = useHistory();
+
+  const joinGroup = async () => {
+    const response = await get(
+      '/validate-code',
+      {
+        inviteCode
+      }
+    );
+
+    if (response.valid) {
+      history.push(`/new-user`);
+    }
+    else {
+      console.log("invalid code! do something here");
+      setErrorMessage(response.msg);
+    }
+  };
 
   return (
     <div className="JoinRoom">
@@ -19,29 +37,20 @@ function JoinRoom() {
         Enter Invite Code
       </div>
       <InviteCodeInput 
-        value={curValue}
-        handleValue={handleValue}
+        value={inviteCode}
+        handleValue={(e) => {setErrorMessage(""); setInviteCode(e.target.value)}}
       /> 
       <Spacer space="75"/> 
       {errorMessage !== '' && (<div className="JoinRoom__error">{errorMessage}</div>)}
       <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf" 
-      onClick={async () => {
-          const response = await join_post(curValue);
-          const result = response.result;
-          if(result){
-            history.push(`/wait/${curValue}`);
-            console.log("Valid code!")
-          }
-          else{
-            setErrorMessage('Invalid RoomID!')
-          }
-        }}/>
+      onClick={() => {
+        if (validateForm()) {
+          joinGroup();
+        }
+      }}
+      />
     </div>
   );
-
-  function handleValue(event) {
-    setCurValue(event.target.value);
-  }
 }
 
 export default JoinRoom;

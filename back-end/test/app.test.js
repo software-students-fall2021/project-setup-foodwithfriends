@@ -1,63 +1,77 @@
-const express = require("express");
-const assert = require("assert");
-chai = require('chai');
-chaiHttp = require('chai-http');
-chai.use(chaiHttp) 
-const { add } = require("../utils/add");
-const app = express();
-var expect = chai.expect;
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+const server = require("../app");
 
-describe("Adding Numbers", function () {
-  // one particular unit test
-  describe("sum", function () {
-    // assert what should be returned
-    it("1 + 1 = 2", function () {
-      // test that assertion
-      assert.equal(2, add(1, 1));
-    });
+chai.should();
+chai.use(chaiHttp);
+
+describe('Invite Code', () => {
+  let invite;
+
+  // POST Room Creation
+  describe("POST /room", () => {
+    it("It should store group details in the DB and return a shareable invite code", (done) => {
+      const groupDetails = {name: "test", location:"new york", latitude:"40.7128", longitude: "74.0060", capacity: 2};
+      chai.request(server)
+        .post("/room")
+        .send(groupDetails)
+        .end((err, res) => {
+          invite = res.body;
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('roomId');
+          done();
+        });
+
+    })
   });
+
+  // GET Invite Code Validation
+  describe("GET /validate-code", () => {
+    it("It should reject the user if the invite code is invalid", (done) => {
+      const inviteCode = {inviteCode: "12345"};
+      chai.request(server)
+        .get("/validate-code")
+        .query(inviteCode)
+        .end((err,res) => {
+          res.body.should.be.a('object');
+          res.body.should.have.property('valid').eq(false);
+          res.body.should.have.property('msg').eq("Invalid Invite Code");
+          done();
+        })
+    })
+
+    it("It should succeed if the invite code is found in the DB", (done) => {
+      chai.request(server)
+        .get("/validate-code")
+        .query({inviteCode: invite.roomId})
+        .end((err,res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('valid').eq(true);
+          res.body.should.have.property('msg').eq(null);
+          done();
+        })
+    })
+  });
+})
+
+describe('Create new User', () => {
+
+  // POST User Creation
+  describe("POST  /new-user", () => {
+    it("It should create and store a new user in the DB", (done) => {
+      const user = {userName : "testUser"};
+      chai.request(server)
+        .post("/new-user")
+        .send(user)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('success').eq(true);
+          done();
+        })
+    })
+  })
 });
-
-describe("Verifying 'app.post(/invite/:roomId)'", function () {
-  // one particular unit test
-  const response = [
-    { id: '0' },     { id: '94' },
-    { id: '272' },   { id: '096' },
-  ];
-  describe("Matching IDs", function () {
-    // assert what should be returned
-    it("Should return true when requested ID exists in database", function (done) {
-      // test that assertion
-      chai.request(app)
-            .post('/invite/:roomId')
-            .send({
-            roomId: '272'
-            })
-            .end(function (err, res) {
-              expect(res.body).to.equal(true);               
-              done();
-          });
-    });
-  });
-
-  describe("Not Matching IDs", function () {
-    // assert what should be returned
-    it("Should return false when requested ID exists in database", function (done) {
-      // test that assertion
-      chai.request(app)
-            .post('/invite/:roomId')
-            .send({
-            roomId: '000'
-            })
-            .end(function (err, res) {
-              expect(res.body).to.equal(false);               
-              done();
-          });
-    });
-  });
-
-
-
-});
-
 
