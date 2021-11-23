@@ -27,11 +27,11 @@ describe('Invite Code', () => {
   });
 
   // GET Invite Code Validation
-  describe("GET /validate-code", () => {
+  describe("GET /room", () => {
     it("It should reject the user if the invite code is invalid", (done) => {
       const inviteCode = {inviteCode: "12345"};
       chai.request(server)
-        .get("/validate-code")
+        .get("/room")
         .query(inviteCode)
         .end((err,res) => {
           res.body.should.be.a('object');
@@ -43,7 +43,7 @@ describe('Invite Code', () => {
 
     it("It should succeed if the invite code is found in the DB", (done) => {
       chai.request(server)
-        .get("/validate-code")
+        .get("/room")
         .query({inviteCode: invite.roomId})
         .end((err,res) => {
           res.should.have.status(200);
@@ -59,11 +59,11 @@ describe('Invite Code', () => {
 describe('Create new User', () => {
 
   // POST User Creation
-  describe("POST  /new-user", () => {
+  describe("POST  /user", () => {
     it("It should create and store a new user in the DB", (done) => {
       const user = {userName : "testUser"};
       chai.request(server)
-        .post("/new-user")
+        .post("/user")
         .send(user)
         .end((err, res) => {
           res.should.have.status(200);

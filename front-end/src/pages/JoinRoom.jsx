@@ -16,7 +16,7 @@ function JoinRoom() {
 
   const joinGroup = async () => {
     const response = await get(
-      '/validate-code',
+      '/room',
       {
         inviteCode
       }

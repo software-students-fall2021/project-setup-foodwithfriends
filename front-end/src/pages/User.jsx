@@ -12,7 +12,7 @@ function User() {
 
   const makeUser = async () => {
     const response = await post(
-      '/new-user',
+      '/user',
       {
         userName
       }
