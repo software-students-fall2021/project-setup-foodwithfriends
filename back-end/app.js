@@ -43,7 +43,8 @@ app.post("/room", function (req, res) {
 });
 
 app.post("/new-user", function (req, res) {
-  req.session.groupID = "03307"; // this is temporary until Issue #73
+  console.log("HELLO")
+  req.session.groupID = "e0b52"; // this is temporary until Issue #73
   const name = req.body.userName;
   const newUser = new User({groupId:req.session.groupID, name: name, dishPreferences: []});
   newUser.save((err, result) => {
@@ -126,5 +127,23 @@ app.post("/invite/:roomId", async function(req, res) {
   }
 
 })
+
+app.get("/wait", function (req, res) {
+  const groupId = req.query.groupId;
+  Group.findOne({groupId: groupId}, (err, doc) => {
+    if (err) {
+        console.log("Something wrong when finding the data");
+        res.status(500);
+        res.send(err);
+        return;
+    }
+    const number_users = doc.friends.length;
+    const total_users = doc.numOfFriends;
+    console.log(doc.friends)
+    res.status(200);
+    res.send ( {num_users: number_users, tot_users: total_users});
+    return;
+  });
+});
 
 app.listen(8000);

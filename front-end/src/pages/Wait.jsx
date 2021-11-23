@@ -1,16 +1,44 @@
 import './Wait.css';
 
+import { get } from '../utils/request';
+//import { Link } from "react-router-dom";
+
 import React from 'react';
 
-const fake_users = [{name: "Jen"}, {name: "Tanya"}, {name: "Thomas"}];
-const total = 6;
-
 function Wait() {
+  const [users, setUsers] = React.useState("")
+  const [userTotal, setUserTotal] = React.useState("?")
+  const [groupId, setName] = React.useState("e0b52"); //THIS IS TEMPORARY JUST FOR NOW
+  //const [friends, setFriends] = React.useState()
+  const checkUser = async () => {
+    const users = await get(
+      '/wait',
+      {
+        groupId: groupId
+      });
+      return users;
+  };
+
+  function initCheck() {
+    checkUser()
+    .then(response => {
+      setUsers(response.num_users);
+      setUserTotal(response.tot_users);
+      //setFriends(response.friends)
+      if(response.num_users == response.tot_users){
+        
+        window.location.href = '/win';
+      }
+    })
+  };
+  initCheck();
+  setInterval(initCheck, 3000);
+
   return (
     <div className="Wait">
       <h1>Waiting Room</h1>
-      <p id="total">{fake_users.length}/{total} Participants</p>
-      <div id="users">
+      <p id="total">{users}/{userTotal} Participants</p>
+      {/* <div id="users">
         {fake_users.map( (user, i) =>  {
           const initial = user.name.charAt(0);
           return <div className="user-item" key={i}>
@@ -18,7 +46,7 @@ function Wait() {
             <p>{user.name}</p>
           </div>;
         })}
-      </div>
+      </div> */}
     </div>
   );
 }

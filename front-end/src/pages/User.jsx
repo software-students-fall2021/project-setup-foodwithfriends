@@ -19,7 +19,7 @@ function User() {
     );
 
     if (response.success) {
-      history.push(`/wait`);
+      history.push(`/cuisine`);
     }
     else {
       history.push(`/error`);
