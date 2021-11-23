@@ -20,19 +20,21 @@ function Wait() {
       return users;
   };
 
-  function initCheck() {
-    checkUser()
-    .then(response => {
-      setUsers(response.num_users);
-      setUserTotal(response.tot_users);
-      setFriends(response.friends);
-      if(response.num_users == response.tot_users){
-        window.location.href = '/win';
-      }
-    })
-  };
-  initCheck();
-  setInterval(initCheck, 3000);
+	React.useEffect(() => {
+    function initCheck() {
+      checkUser().then((response) => {
+        setUsers(response.num_users);
+        setUserTotal(response.tot_users);
+        setFriends(response.friends);
+        if (response.num_users == response.tot_users) {
+          window.location.href = "/win";
+        }
+      });
+    }
+    initCheck();
+    setInterval(initCheck, 10000);
+    return () => clearInterval(initCheck);
+  }, []);
 
   return (
     <div className="Wait">
