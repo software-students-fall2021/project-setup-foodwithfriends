@@ -12,6 +12,7 @@ function Error(props) {
   const [group, setGroup] = React.useState("undefined");
   const [user, setUser] = React.useState("undefined");
   const [cuisine, setCuisine] = React.useState("undefined");
+  const [keyword, setKeyword] = React.useState("undefined");
   const [next, setNext] = React.useState("/");
 
   const resetCookies = () => {
@@ -19,8 +20,9 @@ function Error(props) {
     cookies.remove("groupName");
     cookies.remove("user");
     cookies.remove("cuisine");
+    cookies.remove("keyword");
+    cookies.remove("preferred");
     window.location.href = `${next}`;
-    // cookies.remove("preferred");
   };
 
   useEffect(() => {
@@ -29,6 +31,7 @@ function Error(props) {
     setError(props.location.state.error);
     setGroup(props.location.state.group);
     setUser(props.location.state.user);
+    setKeyword(props.location.state.keyword);
     setCuisine(props.location.state.cuisine);
   });
 
@@ -102,10 +105,38 @@ function Error(props) {
         </div>     
       </div>
       break;
+    case "preferredkey":
+      component = <div>
+        <h1 className="heading">Already selected keyword</h1>
+        <p className="info space-sides space-top">Your search keyword is <span className="bold">{keyword}</span></p>
+        <div className="button-group">
+          <Link to="/choose-preferences">
+            <Button text = "Select Preferences" width="250px" height="50px" bg="#6e6d63"/>
+          </Link>
+        </div>   
+      </div>
+      break;
+
+    case "nopreferredkey":
+      component = <div>
+        <h1 className="heading">No Keyword Found</h1>
+        <p className="info space-sides">Please input a keyword that relates to your preferred dishes.</p>
+        <div className="button-group">
+          <Link to="/preferences">
+            <Button text = "Submit Keyword" width="250px" height="50px" bg="#6e6d63"/>
+          </Link>
+        </div>     
+      </div>
+      break;
     case "preferred": 
       component = <div>
         <h1 className="heading">Already selected preferences</h1>
-        <p className="info space-sides"></p>
+        <p className="info space-sides space-top">You already chose your dish preferences. Proceed to check out your group&apos;s restaurant results.</p>
+        <div className="button-group">
+          <Link to="/results">
+            <Button text = "See Results" width="250px" height="50px" bg="#6e6d63"/>
+          </Link>
+        </div>
       </div>
     break;
     default:

@@ -1,5 +1,5 @@
 .PreferredDish #title{
-    margin: 50px 0;
+    margin: 10px 0 40px;
     font-size: 25px;
     font-weight: 300;
 }
@@ -7,7 +7,7 @@
 .pref-dish-row {
     background-color: #ECECEC;
     display: flex;
-    margin: 50px auto;
+    margin: 35px auto;
     height: 55px;
     align-items: center;
     width: 50%;
@@ -29,6 +29,22 @@
     margin-top: 20px;
 }
 
+.PreferredDish #select-btn {
+    margin-bottom: 50px;
+}
+
+.PreferredDish #checkbox-group {
+    height: 375px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+.PreferredDish .dish-error {
+    margin-bottom: 10px;
+    color: #b58f90;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 800px) {
     .pref-dish-row {
         width: 70%;
@@ -40,16 +56,3 @@
         width: 85%;
     }
 }
-
-.PreferredDish .select{
-    width: 350px;
-    height: 40px;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    background-color: #505050;
-    color: white;
-    margin: 10px auto 20px;
-    cursor: pointer;
-}
-

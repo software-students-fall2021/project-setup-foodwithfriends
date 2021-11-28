@@ -1,15 +1,49 @@
 import './PreferredDish.css';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router';
 import Button from '../components/Button';
+import { get } from '../utils/request';
 import Cookies from 'universal-cookie';
 
-const dishes = [{name: "dish name 1", value: "dish-1"}, {name: "dish name 2", value: "dish-2"}, {name: "dish name 3", value: "dish-3"}];
 const cookies = new Cookies();
 
 function PreferredDish() {
+
+  const [dishes, setdishes] = React.useState([]);
+  const [errorMessage, setErrorMessage] = React.useState('');
+  
+  const fetchDishes = async () => {
+    console.log("currently fetching....");
+    const response = await get( '/documenu/dishes', { 
+      groupID: cookies.get("groupID"), 
+      cuisine: cookies.get("cuisine"),
+      searchKeyword: cookies.get("keyword")
+    });
+
+    setdishes(response.data);
+  };
+
+  const submitOptions = () => {
+    const inputs = document.querySelectorAll("input[type='checkbox']");
+    let chosenDishes = [];
+    for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i].checked) {
+        chosenDishes.push(inputs[i].value)
+      }
+    }
+    if (chosenDishes.length == 0) {
+      setErrorMessage("Choose at least one dish")
+    }
+    // otherwise save dishes #107
+    cookies.set("preferred", true);
+  };
+
+  useEffect(() => {
+    fetchDishes();
+  }, []);
+
   if (!cookies.get("groupID")) {
     return (
     <Redirect to={{
@@ -37,6 +71,15 @@ function PreferredDish() {
     />)
   }
 
+  if (!cookies.get("keyword")){
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nopreferredkey" }
+    }}
+    />)
+  }
+
   if (cookies.get("preferred")){
     return (
     <Redirect to={{
@@ -52,18 +95,16 @@ function PreferredDish() {
         <Button id="skipButton" text="skip" width="65px" height="30px" bg="#9d9287"/>
       </Link>
       <p id ="title"> Select your preferred dish </p>
-      <form action="#">
+      {errorMessage !== '' && (<div className="dish-error">{errorMessage}</div>)}
         <div id = "checkbox-group">
           {dishes.map((dish, i) => (
             <div className="pref-dish-row" key={i}>
-              <input type="checkbox" name={dish.value}></input>
+              <input type="checkbox" value={dish.id}></input>
               <label>{dish.name}</label>
             </div>
           ))}
         </div>
-        <button type="submit" className="select">Select</button>
-      </form>
-
+        <Button id = "select-btn" text="Select" width="350px" height="40px" onClick={submitOptions}/>
     </div>
   );
 }

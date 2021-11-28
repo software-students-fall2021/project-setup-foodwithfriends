@@ -1,25 +1,45 @@
 const express = require('express');
 const router = express.Router();
+const Group = require("../models/group");
 
 const Documenu = require('documenu');
 Documenu.configure(process.env.DOCUMENU_KEY);
 
-router.get("/documenu", async (req, res) => {
-    /* EXAMPLE
-    const params = {
-        "lat": "40.68919",
-        "lon": "-73.992378",
-        "distance": 3,
-        "fullmenu": true,
-        "cuisine": "italian"
-    }
+router.get("/documenu/dishes", (req, res) => {
+    const id = req.query.groupID;
+    const cuisine = req.query.cuisine;
+    const searchKeyWord = req.query.searchKeyword;
 
-    let result = await Documenu.Restaurants.searchGeo(params)
-        .then(response => {
-            console.log(response);
-            res.sendStatus(200);
-        })
-    */
+    Group.findOne({groupId: id}, async (err, doc) => {
+        if (err) {
+            console.log("an error occured.")
+            res.send({success: false});
+            return;
+        }
+
+        const location = doc.location;
+        const params = {
+            "lat": location.latitude,
+            "lon": location.longitude,
+            "distance": 5,
+            "search": searchKeyWord,
+            "cuisine": cuisine,
+            "size": 15
+        };
+
+        let result = await Documenu.MenuItems.searchGeo(params);
+        let data = [];
+        for (let i = 0; i < result.data.length; i++) {
+            data.push({id: result.data[i].item_id, name: result.data[i].menu_item_name, description: result.data[i].menu_item_description, cuisine: result.data[i].cuisines});
+        }
+
+        res.send({success: true, data: data});
+        return;
+    })
+});
+
+router.get("/documenu/restaurants", async (req, res) => {
+    res.send("OK");
 });
 
 module.exports = router;
