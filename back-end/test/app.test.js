@@ -12,7 +12,7 @@ describe('Invite Code', () => {
   // POST Room Creation
   describe("POST /room", () => {
     it("It should store group details in the DB and return a shareable invite code", (done) => {
-      const groupDetails = {name: "test", location:"new york", latitude:"40.7128", longitude: "74.0060", capacity: 2};
+      const groupDetails = {name: "test", location:"new york", latitude:"40.7128", longitude: "74.0060", price:"$", capacity: 2};
       chai.request(server)
         .post("/room")
         .send(groupDetails)

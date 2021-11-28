@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require("uuid");
 
 router.post("/room", function (req, res) {
     const roomId = uuidv4().substr(0, 5);
-    const newGroup = new Group({groupId: roomId, groupName: req.body.name, numOfFriends: req.body.capacity, location: {latitude: req.body.latitude, longitude: req.body.longitude}, friends:[], selectedCuisines: [], winningCuisine: ""});
+    const newGroup = new Group({groupId: roomId, groupName: req.body.name, numOfFriends: req.body.capacity, location: {latitude: req.body.latitude, longitude: req.body.longitude}, priceRange: req.body.price, friends:[], selectedCuisines: [], winningCuisine: ""});
     newGroup.save((err, result) => {
       if (err){
           console.log(err);

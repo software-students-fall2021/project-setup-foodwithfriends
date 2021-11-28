@@ -6,6 +6,7 @@ const Group = new Schema ({
     groupName: String,
     numOfFriends: Number,
     location: {latitude: String, longitude: String},
+    priceRange: String,
     friends: [{type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     selectedCuisines: [String],
     winningCuisine: String

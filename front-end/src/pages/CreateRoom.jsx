@@ -33,6 +33,7 @@ function CreateRoom() {
         location,
         latitude,
         longitude,
+        price,
         capacity
       },
     );
