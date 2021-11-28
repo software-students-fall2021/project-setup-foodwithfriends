@@ -30,7 +30,7 @@ function CuisineItem(props) {
           type="button" 
           className="info" 
           onClick={openModal}> 
-          more info
+          view dishes
         </button>
         <ReactModal 
           isOpen={modalIsOpen}

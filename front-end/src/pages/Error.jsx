@@ -11,14 +11,15 @@ function Error(props) {
   const [error, setError] = React.useState("undefined");
   const [group, setGroup] = React.useState("undefined");
   const [user, setUser] = React.useState("undefined");
+  const [cuisine, setCuisine] = React.useState("undefined");
   const [next, setNext] = React.useState("/");
 
   const resetCookies = () => {
     cookies.remove("groupID");
     cookies.remove("groupName");
     cookies.remove("user");
+    cookies.remove("cuisine");
     window.location.href = `${next}`;
-    // cookies.remove("cuisine");
     // cookies.remove("preferred");
   };
 
@@ -28,6 +29,7 @@ function Error(props) {
     setError(props.location.state.error);
     setGroup(props.location.state.group);
     setUser(props.location.state.user);
+    setCuisine(props.location.state.cuisine);
   });
 
   let component = null;
@@ -81,7 +83,12 @@ function Error(props) {
     case "cuisine": 
       component = <div>
         <h1 className="heading">Already Voted</h1>
-        <p className="info space-sides"></p>
+        <p className="info space-sides">You already chose a cuisine. <span className="bold cap-init">{cuisine}</span> food sounds delicious!</p>
+        <div className="button-group">
+          <Link to="/win">
+              <Button text = "View Winner" width="250px" height="50px" bg="#6e6d63"/>
+          </Link>
+        </div>
       </div>
       break;
     case "nocuisine": 
