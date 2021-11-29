@@ -26,13 +26,13 @@ function Error(props) {
   };
 
   useEffect(() => {
-    const nextLink = props.location.state.next ? props.location.state.next : "/";
+    const nextLink = props.location.state?.next ? props.location.state.next : "/";
     setNext(nextLink);
-    setError(props.location.state.error);
-    setGroup(props.location.state.group);
-    setUser(props.location.state.user);
-    setKeyword(props.location.state.keyword);
-    setCuisine(props.location.state.cuisine);
+    setError(props.location.state?.error);
+    setGroup(props.location.state?.group);
+    setUser(props.location.state?.user);
+    setKeyword(props.location.state?.keyword);
+    setCuisine(props.location.state?.cuisine);
   });
 
   let component = null;
@@ -140,7 +140,9 @@ function Error(props) {
       </div>
     break;
     default:
-      component = <div><h1 className="heading">An error occured</h1></div>;
+      component = <div>
+        <h1 className="heading">404 Page Not Found</h1>
+      </div>;
   }
 
   return (
