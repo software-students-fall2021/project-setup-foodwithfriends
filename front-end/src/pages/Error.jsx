@@ -23,11 +23,11 @@ function Error(props) {
   };
 
   useEffect(() => {
-    const nextLink = props.location.state.next ? props.location.state.next : "/";
+    const nextLink = props.location.state?.next ? props.location.state?.next : "/";
     setNext(nextLink);
-    setError(props.location.state.error);
-    setGroup(props.location.state.group);
-    setUser(props.location.state.user);
+    setError(props.location.state?.error);
+    setGroup(props.location.state?.group);
+    setUser(props.location.state?.user);
   });
 
   let component = null;
