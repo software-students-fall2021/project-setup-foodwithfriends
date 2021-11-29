@@ -22,7 +22,8 @@
     "concurrently": "^6.3.0"
   },
   "dependencies": {
-    "react-places-autocomplete": "^7.3.0",
-    "axios": "^0.24.0"
+    "axios": "^0.24.0",
+    "documenu": "^1.1.0",
+    "react-places-autocomplete": "^7.3.0"
   }
 }
