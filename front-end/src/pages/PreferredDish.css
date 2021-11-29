@@ -45,6 +45,11 @@
     font-weight: bold;
 }
 
+.PreferredDish .loader {
+    font-weight: 300;
+    font-size: 25px;
+}
+
 @media screen and (max-width: 800px) {
     .pref-dish-row {
         width: 70%;
