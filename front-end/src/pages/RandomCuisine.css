@@ -17,24 +17,16 @@
 }
 
 #cuisine-text {
-    margin: 40px 35px;
+    margin: 30px 35px;
 }
 
 #vote-button {
     color:white;
-    padding: 10px 140px;
+    padding: 0px 140px;
     background-color: #3F3F3F; 
     font-weight: bold;
 }
 
 #reload{
-    position: relative;
-    left: 30%;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 0px;
-    padding: 8px;
-    margin-top: 10px;
-    border: none;
-    
+    margin-top: -10px;
 }
