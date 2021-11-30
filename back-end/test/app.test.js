@@ -5,8 +5,9 @@ const server = require("../app");
 chai.should();
 chai.use(chaiHttp);
 
+let invite;
+
 describe('Invite Code', () => {
-  let invite;
 
   // POST Room Creation
   describe("POST /room", () => {
@@ -62,7 +63,7 @@ describe('Create new User', () => {
   // POST User Creation
   describe("POST  /user", () => {
     it("It should create and store a new user in the DB", (done) => {
-      const user = {userName : "testUser"};
+      const user = {userName : "testUser", groupID: invite.roomId};
       chai.request(server)
         .post("/user")
         .send(user)

@@ -7,9 +7,41 @@ import Button from "../components/Button";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
+import { Redirect } from 'react-router';
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
 const data = require('../data/cuisines.json');
 
 function ChooseCuisine() {
+  if (!cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: {error: "nogroup"}
+    }}
+    />)
+  }
+
+  if (!cookies.get("user")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: {error: "nouser"}
+    }}
+    />)
+  }
+
+  if (cookies.get("cuisine")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "cuisine" }
+    }}
+    />)
+  }
+
   return (
     <div className="Cuisine">
       <h1 id = "heading">Choose a Cuisine</h1>

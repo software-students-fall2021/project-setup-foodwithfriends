@@ -31,7 +31,7 @@ function TeamPage() {
           <p>
             Food with Friends is a web application that aims to make
             decision-making for where to eat easy. Users can invite their
-            entourage to a "room" where they can choose a cuisine they prefer
+            entourage to a &quot;room&quot; where they can choose a cuisine they prefer
             (e.g. Italian, Chinese, etc.), vote on it, and go on to choose a
             restaurant together.
           </p>

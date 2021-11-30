@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
 function Home() {
+
   return (
   <Fragment>
     <div className = "Home">
