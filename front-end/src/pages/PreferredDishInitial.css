@@ -1,0 +1,26 @@
+
+.PreferredDishInitial #pref-dish-key {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+}
+
+.PreferredDishInitial #pref-dish-key .input {
+    margin-bottom: 80px;
+}
+
+.PreferredDishInitial #pref-dish-key .input input {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.PreferredDishInitial #pref-dish-key label span {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.PreferredDishInitial #skipButton {
+    margin-left: 78%;
+    margin-top: 20px;
+}

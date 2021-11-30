@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import { post } from '../utils/request';
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router';
+import { validateForm } from "../utils/validation"
 
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
@@ -61,23 +62,6 @@ function User() {
       }}/>
     </div>
   );
-}
-
-function validateForm() {
-  const inputs = document.getElementsByTagName("input");
-
-  for (let i = 0; i < inputs.length; i++) {
-    inputs[i].classList.remove("error-border");
-  }
-
-  for (let i = 0; i < inputs.length; i++) {
-    if ((inputs[i].value).trim() == "") {
-      inputs[i].classList.add("error-border");
-      return false;
-    }
-  }
-
-  return true;
 }
 
 export default User;

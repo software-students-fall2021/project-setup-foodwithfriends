@@ -34,7 +34,7 @@ function CuisineVote() {
     return (
     <Redirect to={{
       pathname: "/error",
-      state: { error: "cuisine" }
+      state: { error: "cuisine", cuisine: cookies.get("cuisine") }
     }}
     />)
   }

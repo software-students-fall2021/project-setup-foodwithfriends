@@ -28,8 +28,3 @@
     text-align: center;
     margin-bottom: 25px;
 }
-
-.error-border {
-    border: 2px solid #d1afaf;
-    box-shadow: 0px 4px rgb(181 143 144);
-}
