@@ -2,15 +2,44 @@ import './RandomCuisine.css';
 import React from 'react';
 import data from '../data/cuisines.json';
 import Button from '../components/Button';
+import { Redirect } from 'react-router';
+import Cookies from 'universal-cookie';
 
 function refreshPage() {
   window.location.reload(false);
 }
+const cookies = new Cookies();
 
 function RandomCuisine() {
   const cuisineData = Object.values(data);
   const generateRand = cuisineData[parseInt(Math.random() * cuisineData.length)];
   const randomCuisine = generateRand;
+  if (!cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nogroup" }
+    }}
+    />)
+  }
+
+  if (!cookies.get("user")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nouser" }
+    }}
+    />)
+  }
+
+  if (cookies.get("cuisine")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "cuisine", cuisine: cookies.get("cuisine") }
+    }}
+    />)
+  }
   return (
     <div className="RandomCuisine">
       <div id="random-cuisine-title-top"> {randomCuisine.name}</div>

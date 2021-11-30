@@ -8,6 +8,10 @@ import Spacer from '../components/Spacer';
 import { validateForm } from "../utils/validation"
 import { useHistory } from "react-router-dom";
 import { get } from '../utils/request';
+import { Redirect } from 'react-router';
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 function JoinRoom() {
   const [inviteCode, setInviteCode] = React.useState('');
@@ -21,15 +25,25 @@ function JoinRoom() {
         inviteCode
       }
     );
-
+    
     if (response.valid) {
+      cookies.set("groupID", inviteCode, { expires: 0 });
+      cookies.set("groupName", response.groupname, { expires: 0 });
       history.push(`/new-user`);
     }
     else {
-      console.log("invalid code! do something here");
       setErrorMessage(response.msg);
     }
   };
+
+  if (cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "group", group: cookies.get("groupName"), next: "/join"}
+    }}
+    />)
+  }
 
   return (
     <div className="JoinRoom">

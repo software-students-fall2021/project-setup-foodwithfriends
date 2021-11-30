@@ -4,9 +4,10 @@ const User = require("../models/user");
 const Group = require("../models/group");
 
 router.post("/user", function (req, res) {
-    req.session.groupID = "03307"; // this is temporary until Issue #73
     const name = req.body.userName;
-    const newUser = new User({groupId:req.session.groupID, name: name, dishPreferences: []});
+    const id = req.body.groupID;
+    const newUser = new User({groupId:id, name: name, dishPreferences: []});
+
     newUser.save((err, result) => {
       if (err) {
         // console.log(err);
@@ -15,7 +16,7 @@ router.post("/user", function (req, res) {
         return;
       }
     //   console.log(result);
-      Group.findOneAndUpdate({groupId: req.session.groupID}, {$addToSet: {friends: newUser}}, {new: true}, (err, doc) => {
+      Group.findOneAndUpdate({groupId: id}, {$addToSet: {friends: newUser}}, {new: true}, (err, doc) => {
         if (err) {
             // console.log("Something wrong when updating the data");
             res.status(500);

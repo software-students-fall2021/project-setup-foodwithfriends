@@ -5,6 +5,10 @@ import { useParams } from "react-router-dom";
 import Button from "../components/Button";
 import { get } from "../utils/request";
 import Loading from '../components/Loading';
+import { Redirect } from 'react-router';
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 // const data = {
 //   restaurant_name: "Silver Spurs",
@@ -30,6 +34,33 @@ import Loading from '../components/Loading';
 function RestaurantDetails() {
   let { restaurantId } = useParams();
   const [restaurant, setRestaurant] = React.useState(null);
+
+  if (!cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nogroup" }
+    }}
+    />)
+  }
+
+  if (!cookies.get("user")){
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nouser" }
+    }}
+    />)
+  }
+
+  if (!cookies.get("cuisine")){
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nocuisine", next: "/cuisine"  }
+    }}
+    />)
+  }
 
   React.useEffect(() => {
     fetchRestaurant(restaurantId);

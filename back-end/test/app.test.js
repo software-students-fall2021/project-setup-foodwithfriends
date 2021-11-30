@@ -5,13 +5,14 @@ const server = require("../app");
 chai.should();
 chai.use(chaiHttp);
 
+let invite;
+
 describe('Invite Code', () => {
-  let invite;
 
   // POST Room Creation
   describe("POST /room", () => {
     it("It should store group details in the DB and return a shareable invite code", (done) => {
-      const groupDetails = {name: "test", location:"new york", latitude:"40.7128", longitude: "74.0060", capacity: 2};
+      const groupDetails = {name: "test", location:"new york", latitude:"40.7128", longitude: "74.0060", price:"$", capacity: 2};
       chai.request(server)
         .post("/room")
         .send(groupDetails)
@@ -62,7 +63,7 @@ describe('Create new User', () => {
   // POST User Creation
   describe("POST  /user", () => {
     it("It should create and store a new user in the DB", (done) => {
-      const user = {userName : "testUser"};
+      const user = {userName : "testUser", groupID: invite.roomId};
       chai.request(server)
         .post("/user")
         .send(user)

@@ -4,10 +4,41 @@ import React from 'react';
 import QuestionMark from '../img/question-mark.svg';
 import SelectChoice from '../img/select-choice.svg';
 import { useHistory } from "react-router-dom";
+import { Redirect } from 'react-router';
 
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 function CuisineVote() {
   const history = useHistory();
+
+  if (!cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nogroup" }
+    }}
+    />)
+  }
+
+  if (!cookies.get("user")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nouser" }
+    }}
+    />)
+  }
+
+  if (cookies.get("cuisine")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "cuisine", cuisine: cookies.get("cuisine") }
+    }}
+    />)
+  }
+
   return (
     <div className="Cuisine">
       <h1 id = "cuisine-heading">Vote on Cuisine</h1>
