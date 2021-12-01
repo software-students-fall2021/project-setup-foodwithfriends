@@ -32,6 +32,9 @@ function ChooseCuisine() {
         groupId: cookies.get("groupID")
       }
     );
+    if(response.valid == true){
+      history.push('/wait')
+    }
     //window.location.href = "/choose-preferences"; 
   }
 

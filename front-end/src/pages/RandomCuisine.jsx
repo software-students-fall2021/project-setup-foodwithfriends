@@ -52,8 +52,10 @@ function RandomCuisine() {
         groupId: cookies.get("groupID")
       }
     );
-    //history.push(`/choose-preferences`);
-    window.location.href = "/choose-preferences"; 
+    if(response.valid == true){
+      history.push('/wait')
+    }
+    //window.location.href = "/choose-preferences"; 
   };
 
   return (
