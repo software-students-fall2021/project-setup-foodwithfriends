@@ -45,6 +45,7 @@ function RandomCuisine() {
   }
 
   const sendVote = async () => {
+    cookies.set("cuisine", randomCuisine.name);
     const response = await post(
       '/cuisine',
       {
