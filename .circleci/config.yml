@@ -38,6 +38,12 @@ jobs:
           cd front-end
           npm install # install all dependencies listed in package.json
           npm run build # have react build the stand-alone front-end code
+  pull-and-build:
+    docker:
+      - image: arvindr226/alpine-ssh
+    steps:
+      - checkout
+      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
 
 # Orchestrate our job run sequence
 workflows:
@@ -47,3 +53,10 @@ workflows:
   build-front-end:
     jobs:
       - build-react-js
+  build-project:
+    jobs:
+      - pull-and-build:
+          filters:
+            branches:
+              only:
+                - 151/setup-continuous-deployment
