@@ -3,7 +3,9 @@ import React from 'react';
 import data from '../data/cuisines.json';
 import Button from '../components/Button';
 import { Redirect } from 'react-router';
+import { useHistory } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import { post } from '../utils/request';
 
 function refreshPage() {
   window.location.reload(false);
@@ -14,6 +16,7 @@ function RandomCuisine() {
   const cuisineData = Object.values(data);
   const generateRand = cuisineData[parseInt(Math.random() * cuisineData.length)];
   const randomCuisine = generateRand;
+  const history = useHistory();
   if (!cookies.get("groupID")) {
     return (
     <Redirect to={{
@@ -40,6 +43,19 @@ function RandomCuisine() {
     }}
     />)
   }
+
+  const sendVote = async () => {
+    const response = await post(
+      '/random',
+      {
+        choice: randomCuisine.name,
+        groupId: cookies.get("groupID")
+      }
+    );
+    //history.push(`/choose-preferences`);
+    window.location.href = "/choose-preferences"; 
+  };
+
   return (
     <div className="RandomCuisine">
       <div id="random-cuisine-title-top"> {randomCuisine.name}</div>
@@ -48,7 +64,11 @@ function RandomCuisine() {
         {randomCuisine.description}
       </div>
       <div id="vote-button-div">
-        <Button text="Vote" width="260px" height="50px" br="15px" bg="#3F3F3F"/>
+        <Button text="Vote" width="260px" height="50px" br="15px" bg="#3F3F3F"
+        onClick={() => {
+          sendVote();
+        }}
+        />
       </div>
       <div id="reload" onClick={refreshPage}>
       <Button text="Different Cuisine" width="260px" height="50px" br="15px" bg="#E7D7D3" color="black" fontWeight="bold"/>
