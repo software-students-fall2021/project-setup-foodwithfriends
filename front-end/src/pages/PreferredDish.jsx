@@ -150,6 +150,12 @@ function PreferredDish() {
             ))}
           </div>
           <Button id = "select-btn" text="Select" width="350px" height="40px" onClick={submitOptions}/>
+          <Link to="/preferences">
+              <Button text = "New Search" width="350px" height="40px" bg="#d1c8c8" onClick={()=> {
+                cookies.remove("keyword");
+                cookies.remove("preferred");
+              }}/>
+          </Link>
         </div>
         )}
          {dishes.length == 0 && !loaded && (
