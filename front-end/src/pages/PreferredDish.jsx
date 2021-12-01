@@ -15,6 +15,8 @@ function PreferredDish() {
   const [dishes, setdishes] = React.useState([]);
   const [errorMessage, setErrorMessage] = React.useState('');
   const [loaded, setLoad] = React.useState(false);
+  const [isActive, setActive] = React.useState(false);
+  const [activeItem, setItem] = React.useState(-1);
 
   const fetchDishes = async () => {
     console.log("currently fetching....");
@@ -125,10 +127,26 @@ function PreferredDish() {
           {errorMessage !== '' && (<div className="dish-error">{errorMessage}</div>)}
           <div id = "checkbox-group">
             {dishes.map((dish, i) => (
-              <div className="pref-dish-row" key={i}>
-                <input type="checkbox" value={dish.id}></input>
-                <label>{dish.name}</label>
-              </div>
+                <div className="pref-content-box" key={i}>
+                  <div className={isActive && i == activeItem ? "pref-dish-row activate-color" : "pref-dish-row"}>
+                    <input type="checkbox" value={dish.id}></input>
+                    <label onClick={() => {
+                      if (isActive) {
+                        setActive(false);
+                        return;
+                      }
+                        setActive(true);
+                        setItem(i);
+                    }}>
+                      {dish.name}
+                    </label>
+                  </div>
+
+                  <div className={isActive && i == activeItem ? "content active" : "content"}>
+                    <p>{dish.description}</p>
+                  </div>
+
+                </div>
             ))}
           </div>
           <Button id = "select-btn" text="Select" width="350px" height="40px" onClick={submitOptions}/>

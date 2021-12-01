@@ -7,15 +7,22 @@
 .pref-dish-row {
     background-color: #ECECEC;
     display: flex;
-    margin: 35px auto;
     height: 55px;
     align-items: center;
-    width: 50%;
+    width: 100%;
     color: #666262;
 }
 
 .pref-dish-row input {
     flex: 15%;
+}
+
+.pref-dish-row:hover, .activate-color {
+    background-color: #fbf1e6!important;
+}
+
+.pref-dish-row label:hover, .pref-dish-row:hover {
+    cursor: pointer;
 }
 
 .pref-dish-row label {
@@ -50,14 +57,37 @@
     font-size: 25px;
 }
 
+.PreferredDish .pref-content-box {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 20px auto;
+}
+
+.PreferredDish .content {
+    background-color: white;
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    overflow-y: auto;
+}
+
+.PreferredDish .content p {
+    padding: 0 5px;
+}
+
+.PreferredDish .active {
+    height: 65px!important;
+}
+
 @media screen and (max-width: 800px) {
-    .pref-dish-row {
+    .PreferredDish .pref-content-box {
         width: 70%;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .pref-dish-row {
+    .PreferredDish .pref-content-box {
         width: 85%;
     }
 }
