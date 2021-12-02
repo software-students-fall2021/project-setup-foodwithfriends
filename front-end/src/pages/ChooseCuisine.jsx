@@ -26,7 +26,7 @@ function ChooseCuisine() {
     }
     cookies.set("cuisine", choice);
     const response = await post(
-      '/random',
+      '/cuisine',
       {
         choice: choice,
         groupId: cookies.get("groupID")
@@ -35,7 +35,6 @@ function ChooseCuisine() {
     if(response.valid == true){
       history.push('/wait')
     }
-    //window.location.href = "/choose-preferences"; 
   }
 
   const setInputOnSwipe = (item) => {

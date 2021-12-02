@@ -46,16 +46,15 @@ function RandomCuisine() {
 
   const sendVote = async () => {
     const response = await post(
-      '/random',
+      '/cuisine',
       {
         choice: randomCuisine.name,
         groupId: cookies.get("groupID")
       }
     );
-    if(response.valid == true){
+    if(response.valid){
       history.push('/wait')
     }
-    //window.location.href = "/choose-preferences"; 
   };
 
   return (

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Group = require("../models/group");
 
-router.post("/random", function (req, res) {
+router.post("/cuisine", function (req, res) {
 
     const groupId = req.body.groupId;
     const cuisine = req.body.choice;
@@ -25,7 +25,7 @@ router.post("/random", function (req, res) {
                 selectedCuisine.votes += 1;
             }
         })
-        
+
         Group.updateOne({groupId: groupId}, {
             $set: {selectedCuisines: newSelectedCuisines}
         }, (err, doc) => {})
