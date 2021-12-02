@@ -5,8 +5,7 @@ const Group = require("../models/group");
 
 router.get("/wait", function (req, res) {
   const groupId = req.query.groupId;
-  console.log("id")
-  console.log(groupId)
+
   Group.findOne({groupId: groupId}, (err, doc) => {
       
     if (err) {
@@ -15,10 +14,7 @@ router.get("/wait", function (req, res) {
         res.send(err);
         return;
     }
-    console.log("err")
-    console.log(err)
-    console.log("DOC")
-    console.log(doc)
+
     User.find({ _id: doc.friends }, (err, userDoc) => {
       if (err) {
         console.log("Something wrong when finding the data");
