@@ -26,12 +26,8 @@ function User() {
     );
 
     if (response.success) {
-<<<<<<< HEAD
-      history.push(`/cuisine`);
-=======
       history.push(`/wait`);
       cookies.set("user", userName, { expires: 0 });
->>>>>>> d1741b2c733f4b9efb570a019344a4398fc5f3c3
     }
     else {
       history.push(`/error`);

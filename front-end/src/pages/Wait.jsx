@@ -9,7 +9,7 @@ import React from 'react';
 function Wait() {
   const [users, setUsers] = React.useState("")
   const [userTotal, setUserTotal] = React.useState("?")
-  const [groupId, setName] = React.useState("e0b52"); //THIS IS TEMPORARY JUST FOR NOW
+  const [groupId, setName] = React.useState("b6034"); //THIS IS TEMPORARY JUST FOR NOW
   const [friends, setFriends] = React.useState([])
   const checkUser = async () => {
     const users = await get(
