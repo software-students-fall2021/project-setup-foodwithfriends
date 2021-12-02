@@ -43,7 +43,6 @@ app.post("/room", function (req, res) {
 });
 
 app.post("/new-user", function (req, res) {
-  console.log("HELLO")
   req.session.groupID = "e0b52"; // this is temporary until Issue #73
   const name = req.body.userName;
   const newUser = new User({groupId:req.session.groupID, name: name, dishPreferences: []});
@@ -138,18 +137,9 @@ app.get("/wait", function (req, res) {
         return;
     }
 
-    // User.find({ _id: friends[0] }, (err, doc) => {
-    //   if (err) {
-    //     console.log("Something wrong when finding the data");
-    //     // res.send(err);
-    //     return;
-    //   }
-    //   console.log(doc);
-    // });
     User.find({ _id: doc.friends }, (err, userDoc) => {
       if (err) {
         console.log("Something wrong when finding the data");
-        // res.send(err);
       }
       const friends_array = userDoc;
       const number_users = doc.friends.length;
