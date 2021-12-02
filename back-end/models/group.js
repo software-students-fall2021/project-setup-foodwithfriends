@@ -8,7 +8,7 @@ const Group = new Schema ({
     location: {latitude: String, longitude: String},
     priceRange: String,
     friends: [{type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    selectedCuisines: [String],
+    selectedCuisines: [{cuisine: String, votes: Number}],
     winningCuisine: String
 });
 
