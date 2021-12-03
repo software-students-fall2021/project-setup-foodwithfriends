@@ -1,11 +1,12 @@
 import './PreferredDish.css';
-
 import React, {useEffect} from 'react';
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router';
 import Button from '../components/Button';
 import { get } from '../utils/request';
 import Cookies from 'universal-cookie';
+import { post } from '../utils/request';
+import { useHistory } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -31,6 +32,21 @@ function PreferredDish() {
     setdishes(response.data);
   };
 
+  const submitDish = async () => {
+    const response = await post(
+      '/preferred',
+      {
+        groupId: cookies.get("groupID"),
+        userName: cookies.get("nameOfUser"),
+        dish: preferredDish.name
+      }
+    );
+    if(response.valid){
+      history.push('/wait')
+    }
+  };
+
+
   const submitOptions = () => {
     const inputs = document.querySelectorAll("input[type='checkbox']");
     let chosenDishes = [];
@@ -44,6 +60,7 @@ function PreferredDish() {
     }
     else {
       // otherwise save dishes #107
+      submitDish();
       cookies.set("preferred", true);
     }
   };
