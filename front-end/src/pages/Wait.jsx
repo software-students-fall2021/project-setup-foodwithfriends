@@ -1,17 +1,68 @@
 import './Wait.css';
 
-import React from 'react';
+import { get } from '../utils/request';
+//import { Link } from "react-router-dom";
 
-const fake_users = [{name: "Jen"}, {name: "Tanya"}, {name: "Thomas"}];
-const total = 6;
+import React from 'react';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 function Wait() {
+  const [users, setUsers] = React.useState("")
+  const [userTotal, setUserTotal] = React.useState("?")
+  const [groupId, setName] = React.useState(cookies.get("groupID")); //THIS IS TEMPORARY JUST FOR NOW
+  const [friends, setFriends] = React.useState([])
+  
+  if (!cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nogroup" }
+    }}
+    />)
+  }
+
+  if (!cookies.get("user")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nouser" }
+    }}
+    />)
+  }
+  
+  const checkUser = async () => {
+    const users = await get(
+      '/wait',
+      {
+        groupId: groupId
+      });
+
+      return users;
+  };
+
+	React.useEffect(() => {
+    function initCheck() {
+      checkUser().then((response) => {
+        setUsers(response.num_users);
+        setUserTotal(response.tot_users);
+        setFriends(response.friends);
+        if (response.num_users == response.tot_users) {
+          window.location.href = "/win";
+        }
+      });
+    }
+    initCheck();
+    setInterval(initCheck, 10000);
+    return () => clearInterval(initCheck);
+  }, []);
+
   return (
     <div className="Wait">
       <h1>Waiting Room</h1>
-      <p id="total">{fake_users.length}/{total} Participants</p>
+      <p id="total">{users}/{userTotal} Participants</p>
       <div id="users">
-        {fake_users.map( (user, i) =>  {
+        {friends.map( (user, i) =>  {
           const initial = user.name.charAt(0);
           return <div className="user-item" key={i}>
             <span className="icon"> <span className="initial">{initial}</span> </span>
