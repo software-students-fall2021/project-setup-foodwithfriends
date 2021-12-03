@@ -25,7 +25,7 @@ function Wait() {
         setUsers(response.num_users);
         setUserTotal(response.tot_users);
         setFriends(response.friends);
-        if (response.num_users == response.tot_users) {
+        if (response.num_users >= response.tot_users) {
           window.location.href = "/win";
         }
       });
