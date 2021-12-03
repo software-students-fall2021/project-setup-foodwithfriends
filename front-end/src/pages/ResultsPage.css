@@ -6,11 +6,6 @@
   min-width: 100%;
 }
 
-.ResultsPage .heading {
-  color: #8b5858;
-  margin: 50px;
-}
-
 @media screen and (max-width: 500px) {
   .restauraunt-grid {
     grid-template-columns:auto;

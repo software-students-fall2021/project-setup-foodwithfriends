@@ -72,10 +72,10 @@ function RestaurantDetails() {
     <div className="RestaurantDetails">
       <div className="page-container">
         <div className="page-container-item">
-          <h3>The Gourmet Soup and Bread House</h3>
+          <h3 className="rest-name">The Gourmet Soup and Bread House</h3>
           <img src={restaurauntPlaceholder}></img>
         </div>
-        <h4>Restauraunt Info</h4>
+        <h4 className="sub-heading">Restauraunt Info</h4>
         <div className="basic-info">
           <p>
             <b>Address:</b> {restaurant.address.formatted || ''}
@@ -95,7 +95,7 @@ function RestaurantDetails() {
           </p>
         </div>
         <div className="page-container-item">
-          <h4>Directions</h4>
+          <h4 className="sub-heading">Directions</h4>
           <div className="map-container">
             <iframe
               width="600"
@@ -106,7 +106,7 @@ function RestaurantDetails() {
               src={`https://www.google.com/maps/embed/v1/place?q=${restaurant.geo.lat},${restaurant.geo.lon}&key=AIzaSyB_AxybqGJ-K6-3Jr9efLKXdZX_L7pMJ8I`}
             ></iframe>
           </div>
-          <Button>Reserve a Table</Button>
+          {/* <Button id="reserve-btn" text="Reserve a table" width="250px" height="50px"/> */}
         </div>
       </div>
     </div>
