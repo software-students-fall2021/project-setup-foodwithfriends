@@ -18,6 +18,9 @@ router.get("/wait", function (req, res) {
     User.find({ _id: doc.friends }, (err, userDoc) => {
       if (err) {
         console.log("Something wrong when finding the data");
+        res.status(500);
+        res.send(err);
+        return;
       }
       const friends_array = userDoc;
       const number_users = doc.friends.length;
