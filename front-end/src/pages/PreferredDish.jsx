@@ -32,12 +32,13 @@ function PreferredDish() {
     setdishes(response.data);
   };
 
-  const submitDish = async () => {
+  const submitDish = async (dish) => {
+    console.log(cookies.get("userID"));
     const response = await post(
       '/preferred',
       {
         userID: cookies.get("userID"),
-        dish: preferredDish.name
+        dish: dish
       }
     );
     if(response.valid){
@@ -59,7 +60,7 @@ function PreferredDish() {
     }
     else {
       // otherwise save dishes #107
-      submitDish();
+      submitDish(chosenDishes);
       cookies.set("preferred", true);
     }
   };
