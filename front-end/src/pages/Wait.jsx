@@ -26,7 +26,7 @@ function Wait() {
         setUserTotal(response.tot_users);
         setFriends(response.friends);
         if (response.num_users >= response.tot_users) {
-          window.location.href = "/win";
+          window.location.href = "/cuisine";
         }
       });
     }
