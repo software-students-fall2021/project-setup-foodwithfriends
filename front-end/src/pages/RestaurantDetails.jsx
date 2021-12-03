@@ -2,7 +2,6 @@ import "./RestaurantDetails.css";
 import restaurauntPlaceholder from "../img/restauraunt-placeholder-large.jpeg";
 import React from "react";
 import { useParams } from "react-router-dom";
-import Button from "../components/Button";
 import { get } from "../utils/request";
 import Loading from '../components/Loading';
 import { Redirect } from 'react-router';

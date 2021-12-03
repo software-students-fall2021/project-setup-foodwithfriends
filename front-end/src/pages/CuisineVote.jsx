@@ -63,7 +63,7 @@ function CuisineVote() {
           >
             <div id="text">
                 <div className="title-text">Random Choice</div>
-                <div className="info-text"> Are you indecisive on a cuisine? We'll help you choose one at random.</div>
+                <div className="info-text"> Are you indecisive on a cuisine? We&apos;ll help you choose one at random.</div>
             </div>
           </div>
         </div>
