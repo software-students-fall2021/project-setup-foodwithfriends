@@ -36,8 +36,7 @@ function PreferredDish() {
     const response = await post(
       '/preferred',
       {
-        groupId: cookies.get("groupID"),
-        userName: cookies.get("nameOfUser"),
+        userID: cookies.get("userID"),
         dish: preferredDish.name
       }
     );

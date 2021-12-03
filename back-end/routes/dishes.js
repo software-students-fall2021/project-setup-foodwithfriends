@@ -1,31 +1,13 @@
-//Import in both Group and User
-
-//FRONT END: 
-// post Request --> .post('dish')
-//      Send in: {groupId: GroupId, preferredDish: dish.nam, userName: nameOfUser}
-
-
-
-//BACK END : 
-// POST Request ==> router.post('/dish') (req, res) ==>
-// const groupId = req.body.groupId;
-// const preferredDish = req.body.preferredDish
-
-//Group.findOneandUpdate(groupId){
-    //Find the specific user and append preferredDish to the 'dishPreference' array
-    // res.send({response: true})
-//}
-
 const express = require('express');
 const router = express.Router();
-const Group = require("../models/group");
+const User = require("../models/user");
 
 router.post("/preferred", function (req, res) {
 
-    const groupId = req.body.groupId;
+    const userID = req.body.userID;
     const dish = req.body.dish;
 
-    Group.findOneAndUpdate({groupId: groupId }, {$push:{ dishPreferences: dish}},(err, doc) => {
+    User.findOneAndUpdate({_id: userID},{$push:{ dishPreferences: dish}},(err, doc) => {
         if (err) {
             console.log("Something wrong when finding the group");
             res.status(500);

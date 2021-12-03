@@ -19,7 +19,7 @@ const userRoutes = require("./routes/user");
 const restRoutes = require("./routes/restaurant");
 const documenuRoutes = require("./routes/documenu");
 const cuisineRoutes = require("./routes/cuisine");
-const prefDishRoutes = require("./routes/preferred");
+const prefDishRoutes = require("./routes/dishes");
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));

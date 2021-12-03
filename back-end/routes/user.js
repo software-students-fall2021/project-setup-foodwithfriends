@@ -25,7 +25,7 @@ router.post("/user", function (req, res) {
         }
         // console.log(doc);
         res.status(200);
-        res.send({ success: true });
+        res.send({ success: true , userId: result._id});
       });
     })
 });
