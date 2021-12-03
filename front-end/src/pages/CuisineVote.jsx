@@ -41,9 +41,10 @@ function CuisineVote() {
 
   return (
     <div className="Cuisine">
-      <h1 id = "cuisine-heading">Vote on Cuisine</h1>
-      <div id = "cuisine-description"className = "text-container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget est sed justo pretium laoreet. Donec placerat viverra quam, id posuere metus blandit eu. Maecenas tempor, elit et gravida volutpat, augue velit placerat leo, ut pharetra sem magna ac orci. Cras sit amet odio quis nunc tincidunt ultrices. </p>
+      <h1 id = "cuisine-heading">Cuisine Vote</h1>
+      <div id = "cuisine-description" className = "text-container">
+        <p>Select an Option</p>
+        {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget est sed justo pretium laoreet. Donec placerat viverra quam, id posuere metus blandit eu. Maecenas tempor, elit et gravida volutpat, augue velit placerat leo, ut pharetra sem magna ac orci. Cras sit amet odio quis nunc tincidunt ultrices. </p> */}
       </div>
 
       <div id = "choice-container">
@@ -62,7 +63,7 @@ function CuisineVote() {
           >
             <div id="text">
                 <div className="title-text">Random Choice</div>
-                <div className="info-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                <div className="info-text"> Are you indecisive on a cuisine? We'll help you choose one at random.</div>
             </div>
           </div>
         </div>
@@ -82,7 +83,7 @@ function CuisineVote() {
           >
           <div id="text">
                 <div className="title-text"> Choose Cuisine</div>
-                <div className="info-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                <div className="info-text"> Know exactly what you want? Let your friends know by choosing out of 6 delicious cusine options.</div>
             </div>
           </div>
         </div>
