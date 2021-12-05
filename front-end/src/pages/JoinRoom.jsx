@@ -5,13 +5,45 @@ import InviteCodeInput from '../components/InviteCodeInput';
 import Button from '../components/Button';
 
 import Spacer from '../components/Spacer';
-import { join_post } from "../utils/api";
+import { validateForm } from "../utils/validation"
 import { useHistory } from "react-router-dom";
+import { get } from '../utils/request';
+import { Redirect } from 'react-router';
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 function JoinRoom() {
-  const [curValue, setCurValue] = React.useState('');
+  const [inviteCode, setInviteCode] = React.useState('');
   const [errorMessage, setErrorMessage] = React.useState('');
   const history = useHistory();
+
+  const joinGroup = async () => {
+    const response = await get(
+      '/room',
+      {
+        inviteCode
+      }
+    );
+    
+    if (response.valid) {
+      cookies.set("groupID", inviteCode, { expires: 0 });
+      cookies.set("groupName", response.groupname, { expires: 0 });
+      history.push(`/new-user`);
+    }
+    else {
+      setErrorMessage(response.msg);
+    }
+  };
+
+  if (cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "group", group: cookies.get("groupName"), next: "/join"}
+    }}
+    />)
+  }
 
   return (
     <div className="JoinRoom">
@@ -19,29 +51,20 @@ function JoinRoom() {
         Enter Invite Code
       </div>
       <InviteCodeInput 
-        value={curValue}
-        handleValue={handleValue}
+        value={inviteCode}
+        handleValue={(e) => {setErrorMessage(""); setInviteCode(e.target.value)}}
       /> 
       <Spacer space="75"/> 
       {errorMessage !== '' && (<div className="JoinRoom__error">{errorMessage}</div>)}
       <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf" 
-      onClick={async () => {
-          const response = await join_post(curValue);
-          const result = response.result;
-          if(result){
-            history.push(`/wait/${curValue}`);
-            console.log("Valid code!")
-          }
-          else{
-            setErrorMessage('Invalid RoomID!')
-          }
-        }}/>
+      onClick={() => {
+        if (validateForm()) {
+          joinGroup();
+        }
+      }}
+      />
     </div>
   );
-
-  function handleValue(event) {
-    setCurValue(event.target.value);
-  }
 }
 
 export default JoinRoom;

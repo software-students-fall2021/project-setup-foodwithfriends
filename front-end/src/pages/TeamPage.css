@@ -1,55 +1,83 @@
 .TeamPage {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+.max-text-container {
+  max-width: 800px;
+  font-style: normal;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.about-banner {
+  max-width: 100%;
 }
 
 #back-button {
-    margin-left: 80%;
-    margin-top: 50px;
-    margin-bottom: 20px;
+  font-size: 16px;
 }
 
 #introduction-title {
-    margin: 20px;
-    font-weight: bold;
-    text-align: left;
-    font-size: 18px;
+  margin: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
 }
 
 #introduction-text {
-    text-align: left;
-    margin: 20px;
+  text-align: left;
+  margin: 20px;
 }
 
 #the-team-title {
-    font-weight: bold;
-    text-align: left;
-    margin: 40px 20px 20px;
-    font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 20px 20px;
+  font-size: 18px;
 }
 
 #photo-container {
-    margin-top: 30px;
+  margin-top: 30px;
+  display: grid;
 }
 
 .flex-container {
-    display: flex;
-    margin-top: 20px;
-    margin: auto;
-    justify-content: center;
-    margin-bottom: 50px;
+  display: flex;
+  margin-top: 20px;
+  margin: auto;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 
-#photo-1, #photo-2, #photo-3, #photo-4, #photo-5, #photo-6{
-    width: 100px;
-    height: 100px;
-    background:#C4C4C4;
-    border-radius: 50%;
-    margin: 10px 20px;
-
+#photo-1,
+#photo-2,
+#photo-3,
+#photo-4,
+#photo-5,
+#photo-6 {
+  width: 100px;
+  height: 100px;
+  background: #c4c4c4;
+  border-radius: 50%;
+  margin: 10px 20px;
 }
 
-#photo-1-title, #photo-2-title, #photo-3-title, #photo-4-title, #photo-5-title, #photo-6-title {
-    margin-top: 110px;
-    font-size: 14px;
+#photo-1-title,
+#photo-2-title,
+#photo-3-title,
+#photo-4-title,
+#photo-5-title,
+#photo-6-title {
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: bold;
+  color: black;
 }
 
+.photo-img {
+  width: 100px;
+  height: 100px;
+  background: #c4c4c4;
+  border-radius: 50%;
+}

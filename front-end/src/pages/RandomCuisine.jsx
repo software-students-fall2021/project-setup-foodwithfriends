@@ -1,22 +1,81 @@
 import './RandomCuisine.css';
-
 import React from 'react';
-import Button from '../components/Button'
+import data from '../data/cuisines.json';
+import Button from '../components/Button';
+import { Redirect } from 'react-router';
+import { useHistory } from "react-router-dom";
+import Cookies from 'universal-cookie';
+import { post } from '../utils/request';
+
+function refreshPage() {
+  window.location.reload(false);
+}
+const cookies = new Cookies();
 
 function RandomCuisine() {
+  const cuisineData = Object.values(data);
+  const generateRand = cuisineData[parseInt(Math.random() * cuisineData.length)];
+  const randomCuisine = generateRand;
+  const history = useHistory();
+  if (!cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nogroup" }
+    }}
+    />)
+  }
+
+  if (!cookies.get("user")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nouser" }
+    }}
+    />)
+  }
+
+  if (cookies.get("cuisine")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "cuisine", cuisine: cookies.get("cuisine") }
+    }}
+    />)
+  }
+
+  const sendVote = async () => {
+    const response = await post(
+      '/cuisine',
+      {
+        choice: randomCuisine.name,
+        groupId: cookies.get("groupID")
+      }
+    );
+    if(response.valid){
+      history.push('/wait')
+    }
+  };
+
   return (
     <div className="RandomCuisine">
-      <div id="random-cuisine-title-top"> 
-        <h1>Random Cuisine</h1>
+      <div id="random-cuisine-title-top"> {randomCuisine.name}</div>
+      <img id="cuisine-photo" src={require(`../img/cuisines/${randomCuisine.cuisine}/${randomCuisine.thumbnail}`).default} className="food" alt=""></img>
+      <div id="cuisine-text">
+        {randomCuisine.description}
       </div>
-      <div> <h3>Name</h3></div>
-      <div id="cuisine-photo"></div>
-      <div id = "description-container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div id="vote-button-div">
+        <Button text="Vote" width="260px" height="50px" br="15px" bg="#3F3F3F"
+        onClick={() => {
+          sendVote();
+        }}
+        />
       </div>
-
-      <Button id = "vote-button" text="Vote" width="300px" height="50px"/>
+      <div id="reload" onClick={refreshPage}>
+      <Button text="Different Cuisine" width="260px" height="50px" br="15px" bg="#E7D7D3" color="black" fontWeight="bold"/>
+      </div>
     </div>
+
   );
 }
 

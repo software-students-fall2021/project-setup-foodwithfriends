@@ -1,24 +1,32 @@
-.RandomCuisine #vote-button {
-    margin-bottom: 35px;
+.RandomCuisine {
+}
+
+#random-cuisine-title-top, #random-cuisine-title-bottom {
+    font-weight:bold;
+    font-size: 18px;
 }
 
 #random-cuisine-title-top {
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-bottom: 34px;
 }
 
-#cuisine-photo {
-    background-color: #C4C4C4;
-    width: 250px;
-    height: 300px;
-    margin: 50px auto 0;
+#cuisine-photo{
+    width: 300px;
+    height: 200px;
 }
 
-#description-container {
-    margin: 50px 0;
+#cuisine-text {
+    margin: 30px 35px;
 }
 
-#description-container p {
-    width: 80%;
-    margin: auto;
-    text-align: justify;
+#vote-button {
+    color:white;
+    padding: 0px 140px;
+    background-color: #3F3F3F; 
+    font-weight: bold;
+}
+
+#reload{
+    margin-top: -10px;
 }

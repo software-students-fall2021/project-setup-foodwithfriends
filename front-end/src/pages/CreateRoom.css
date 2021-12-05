@@ -68,6 +68,7 @@
       justify-content: center;
       align-items: center;
       padding-top: -5px;
+      cursor: pointer;
     }
 
     .CreateRoom__friends__number__value {
@@ -83,6 +84,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
     }
 
     .error-border {
@@ -156,4 +158,24 @@
         left: auto;
         right: 22px;
       }
+    }
+
+  .CreateRoom__buttons {
+    width: 240px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+  }
+
+    .CreateRoom__buttons__option {
+      height: 50px;
+      width: 50px;
+      border-radius: 10px;
+      background-color: #EFEBEB;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
     }

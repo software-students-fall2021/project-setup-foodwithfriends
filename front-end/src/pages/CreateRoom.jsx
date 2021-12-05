@@ -1,11 +1,17 @@
 import "./CreateRoom.css";
 
 import React from "react";
-import { useHistory } from "react-router-dom";
 import Button from "../components/Button";
 import Spacer from "../components/Spacer";
 import { post } from '../utils/request';
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
+
+import { useHistory } from "react-router-dom";
+import { validateForm } from "../utils/validation"
+import { Redirect } from 'react-router';
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 const MAX_CAPACITY = 20;
 const MIN_CAPACITY = 2;
@@ -14,6 +20,7 @@ function CreateRoom() {
   const history = useHistory();
   const [name, setName] = React.useState("");
   const [location, setLocation] = React.useState("");
+  const [price, setPrice] = React.useState("");
   const [latitude, setLat] = React.useState("");
   const [longitude, setLong] = React.useState("");
   const [capacity, setCapacity] = React.useState(2);
@@ -26,11 +33,14 @@ function CreateRoom() {
         location,
         latitude,
         longitude,
+        price,
         capacity
       },
     );
 
     const roomId = response.roomId;
+    cookies.set("groupID", roomId, { expires: 0 });
+    cookies.set("groupName", name, { expires: 0 })
     history.push(`/invite`, { roomId: roomId });
   };
 
@@ -40,6 +50,15 @@ function CreateRoom() {
     const latLng = await getLatLng(results[0]);
     setLat(latLng.lat);
     setLong(latLng.lng);
+  }
+
+  if (cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "group", group: cookies.get("groupName"), next: "/create"}
+    }}
+    />)
   }
 
   return (
@@ -104,27 +123,63 @@ function CreateRoom() {
 
       <Spacer space="25" />
 
+      <div className="CreateRoom__price">
+        <div className="title">Price</div>
+        <div className="CreateRoom__buttons">
+          <div
+            className="CreateRoom__buttons__option"
+            onClick={() => setPrice('$')}
+            style={setSelectedStyle('$')}
+          >
+            $
+          </div>
+          <div
+            className="CreateRoom__buttons__option"
+            onClick={() => setPrice('$$')}
+            style={setSelectedStyle('$$')}
+          >
+            $$
+          </div>
+          <div
+            className="CreateRoom__buttons__option"
+            onClick={() => setPrice('$$$')}
+            style={setSelectedStyle('$$$')}
+          >
+            $$$
+          </div>
+          <div
+            className="CreateRoom__buttons__option"
+            onClick={() => setPrice('$$$$')}
+            style={setSelectedStyle('$$$$')}
+          >
+            $$$$
+          </div>
+        </div>
+      </div>
+
+      <Spacer space="25" />
+
       <div className="CreateRoom__friends">
         <div className="title">Number of Friends</div>
         <div className="CreateRoom__friends__number">
-          <div
-            className="CreateRoom__friends__number__increment"
-            onClick={onClickIncrement}
-          >
-            +
-          </div>
-          <span className="CreateRoom__friends__number__value">{capacity}</span>
           <div
             className="CreateRoom__friends__number__decrement"
             onClick={onClickDecrement}
           >
             -
           </div>
+          <span className="CreateRoom__friends__number__value">{capacity}</span>
+          <div
+            className="CreateRoom__friends__number__increment"
+            onClick={onClickIncrement}
+          >
+            +
+          </div>
         </div>
       </div>
 
       <Spacer space="110" />
-      <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf"   
+      <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf"
       onClick={() => {
           if (validateForm()) {
             makeRoom();
@@ -133,23 +188,6 @@ function CreateRoom() {
       />
     </div>
   );
-
-  function validateForm() {
-    const inputs = document.getElementsByTagName("input");
-
-    for (let i = 0; i < inputs.length; i++) {
-      inputs[i].classList.remove("error-border");
-    }
-
-    for (let i = 0; i < inputs.length; i++) {
-      if ((inputs[i].value).trim() == "") {
-        inputs[i].classList.add("error-border");
-        return false;
-      }
-    }
-
-    return true;
-  }
 
   function getCurrentLocation() {
     const logo = document.getElementById("currLocIcon");
@@ -183,6 +221,18 @@ function CreateRoom() {
   function onClickDecrement() {
     if (capacity <= MIN_CAPACITY) return;
     setCapacity(capacity - 1);
+  }
+
+  function setSelectedStyle(target) {
+    return (
+      price === target ? {
+        backgroundColor: '#404040',
+        color: '#FFFFFF'
+      } : {
+        backgroundColor: '#EFEBEB',
+        color: '#000000'
+      }
+    )
   }
 }
 

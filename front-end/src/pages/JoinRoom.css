@@ -17,8 +17,7 @@
 
   .JoinRoom__error {
     position: absolute;
-    top: 425px;
-    color: red;
-    font-style: Roboto;
+    color: #b58f90;
     font-weight: bold;
+    margin-top: 10px;
   }

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "mocha --reporter spec",
+    "test": "export NODE_ENV=test && mocha --reporter spec",
     "coverage": "nyc mocha --timeout=3000"
   },
   "author": "Food with Friends",
@@ -15,12 +15,14 @@
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
     "cors": "^2.8.5",
+    "documenu": "^1.1.0",
     "dotenv": "^10.0.0",
     "expect.js": "^0.3.1",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "faker": "^5.5.3",
     "mocha": "^9.1.3",
+    "mongodb-memory-server": "^8.0.2",
     "mongoose": "^6.0.12",
     "uuid": "^8.3.2"
   },
