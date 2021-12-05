@@ -2,7 +2,7 @@ const express = require("express");
 const assert = require("assert");
 chai = require('chai');
 chaiHttp = require('chai-http');
-chai.use(chaiHttp) 
+chai.use(chaiHttp)
 const { add } = require("../utils/add");
 const app = express();
 var expect = chai.expect;
@@ -34,7 +34,7 @@ describe("Verifying 'app.post(/invite/:roomId)'", function () {
             roomId: '272'
             })
             .end(function (err, res) {
-              expect(res.body).to.equal(true);               
+              expect(res.body).to.equal(true);
               done();
           });
     });
@@ -50,14 +50,9 @@ describe("Verifying 'app.post(/invite/:roomId)'", function () {
             roomId: '000'
             })
             .end(function (err, res) {
-              expect(res.body).to.equal(false);               
+              expect(res.body).to.equal(false);
               done();
           });
     });
   });
-
-
-
 });
-
-
