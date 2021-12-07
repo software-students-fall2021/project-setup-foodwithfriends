@@ -1,6 +1,6 @@
 # foodwithfriends :green_salad:
 
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
+[![Food with Friends](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends.svg?style=svg)](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends)
 
 Are you going out to eat with friends anytime soon? These friendly gatherings usually go one of two ways: a restaurant is agreed upon fairly quickly or you spend 30+ minutes choosing what to eat in the first place (not including the actual restaurant you are going to).
 
