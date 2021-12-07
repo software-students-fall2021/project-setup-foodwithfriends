@@ -83,7 +83,7 @@ function CuisineVote() {
           >
           <div id="text">
                 <div className="title-text"> Choose Cuisine</div>
-                <div className="info-text"> Know exactly what you want? Let your friends know by choosing out of 6 delicious cusine options.</div>
+                <div className="info-text"> Know exactly what you want? Let your friends know by choosing out of 6 delicious cuisine options.</div>
             </div>
           </div>
         </div>
