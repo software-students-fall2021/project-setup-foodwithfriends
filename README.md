@@ -2,7 +2,9 @@
 
 [![Food with Friends](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends.svg?style=svg)](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends)
 
-Check out the website at [![Food with Friends]](http://foodwithfriends.tech)
+Check out the website at [foodwithfriends.tech](https://foodwithfriends.tech/)
+
+![Food with Friends Banner](./front-end/src/img/about-banner.jpg)
 
 Are you going out to eat with friends anytime soon? These friendly gatherings usually go one of two ways: a restaurant is agreed upon fairly quickly or you spend 30+ minutes choosing what to eat in the first place (not including the actual restaurant you are going to).
 
