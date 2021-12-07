@@ -1,6 +1,6 @@
 # foodwithfriends :green_salad:
 
-[![Food with Friends](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends.svg?style=svg)](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends)
+Circle CI Build Status: [![Food with Friends](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends.svg?style=svg)](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends)
 
 Check out the website at [foodwithfriends.tech](https://foodwithfriends.tech/)
 
