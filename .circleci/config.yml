@@ -59,4 +59,4 @@ workflows:
           filters:
             branches:
               only:
-                - 151/setup-continuous-deployment
+                - master
