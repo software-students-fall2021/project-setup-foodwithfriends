@@ -1,15 +1,33 @@
 import './Wait.css';
-
 import { get } from '../utils/request';
-
 import React from 'react';
-
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 function Wait() {
   const [users, setUsers] = React.useState("")
   const [userTotal, setUserTotal] = React.useState("?")
-  const [groupId, ] = React.useState("b6034"); //THIS IS TEMPORARY JUST FOR NOW
+  const [groupId, ] = React.useState(cookies.get("groupID")); //THIS IS TEMPORARY JUST FOR NOW
   const [friends, setFriends] = React.useState([])
+  
+  if (!cookies.get("groupID")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nogroup" }
+    }}
+    />)
+  }
+
+  if (!cookies.get("user")) {
+    return (
+    <Redirect to={{
+      pathname: "/error",
+      state: { error: "nouser" }
+    }}
+    />)
+  }
+  
   const checkUser = async () => {
     const users = await get(
       '/wait',
