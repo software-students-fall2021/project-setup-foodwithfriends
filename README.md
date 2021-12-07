@@ -2,7 +2,7 @@
 
 Circle CI Build Status: [![Food with Friends](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends.svg?style=svg)](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends)
 
-Check out the website at [foodwithfriends.tech](https://foodwithfriends.tech/)
+Check out the website at [foodwithfriends.tech](http://foodwithfriends.tech/)
 
 ![Food with Friends Banner](./front-end/src/img/about-banner.jpg)
 
