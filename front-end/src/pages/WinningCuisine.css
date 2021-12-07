@@ -1,24 +1,45 @@
 .WinningCuisine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.WinningImage {
-    padding-top: 30px;
+.WinningCuisine #winner {
+    letter-spacing: 10px;
+    color: #664e4e;
 }
 
-.WinningHeader {
+.WinningCuisine .WinningImage {
+    margin: 30px 0 50px;
+}
+
+.WinningCuisine .WinningHeader {
     padding: 10px;
     font-weight: bold;
 }
 
-.WinningFacts {
+.WinningCuisine .WinningFacts {
     padding: 10px;
     font-size: 10pt;
+    width: 80%;
 }
 
-#winImg {
+.WinningCuisine #winImg {
     width: 280px;
     height: 150px;
     object-fit: cover;
     object-position: 10% 35%;
     border-radius: 15px;
+}
+
+.WinningCuisine #btn {
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 450px) {
+    
+    .WinningCuisine .WinningFacts {
+        width: 90%;
+    }
 }
