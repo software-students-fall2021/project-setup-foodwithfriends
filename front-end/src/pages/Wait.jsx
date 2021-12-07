@@ -1,25 +1,46 @@
-import './Wait.css';
-
-import { get } from '../utils/request';
-
-import React from 'react';
-
+import "./Wait.css";
+import { get } from "../utils/request";
+import React from "react";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+import { Redirect } from "react-router-dom";
 
 function Wait() {
-  const [users, setUsers] = React.useState("")
-  const [userTotal, setUserTotal] = React.useState("?")
-  const [groupId, ] = React.useState("b6034"); //THIS IS TEMPORARY JUST FOR NOW
-  const [friends, setFriends] = React.useState([])
+  const [users, setUsers] = React.useState("");
+  const [userTotal, setUserTotal] = React.useState("?");
+  const [groupId] = React.useState(cookies.get("groupID")); //THIS IS TEMPORARY JUST FOR NOW
+  const [friends, setFriends] = React.useState([]);
+
+  if (!cookies.get("groupID")) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/error",
+          state: { error: "nogroup" },
+        }}
+      />
+    );
+  }
+
+  if (!cookies.get("user")) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/error",
+          state: { error: "nouser" },
+        }}
+      />
+    );
+  }
+
   const checkUser = async () => {
-    const users = await get(
-      '/wait',
-      {
-        groupId: groupId
-      });
-      return users;
+    const users = await get("/wait", {
+      groupId: groupId,
+    });
+    return users;
   };
 
-	React.useEffect(() => {
+  React.useEffect(() => {
     function initCheck() {
       checkUser().then((response) => {
         setUsers(response.num_users);
@@ -38,14 +59,21 @@ function Wait() {
   return (
     <div className="Wait">
       <h1>Waiting Room</h1>
-      <p id="total">{users}/{userTotal} Participants</p>
+      <p id="total">
+        {users}/{userTotal} Participants
+      </p>
       <div id="users">
-        {friends.map( (user, i) =>  {
+        {friends.map((user, i) => {
           const initial = user.name.charAt(0);
-          return <div className="user-item" key={i}>
-            <span className="icon"> <span className="initial">{initial}</span> </span>
-            <p>{user.name}</p>
-          </div>;
+          return (
+            <div className="user-item" key={i}>
+              <span className="icon">
+                {" "}
+                <span className="initial">{initial}</span>{" "}
+              </span>
+              <p>{user.name}</p>
+            </div>
+          );
         })}
       </div>
     </div>

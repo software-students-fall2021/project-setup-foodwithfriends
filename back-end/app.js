@@ -19,6 +19,7 @@ const userRoutes = require("./routes/user");
 const restRoutes = require("./routes/restaurant");
 const documenuRoutes = require("./routes/documenu");
 const cuisineRoutes = require("./routes/cuisine");
+const prefDishRoutes = require("./routes/dishes");
 const waitRoutes = require("./routes/wait");
 
 // middlewares
@@ -35,6 +36,7 @@ app.use(userRoutes);
 app.use(restRoutes);
 app.use(documenuRoutes);
 app.use(cuisineRoutes);
+app.use(prefDishRoutes);
 app.use(waitRoutes);
 
 const env = process.env.NODE_ENV || 'development';

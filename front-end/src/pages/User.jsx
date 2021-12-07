@@ -26,8 +26,9 @@ function User() {
     );
 
     if (response.success) {
-      history.push(`/wait`);
+      cookies.set("userID", response.userID, { expires: 0});
       cookies.set("user", userName, { expires: 0 });
+      history.push(`/wait`);
     }
     else {
       history.push(`/error`);
