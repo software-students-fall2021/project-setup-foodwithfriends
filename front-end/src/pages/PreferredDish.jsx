@@ -33,7 +33,6 @@ function PreferredDish() {
   };
 
   const submitDish = async (dish) => {
-    console.log(cookies.get("userID"));
     const response = await post(
       '/preferred',
       {

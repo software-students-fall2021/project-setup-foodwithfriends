@@ -26,7 +26,6 @@ function User() {
     );
 
     if (response.success) {
-      console.log(response.userID);
       cookies.set("userID", response.userID, { expires: 0});
       cookies.set("user", userName, { expires: 0 });
       history.push(`/wait`);
