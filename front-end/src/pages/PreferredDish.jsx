@@ -6,7 +6,6 @@ import Button from '../components/Button';
 import { get } from '../utils/request';
 import Cookies from 'universal-cookie';
 import { post } from '../utils/request';
-import { useHistory } from "react-router-dom";
 
 const cookies = new Cookies();
 
