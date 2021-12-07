@@ -1,5 +1,7 @@
 # foodwithfriends :green_salad:
 
+[![<ORG_NAME>](https://circleci.com/gh/software-students-fall2021/project-setup-foodwithfriends.svg?style=svg](<LINK>)
+
 Are you going out to eat with friends anytime soon? These friendly gatherings usually go one of two ways: a restaurant is agreed upon fairly quickly or you spend 30+ minutes choosing what to eat in the first place (not including the actual restaurant you are going to).
 
 foodwithfriends is a web application that aims to make decision-making for where to eat easy. Users can invite their entourage to a "room" where they can choose a cuisine they prefer (e.g. Italian, Chinese, etc.), vote on it, and go on to choose a restaurant together.
