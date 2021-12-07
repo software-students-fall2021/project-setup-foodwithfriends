@@ -1,8 +1,5 @@
 import './Wait.css';
-
 import { get } from '../utils/request';
-//import { Link } from "react-router-dom";
-
 import React from 'react';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
@@ -10,7 +7,7 @@ const cookies = new Cookies();
 function Wait() {
   const [users, setUsers] = React.useState("")
   const [userTotal, setUserTotal] = React.useState("?")
-  const [groupId, setName] = React.useState(cookies.get("groupID")); //THIS IS TEMPORARY JUST FOR NOW
+  const [groupId, ] = React.useState(cookies.get("groupID")); //THIS IS TEMPORARY JUST FOR NOW
   const [friends, setFriends] = React.useState([])
   
   if (!cookies.get("groupID")) {
