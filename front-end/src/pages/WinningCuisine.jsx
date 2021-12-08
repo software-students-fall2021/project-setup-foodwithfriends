@@ -59,6 +59,7 @@ function WinningCuisine(props) {
         <Button id="btn" text="Continue" width="260px" height="50px" />
       </Link>
     </div>
+    
   );
 }
 
