@@ -36,7 +36,6 @@ router.post(
             res.send({ success: false });
             return;
           }
-          // console.log(doc);
           res.status(200);
           res.send({ success: true, userID: result._id });
         }
