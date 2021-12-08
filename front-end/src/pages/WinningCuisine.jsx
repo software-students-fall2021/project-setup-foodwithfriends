@@ -37,12 +37,23 @@ function WinningCuisine(props) {
     }}
     />)
   }
+  // "Indian" vs "indian" --> Figure out where this bug is
+  // WC.jsx: Get request with the URL => /'win'
+  // Store this result and print the correlated image
+  const final = async () => {
+    const final = await get(
+      '/win',
+      {
+        finalCuisine
+      });
+  };
+  
   
   return (
     <div className="WinningCuisine">
-      <div className="WinningImage"><img id="winImg" src={winningLogo} alt="Winning cuisine image"/></div>
-      <div className="WinningHeader">{props.cuisine}Chosen Cuisine Name</div>
-      <p className="WinningFacts">{props.description}Facts about cuisine. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+      <div className="WinningImage"><img id="winImg" src={require(`../img/cuisines/${final.cuisine}/${final.thumbnail}`).default} alt="Winning cuisine image"/></div>
+      <div className="WinningHeader">{final.name}</div>
+      <p className="WinningFacts">{final.description}</p>
       <Button/>
     </div>
   );
