@@ -71,8 +71,12 @@ function PreferredDishInitial() {
       <Link to="/wait">
         <Button id="skipButton" text="skip" width="65px" height="30px" bg="#9d9287"/>
       </Link>
+      <div>
+        <h1 className="heading"> Dish Preferences</h1>
+        <p className="lead-text">Have a specific craving? Enter a keyword to browse and choose related dishes</p>
+      </div>
       <div id="pref-dish-key">
-        <Input labelFor="keyword" label="Enter search keyword" inputName="keyword" onChange={(e) => setKeyword(e.target.value)} value={keyword} placeholder="e.g. Chicken"/>
+        <Input labelFor="keyword" inputName="keyword" onChange={(e) => setKeyword(e.target.value)} value={keyword} placeholder="e.g. Chicken"/>
         <Button text="Continue" width="260px" height="50px" br="15px"
         onClick={() => {
         if (validateForm()) {

@@ -102,7 +102,7 @@ function ResultsPage() {
 
   return (
     <div className="ResultsPage">
-      <h2>Recommended Restauraunts</h2>
+      <h2 className="heading">Recommended Restauraunts</h2>
       <div className="restauraunt-grid">
         {restaurants.map((restaurant) => (
           <ResultsCell

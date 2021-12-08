@@ -34,19 +34,18 @@ router.get("/wait", function (req, res) {
     }
     else{
       let number_users = 0;
+      console.log("HELLO");
       const total_users = doc.numOfFriends;
       const allUsers = [...doc.friends];
       allUsers.forEach((user, index) => {
           if(user.selectedPreferences == true){
               number_users +=1;
+              console.log("HI IS THiS WORKING")
           }
-          res.status(200);
-          res.send ( {num_users: number_users, tot_users: total_users});
-          return;
-
       })
-
-
+        res.status(200);
+        res.send ( {num_users: number_users, tot_users: total_users});
+        return;
 
     }
   });

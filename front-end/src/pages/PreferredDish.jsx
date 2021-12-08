@@ -6,7 +6,6 @@ import Button from '../components/Button';
 import { get } from '../utils/request';
 import Cookies from 'universal-cookie';
 import { post } from '../utils/request';
-import { useHistory } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -15,6 +14,9 @@ function PreferredDish(props) {
   const [dishes, setdishes] = React.useState([]);
   const [errorMessage, setErrorMessage] = React.useState('');
   const [loaded, setLoad] = React.useState(false);
+  const [isActive, setActive] = React.useState(false);
+  const [activeItem, setItem] = React.useState(-1);
+  const [skip, setSkip] = React.useState(false);
 
   const fetchDishes = async () => {
     console.log("currently fetching....");
@@ -44,7 +46,8 @@ function PreferredDish(props) {
       '/preferred',
       {
         userID: cookies.get("userID"),
-        dish: dish
+        dish: dish,
+        skip: skip
       }
     );
     if(response.valid){
@@ -131,13 +134,35 @@ function PreferredDish(props) {
           {errorMessage !== '' && (<div className="dish-error">{errorMessage}</div>)}
           <div id = "checkbox-group">
             {dishes.map((dish, i) => (
-              <div className="pref-dish-row" key={i}>
-                <input type="checkbox" value={dish.id}></input>
-                <label>{dish.name}</label>
-              </div>
+                <div className="pref-content-box" key={i}>
+                  <div className={isActive && i == activeItem ? "pref-dish-row activate-color" : "pref-dish-row"}>
+                    <input type="checkbox" value={dish.id}></input>
+                    <label onClick={() => {
+                      if (isActive) {
+                        setActive(false);
+                        return;
+                      }
+                        setActive(true);
+                        setItem(i);
+                    }}>
+                      {dish.name}
+                    </label>
+                  </div>
+
+                  <div className={isActive && i == activeItem ? "content active" : "content"}>
+                    <p>{dish.description}</p>
+                  </div>
+
+                </div>
             ))}
           </div>
           <Button id = "select-btn" text="Select" width="350px" height="40px" onClick={submitOptions}/>
+          <Link to="/preferences">
+              <Button text = "New Search" width="350px" height="40px" bg="#d1c8c8" onClick={()=> {
+                cookies.remove("keyword");
+                cookies.remove("preferred");
+              }}/>
+          </Link>
         </div>
         )}
          {dishes.length == 0 && !loaded && (

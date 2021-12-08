@@ -6,7 +6,7 @@ const Group = require("../models/group");
 router.post("/user", function (req, res) {
     const name = req.body.userName;
     const id = req.body.groupID;
-    const newUser = new User({groupId:id, name: name, dishPreferences: []});
+    const newUser = new User({groupId:id, name: name, selectedPreferences:false, dishPreferences: []});
 
     newUser.save((err, result) => {
       if (err) {
