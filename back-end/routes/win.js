@@ -15,8 +15,13 @@ router.get("/win", function (req, res) {
         const count = doc.selectedCuisines.find((selectedCuisine) => {return cuisine == selectedCuisine.cuisine});
 
         if(count) {
+<<<<<<< HEAD
             let maxVotes = -1;
             let finalCuisine = "";
+=======
+            const maxVotes = 0;
+            const finalCuisine = "";
+>>>>>>> 5681077 (Winning cuisine route)
             const selectedCuisinesList = [...doc.selectedCuisines];
             selectedCuisinesList.forEach((selectedCuisine, index) => {
                 if(selectedCuisine.votes > maxVotes) {

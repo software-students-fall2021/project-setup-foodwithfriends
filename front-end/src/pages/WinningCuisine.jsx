@@ -46,12 +46,16 @@ function WinningCuisine(props) {
       />)
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 5681077 (Winning cuisine route)
   // "Indian" vs "indian" --> Figure out where this bug is
   // WC.jsx: Get request with the URL => /'win'
   // Store this result and print the correlated image
   const final = async () => {
+<<<<<<< HEAD
     const cuisine = await get(
       '/win',
       {
@@ -60,11 +64,21 @@ function WinningCuisine(props) {
       return votedCuisine
   };
 <<<<<<< HEAD
+=======
+    const final = await get(
+      '/win',
+      {
+        finalCuisine
+      });
+  };
+  
+>>>>>>> 5681077 (Winning cuisine route)
   
   
 >>>>>>> c324ec0 (Winning cuisine route)
   return (
     <div className="WinningCuisine">
+<<<<<<< HEAD
       <h1 id="winner">WINNER</h1>
       <div className="WinningImage"><img id="winImg" src={winningLogo} alt="Winning cuisine image" /></div>
       <div className="WinningHeader">{props.cuisine}Chosen Cuisine Name</div>
@@ -86,6 +100,12 @@ function WinningCuisine(props) {
         <Button id = "btn" text="Continue" width="260px" height="50px"/>
 >>>>>>> 143bfb3 (fix route)
       </Link>
+=======
+      <div className="WinningImage"><img id="winImg" src={require(`../img/cuisines/${final.cuisine}/${final.thumbnail}`).default} alt="Winning cuisine image"/></div>
+      <div className="WinningHeader">{final.name}</div>
+      <p className="WinningFacts">{final.description}</p>
+      <Button/>
+>>>>>>> 5681077 (Winning cuisine route)
     </div>
     
   );
