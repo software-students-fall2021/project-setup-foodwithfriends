@@ -1,38 +1,18 @@
 import "./RestaurantDetails.css";
-import restaurauntPlaceholder from "../img/restauraunt-placeholder-large.jpeg";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { get } from "../utils/request";
 import Loading from '../components/Loading';
 import { Redirect } from 'react-router';
+import { getRandomRestaurantImage } from '../utils/restaurantImage.js'
 
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
-// const data = {
-//   restaurant_name: "Silver Spurs",
-//   restaurant_phone: "(212) 228-2333",
-//   restaurant_website:
-//     "http://www.grubhub.com/nyc/silver-spurs-on-laguardia-place/",
-//   hours: "Daily: 6am-11pm",
-//   price_range: "$$",
-//   restaurant_id: 4072702673999819,
-//   cuisines: ["American", "Burgers", "Diner"],
-//   address: {
-//     city: "New York",
-//     state: "NY",
-//     postal_code: "10012",
-//     street: "490 Laguardia Pl",
-//     formatted: "490 Laguardia Pl New York, NY 10012",
-//   },
-//   geo: { lat: 40.727026, lon: -73.999819 },
-//   menus: [],
-//   last_updated: "2020-10-01T15:13:42.654Z",
-// };
-
 function RestaurantDetails() {
   let { restaurantId } = useParams();
   const [restaurant, setRestaurant] = React.useState(null);
+  const randomRestaurantImage = getRandomRestaurantImage(restaurantId);
 
   if (!cookies.get("groupID")) {
     return (
@@ -71,8 +51,8 @@ function RestaurantDetails() {
     <div className="RestaurantDetails">
       <div className="page-container">
         <div className="page-container-item">
-          <h3 className="rest-name">The Gourmet Soup and Bread House</h3>
-          <img src={restaurauntPlaceholder}></img>
+          <h3 className="rest-name">{restaurant.restaurant_name}</h3>
+          <img src={randomRestaurantImage}></img>
         </div>
         <h4 className="sub-heading">Restauraunt Info</h4>
         <div className="basic-info">
@@ -113,9 +93,11 @@ function RestaurantDetails() {
 
   async function fetchRestaurant(restaurantId) {
     try {
-      const data = await get(`/restaurants/${restaurantId}`);
+      const data = await get(`/restaurants/${restaurantId}`, {
+        groupID: cookies.get("groupID"),
+      });
 
-      setRestaurant(data.restaurant[0]);
+      setRestaurant(data.restaurant);
     } catch (e) {
       console.error(e);
     }

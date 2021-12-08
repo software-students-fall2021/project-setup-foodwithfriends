@@ -48,18 +48,19 @@ function ResultsPage() {
   return (
     <div className="ResultsPage">
       <h2 className="heading">Recommended Restauraunts</h2>
-      {isLoading && <Loading />}
-      <div className="restauraunt-grid">
-        {restaurants.map((restaurant) => (
-          <ResultsCell
-            key={restaurant.restaurant_id}
-            name={restaurant.restaurant_name}
-            description={restaurant.cuisines.join()}
-            percentageMatch={100}
-            restaurantId={restaurant.restaurant_id}
-          />
-        ))}
-      </div>
+      {isLoading ? <Loading /> : (
+        <div>
+          {restaurants.map((restaurant) => (
+            <ResultsCell
+              key={restaurant.restaurant_id}
+              name={restaurant.restaurant_name}
+              description={restaurant.cuisines.join()}
+              percentageMatch={100}
+              restaurantId={restaurant.restaurant_id}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 
@@ -71,6 +72,7 @@ function ResultsPage() {
         searchKeyword: cookies.get("keyword"),
         dishes: cookies.get("preferred"),
       });
+
       setIsLoading(false);
       setRestaurants(response.data);
     } catch (err) {
