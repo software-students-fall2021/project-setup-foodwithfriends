@@ -8,91 +8,34 @@ import { Redirect } from 'react-router';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
-// const restaurauntList = [
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-// ];
-
 function ResultsPage() {
   const [restaurants, setRestaurants] = React.useState([]);
 
   if (!cookies.get("groupID")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nogroup" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nogroup" }
+      }}
+      />)
   }
 
-  if (!cookies.get("user")){
+  if (!cookies.get("user")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nouser" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nouser" }
+      }}
+      />)
   }
 
-  if (!cookies.get("cuisine")){
+  if (!cookies.get("cuisine")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nocuisine", next: "/cuisine"  }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nocuisine", next: "/cuisine" }
+      }}
+      />)
   }
 
 

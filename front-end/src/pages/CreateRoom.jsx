@@ -4,7 +4,7 @@ import React from "react";
 import Button from "../components/Button";
 import Spacer from "../components/Spacer";
 import { post } from '../utils/request';
-import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 import { useHistory } from "react-router-dom";
 import { validateForm } from "../utils/validation"
@@ -54,11 +54,11 @@ function CreateRoom() {
 
   if (cookies.get("groupID")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "group", group: cookies.get("groupName"), next: "/create"}
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "group", group: cookies.get("groupName"), next: "/create" }
+      }}
+      />)
   }
 
   return (
@@ -84,7 +84,7 @@ function CreateRoom() {
           <PlacesAutocomplete
             value={location}
             onChange={setLocation}
-            onSelect={(val) => {handleSelect(val)}}>
+            onSelect={(val) => { handleSelect(val) }}>
 
             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
               <div>
@@ -96,15 +96,15 @@ function CreateRoom() {
                 />
                 <div className="tooltip">
                   <img
-                  id = "currLocIcon"
-                  className="CreateRoom__location__logo"
-                  src={process.env.PUBLIC_URL + "/location.png"}
-                  alt="location"
-                  onClick= {getCurrentLocation}
+                    id="currLocIcon"
+                    className="CreateRoom__location__logo"
+                    src={process.env.PUBLIC_URL + "/location.png"}
+                    alt="location"
+                    onClick={getCurrentLocation}
                   />
                   <span className="tooltip-text">Use Current location</span>
                 </div>
-                <div id ="search-results">
+                <div id="search-results">
                   {loading && <div>Loading...</div>}
                   {suggestions.map((suggestion, i) => {
                     return (
@@ -180,11 +180,11 @@ function CreateRoom() {
 
       <Spacer space="110" />
       <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf"
-      onClick={() => {
+        onClick={() => {
           if (validateForm()) {
             makeRoom();
           }
-      }}
+        }}
       />
     </div>
   );
@@ -193,7 +193,7 @@ function CreateRoom() {
     const logo = document.getElementById("currLocIcon");
     logo.src = `${process.env.PUBLIC_URL}/loop.png`;
     navigator.geolocation.getCurrentPosition((position) => {
-      const {latitude, longitude} = position.coords;
+      const { latitude, longitude } = position.coords;
 
       fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&location_type=APPROXIMATE&result_type=postal_code&key=${process.env.REACT_APP_GOOGLE_KEY}`)
         .then(response => response.json())
@@ -229,9 +229,9 @@ function CreateRoom() {
         backgroundColor: '#404040',
         color: '#FFFFFF'
       } : {
-        backgroundColor: '#EFEBEB',
-        color: '#000000'
-      }
+          backgroundColor: '#EFEBEB',
+          color: '#000000'
+        }
     )
   }
 }

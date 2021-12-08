@@ -26,7 +26,7 @@ export async function get(path, query, options = {}) {
 }
 
 
-export async function post(path, data, options = {}){
+export async function post(path, data, options = {}) {
   const url = BASE_URL + path;
 
   const result = await fetch(url, {

@@ -26,7 +26,7 @@ function User() {
     );
 
     if (response.success) {
-      cookies.set("userID", response.userID, { expires: 0});
+      cookies.set("userID", response.userID, { expires: 0 });
       cookies.set("user", userName, { expires: 0 });
       history.push(`/wait`);
     }
@@ -37,30 +37,30 @@ function User() {
 
   if (!cookies.get("groupID")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nogroup" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nogroup" }
+      }}
+      />)
   }
 
   if (cookies.get("user")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "user", user: cookies.get("user") }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "user", user: cookies.get("user") }
+      }}
+      />)
   }
 
   return (
     <div className="User">
-      <Input labelFor="name" label="Enter your name" inputName="userName" onChange={(e) => setName(e.target.value)} value={userName}/>
+      <Input labelFor="name" label="Enter your name" inputName="userName" onChange={(e) => setName(e.target.value)} value={userName} />
       <Button text="Continue" width="250px" height="40px" onClick={() => {
-          if (validateForm()) {
-            makeUser();
-          }
-      }}/>
+        if (validateForm()) {
+          makeUser();
+        }
+      }} />
     </div>
   );
 }

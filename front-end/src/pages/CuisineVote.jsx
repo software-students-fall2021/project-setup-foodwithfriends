@@ -14,80 +14,80 @@ function CuisineVote() {
 
   if (!cookies.get("groupID")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nogroup" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nogroup" }
+      }}
+      />)
   }
 
   if (!cookies.get("user")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nouser" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nouser" }
+      }}
+      />)
   }
 
   if (cookies.get("cuisine")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "cuisine", cuisine: cookies.get("cuisine") }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "cuisine", cuisine: cookies.get("cuisine") }
+      }}
+      />)
   }
 
   return (
     <div className="Cuisine">
-      <h1 id = "cuisine-heading">Cuisine Vote</h1>
-      <div id = "cuisine-description" className = "text-container">
+      <h1 id="cuisine-heading">Cuisine Vote</h1>
+      <div id="cuisine-description" className="text-container">
         <p>Select an Option</p>
         {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget est sed justo pretium laoreet. Donec placerat viverra quam, id posuere metus blandit eu. Maecenas tempor, elit et gravida volutpat, augue velit placerat leo, ut pharetra sem magna ac orci. Cras sit amet odio quis nunc tincidunt ultrices. </p> */}
       </div>
 
-      <div id = "choice-container">
-        <div className = "panelButton">
-          <div className = "circle"
+      <div id="choice-container">
+        <div className="panelButton">
+          <div className="circle"
             onClick={() => {
               history.push("/random");
-          }}
+            }}
           >
             <img src={QuestionMark} className="questionMark" alt=""></img>
-            </div>
-          <div className= "main-container"
+          </div>
+          <div className="main-container"
             onClick={() => {
               history.push("/random");
-          }}
+            }}
           >
             <div id="text">
-                <div className="title-text">Random Choice</div>
-                <div className="info-text"> Are you indecisive on a cuisine? We&apos;ll help you choose one at random.</div>
+              <div className="title-text">Random Choice</div>
+              <div className="info-text"> Are you indecisive on a cuisine? We&apos;ll help you choose one at random.</div>
             </div>
           </div>
         </div>
 
-        <div className = "panelButton">
-          <div className = "circle"
+        <div className="panelButton">
+          <div className="circle"
             onClick={() => {
               history.push("/choose");
-          }}
+            }}
           >
             <img src={SelectChoice} className="selectChoice" alt=""></img>
           </div>
-          <div className = "main-container"
+          <div className="main-container"
             onClick={() => {
               history.push("/choose");
-          }}
+            }}
           >
-          <div id="text">
-                <div className="title-text"> Choose Cuisine</div>
-                <div className="info-text"> Know exactly what you want? Let your friends know by choosing out of 6 delicious cuisine options.</div>
+            <div id="text">
+              <div className="title-text"> Choose Cuisine</div>
+              <div className="info-text"> Know exactly what you want? Let your friends know by choosing out of 6 delicious cuisine options.</div>
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }

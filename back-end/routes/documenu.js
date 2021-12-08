@@ -10,10 +10,10 @@ router.get("/documenu/dishes", (req, res) => {
     const cuisine = req.query.cuisine;
     const searchKeyWord = req.query.searchKeyword;
 
-    Group.findOne({groupId: id}, async (err, doc) => {
+    Group.findOne({ groupId: id }, async (err, doc) => {
         if (err) {
             console.log("an error occured.")
-            res.send({success: false});
+            res.send({ success: false });
             return;
         }
 
@@ -31,11 +31,11 @@ router.get("/documenu/dishes", (req, res) => {
         let data = [];
         for (let i = 0; i < result.data.length; i++) {
             let name = result.data[i].menu_item_name;
-            name = name.substring(name.indexOf(".")+1);
-            data.push({id: result.data[i].item_id, name: name, description: result.data[i].menu_item_description, cuisine: result.data[i].cuisines});
+            name = name.substring(name.indexOf(".") + 1);
+            data.push({ id: result.data[i].item_id, name: name, description: result.data[i].menu_item_description, cuisine: result.data[i].cuisines });
         }
 
-        res.send({success: true, data: data});
+        res.send({ success: true, data: data });
         return;
     })
 });

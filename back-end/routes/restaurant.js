@@ -17,9 +17,9 @@ router.get("/restaurants/:restaurantId", (req, res) => {
         const { restaurantId } = req.params;
         const restaurantList = restaurants.data;
         const restaurant = restaurantList.filter((restaurant) => {
-        return (
-            restaurant.restaurant_id === parseInt(restaurantId)
-        );
+            return (
+                restaurant.restaurant_id === parseInt(restaurantId)
+            );
         });
 
         res.status(200);
