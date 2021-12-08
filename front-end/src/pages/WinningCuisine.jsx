@@ -33,7 +33,22 @@ function WinningCuisine(props) {
       }}
       />)
   }
+<<<<<<< HEAD
 
+=======
+  // "Indian" vs "indian" --> Figure out where this bug is
+  // WC.jsx: Get request with the URL => /'win'
+  // Store this result and print the correlated image
+  const final = async () => {
+    const final = await get(
+      '/win',
+      {
+        finalCuisine
+      });
+  };
+  
+  
+>>>>>>> c324ec0 (Winning cuisine route)
   return (
     <div className="WinningCuisine">
       <h1 id="winner">WINNER</h1>
