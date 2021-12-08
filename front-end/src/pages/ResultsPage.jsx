@@ -1,11 +1,10 @@
 import "./ResultsPage.css";
 import ResultsCell from "../components/ResultsCell";
 import { get } from "../utils/request";
-
 import React from "react";
 import { Redirect } from 'react-router';
-
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies();
 
 function ResultsPage() {

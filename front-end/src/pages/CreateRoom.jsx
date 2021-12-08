@@ -1,18 +1,15 @@
 import "./CreateRoom.css";
-
 import React from "react";
 import Button from "../components/Button";
 import Spacer from "../components/Spacer";
 import { post } from '../utils/request';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-
 import { useHistory } from "react-router-dom";
 import { validateForm } from "../utils/validation"
 import { Redirect } from 'react-router';
-
 import Cookies from 'universal-cookie';
-const cookies = new Cookies();
 
+const cookies = new Cookies();
 const MAX_CAPACITY = 20;
 const MIN_CAPACITY = 2;
 

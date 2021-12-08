@@ -6,8 +6,8 @@ import { post } from '../utils/request';
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router';
 import { validateForm } from "../utils/validation"
-
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies();
 
 function User() {

@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const server = require("../app");
-
 const env = process.env.NODE_ENV || 'development';
 
 (async () => {

@@ -1,17 +1,14 @@
 import './WinningCuisine.css';
-
 import React from 'react';
 import Button from '../components/Button';
 import winningLogo from '../img/winningimg.jpeg';
-
 import { Redirect } from 'react-router';
 import { Link } from "react-router-dom";
-
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies();
 
 function WinningCuisine(props) {
-
   if (!cookies.get("groupID")) {
     return (
       <Redirect to={{
@@ -20,7 +17,6 @@ function WinningCuisine(props) {
       }}
       />)
   }
-
   if (!cookies.get("user")) {
     return (
       <Redirect to={{

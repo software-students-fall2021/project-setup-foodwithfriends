@@ -1,12 +1,10 @@
 import "./Home.css";
-
 import React, { Fragment } from "react";
 import HomePageLogo from "../components/HomePageLogo";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
 function Home() {
-
   return (
     <Fragment>
       <div className="Home">

@@ -1,5 +1,4 @@
 import './Spacer.css';
-
 import React from 'react';
 
 function Spacer({ space }) {

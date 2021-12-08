@@ -1,13 +1,11 @@
 import "./ResultsCell.css";
 import restaurauntPlaceholder from "../img/restauraunt-placeholder.jpeg";
 import { useHistory } from "react-router-dom";
-
 import React from "react";
 
 function ResultsCell(props) {
   const history = useHistory();
   const { restaurantId, name, description, percentageMatch } = props;
-
   return (
     <div
       className="ResultsCell"

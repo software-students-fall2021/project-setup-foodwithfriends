@@ -1,7 +1,5 @@
 import "./HomePageLogo.css";
-
 import React, { useEffect } from "react";
-
 import food1 from "../img/icons/icons8-bento-50.png";
 import food2 from "../img/icons/icons8-cake-50.png";
 import food3 from "../img/icons/icons8-chinese-noodle-50.png";

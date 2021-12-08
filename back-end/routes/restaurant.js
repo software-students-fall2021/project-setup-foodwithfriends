@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
 const { restauraunt_rankings } = require("../utils/loss_function");
 const restaurants = require("../data/restauraunts.json");
-
 
 router.get("/restaurants", function (req, res) {
     // const result = restauraunt_rankings();

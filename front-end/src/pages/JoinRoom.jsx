@@ -1,16 +1,14 @@
 import './JoinRoom.css';
-
 import React from 'react';
 import InviteCodeInput from '../components/InviteCodeInput';
 import Button from '../components/Button';
-
 import Spacer from '../components/Spacer';
 import { validateForm } from "../utils/validation"
 import { useHistory } from "react-router-dom";
 import { get } from '../utils/request';
 import { Redirect } from 'react-router';
-
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies();
 
 function JoinRoom() {

@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 import { get } from "../utils/request";
 import Loading from '../components/Loading';
 import { Redirect } from 'react-router';
-
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies();
 
 function RestaurantDetails() {

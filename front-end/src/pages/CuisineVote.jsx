@@ -1,12 +1,11 @@
 import './CuisineVote.css';
-
 import React from 'react';
 import QuestionMark from '../img/question-mark.svg';
 import SelectChoice from '../img/select-choice.svg';
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router';
-
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies();
 
 function CuisineVote() {

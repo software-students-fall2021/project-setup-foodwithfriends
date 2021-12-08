@@ -1,5 +1,4 @@
 import './DietaryPreferences.css';
-
 import React from 'react';
 import { Link } from "react-router-dom";
 import PreferenceBox from '../components/PreferenceBox';
