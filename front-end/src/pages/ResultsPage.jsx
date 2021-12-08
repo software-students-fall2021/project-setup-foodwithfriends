@@ -69,8 +69,6 @@ function ResultsPage() {
       const response = await get(
         '/restaurants', {
         groupID: cookies.get("groupID"),
-        searchKeyword: cookies.get("keyword"),
-        dishes: cookies.get("preferred"),
       });
 
       setIsLoading(false);

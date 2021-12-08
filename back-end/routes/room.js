@@ -37,5 +37,5 @@ router.get("/room", function (req,res) {
       res.send({ valid: true, msg: null, groupname: groupname });
     });
 });
-  
+
 module.exports = router;
