@@ -49,33 +49,26 @@ function Wait(props) {
     return votes;
   };
 
-
-
   React.useEffect(() => {
     function initCheck() {
-      console.log("TRY #1")
-        if(props.location.state?.firstWaitingRoom){
-          console.log("TRY #2")
-          checkUser().then((response) => {
-            setUsers(response.num_users);
-            setUserTotal(response.tot_users);
-            setFriends(response.friends);
-            if (response.num_users >= response.tot_users) {
-              window.location.href = "/cuisine";
-            }
-          });
-        }
-        else{
-          console.log("TRY #3")
-          checkFinalVotes().then((response) => {
-            console.log("TRY #4")
-            setUsers(response.num_users);
-            setUserTotal(response.tot_users);
-            if(response.num_users >= response.tot_users){
-              window.location.href = "/results";
-            }
-          });
-        }
+      if (props.location.state?.firstWaitingRoom) {
+        checkUser().then((response) => {
+          setUsers(response.num_users);
+          setUserTotal(response.tot_users);
+          setFriends(response.friends);
+          if (response.num_users >= response.tot_users) {
+            window.location.href = "/cuisine";
+          }
+        });
+      } else {
+        checkFinalVotes().then((response) => {
+          setUsers(response.num_users);
+          setUserTotal(response.tot_users);
+          if (response.num_users >= response.tot_users) {
+            window.location.href = "/results";
+          }
+        });
+      }
     }
     initCheck();
     setInterval(initCheck, 10000);
@@ -86,7 +79,13 @@ function Wait(props) {
     <div className="Wait">
       <h1>Waiting Room</h1>
       <p id="total">
-        {userTotal < 0 ? 'Loading' : <span>{users}/{userTotal} Participants</span>}
+        {userTotal < 0 ? (
+          "Loading"
+        ) : (
+          <span>
+            {users}/{userTotal} Participants
+          </span>
+        )}
       </p>
       <div id="users">
         {friends.map((user, i) => {
