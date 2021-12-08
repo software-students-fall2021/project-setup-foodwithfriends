@@ -50,6 +50,10 @@ const loss_function = (restauraunts, user_preferences) => {
   return restauraunt_ranking;
 };
 
+const checkCuisines = (restaurant_cuisines, group_cuisine) => {
+  return restaurant_cuisines.includes(group_cuisine);
+}
+
 const restauraunt_rankings = () => {
   // TODO: Return List of Restauraunts
   let results = [];
@@ -60,3 +64,4 @@ exports.restauraunt_rankings = restauraunt_rankings;
 exports.generate_restuaraunts_map = generate_restuaraunts_map;
 exports.check_menu = check_menu;
 exports.loss_function = loss_function;
+exports.check_cuisines = checkCuisines;
