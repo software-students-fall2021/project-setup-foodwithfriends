@@ -25,7 +25,6 @@ router.post(
         res.send({ success: false });
         return;
       }
-      //   console.log(result);
       Group.findOneAndUpdate(
         { groupId: id },
         { $addToSet: { friends: newUser } },
