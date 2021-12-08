@@ -41,6 +41,40 @@ If you would like to contribute to our project, we recommend you to checkout our
 
 Check out our [Installation Guide](./INSTALLATION.md) to setup your local development environment.
 
+### Extra credit opportunities
+
+Please note that we have attempted the extra credit.
+
+We have attempted the extra credit by deploying to a Docker container. Please see the docker section of installation and setup guide for more details.
+
+We have also attempted the extra credit using Continuous Deployment setup. On each commit to master, Circle CI will attempt to SSH
+into the server and run a script. The script will pull the latest repository changes, then build the docker container. Finally, each container will install dependencies and run the frontend on ports 80 and backend on port 8000.
+
+See below for deploy.sh script:
+
+```
+#!/bin/bash
+
+#path of your project on the VPS
+cd ~/project-setup-foodwithfriends
+
+#pull from the branch
+git pull origin master
+
+#kill all running docker containers
+docker kill $(docker ps -q)
+
+#go to frontend directory
+cd front-end
+
+# followed by instructions specific to your project that you used to do manually
+docker run --rm -d -p 80:3000 $(docker build -q .)
+
+cd ../back-end
+
+docker run --rm -d -p 8000:8000 $(docker build -q .)
+```
+
 ## Additional Documentation
 
 - [Project Proposal](https://github.com/software-students-fall2021/project-proposal-jennifer-lopez)
