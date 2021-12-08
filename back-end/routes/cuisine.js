@@ -25,7 +25,7 @@ router.post(
       }
 
       const count = doc.selectedCuisines.find((selectedCuisine) => {
-        return cuisine == selectedCuisine.cuisine;
+        return cuisine === selectedCuisine.cuisine;
       });
 
       if (count) {
