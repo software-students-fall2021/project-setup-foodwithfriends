@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import { get } from '../utils/request';
 import Cookies from 'universal-cookie';
 import { post } from '../utils/request';
+import { useHistory } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -16,11 +17,13 @@ function PreferredDish() {
   const [loaded, setLoad] = React.useState(false);
   const [isActive, setActive] = React.useState(false);
   const [activeItem, setItem] = React.useState(-1);
+  const history = useHistory();
+  console.log(dishes);
 
   const fetchDishes = async () => {
     console.log("currently fetching....");
-    const response = await get( '/documenu/dishes', { 
-      groupID: cookies.get("groupID"), 
+    const response = await get( '/documenu/dishes', {
+      groupID: cookies.get("groupID"),
       cuisine: cookies.get("cuisine"),
       searchKeyword: cookies.get("keyword")
     });
@@ -50,6 +53,7 @@ function PreferredDish() {
   const submitOptions = () => {
     const inputs = document.querySelectorAll("input[type='checkbox']");
     let chosenDishes = [];
+    console.log(inputs);
     for (let i = 0; i < inputs.length; i++) {
       if (inputs[i].checked) {
         chosenDishes.push(inputs[i].value)
@@ -61,7 +65,7 @@ function PreferredDish() {
     else {
       // otherwise save dishes #107
       submitDish(chosenDishes);
-      cookies.set("preferred", true);
+      cookies.set("preferred", chosenDishes);
     }
   };
 
@@ -128,7 +132,7 @@ function PreferredDish() {
             {dishes.map((dish, i) => (
                 <div className="pref-content-box" key={i}>
                   <div className={isActive && i == activeItem ? "pref-dish-row activate-color" : "pref-dish-row"}>
-                    <input type="checkbox" value={dish.id}></input>
+                    <input type="checkbox" value={dish.name}></input>
                     <label onClick={() => {
                       if (isActive) {
                         setActive(false);
@@ -175,7 +179,7 @@ function PreferredDish() {
               }}/>
               </Link>
             </div>
-            
+
           </div>
         )}
     </div>

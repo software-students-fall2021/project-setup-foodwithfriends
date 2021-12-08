@@ -4,69 +4,14 @@ import { get } from "../utils/request";
 
 import React from "react";
 import { Redirect } from 'react-router';
+import Loading from '../components/Loading';
 
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
-// const restaurauntList = [
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-//   {
-//     name: "The Soup Kitchen",
-//     description: "American, Dine-in, Takeout",
-//     percentageMatch: 100,
-//     picture: "",
-//   },
-// ];
-
 function ResultsPage() {
   const [restaurants, setRestaurants] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   if (!cookies.get("groupID")) {
     return (
@@ -103,6 +48,7 @@ function ResultsPage() {
   return (
     <div className="ResultsPage">
       <h2 className="heading">Recommended Restauraunts</h2>
+      {isLoading && <Loading />}
       <div className="restauraunt-grid">
         {restaurants.map((restaurant) => (
           <ResultsCell
@@ -119,12 +65,14 @@ function ResultsPage() {
 
   async function fetchRestaurants() {
     try {
-      const data = await get(
-        '/restaurants',
-        {},
-      );
-
-      setRestaurants(data);
+      const response = await get(
+        '/restaurants', {
+        groupID: cookies.get("groupID"),
+        searchKeyword: cookies.get("keyword"),
+        dishes: cookies.get("preferred"),
+      });
+      setIsLoading(false);
+      setRestaurants(response.data);
     } catch (err) {
       console.error(err);
     }

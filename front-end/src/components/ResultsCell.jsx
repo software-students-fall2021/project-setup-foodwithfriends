@@ -1,13 +1,15 @@
 import "./ResultsCell.css";
 import restaurauntPlaceholder from "../img/restauraunt-placeholder.jpeg";
+// import restauraunt1 from "../img/restauraunt1.jpeg";
 import { useHistory } from "react-router-dom";
+// import { getRandomRestaurantImage } from '../utils/restaurantImage.js'
 
 import React from "react";
 
-function ResultsCell(props) {
+function ResultsCell({ restaurantId, name, description, percentageMatch }) {
   const history = useHistory();
-  const { restaurantId, name, description, percentageMatch } = props;
-
+  // const restaurantImage = getRandomRestaurantImage(restaurantId);
+  console.log(restaurauntPlaceholder);
   return (
     <div
       className="ResultsCell"
