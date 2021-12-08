@@ -4,21 +4,12 @@ import React from 'react';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
-<<<<<<< Updated upstream
-function Wait() {
-  const [users, setUsers] = React.useState("")
-  const [userTotal, setUserTotal] = React.useState("?")
-  const [groupId, ] = React.useState(cookies.get("groupID")); //THIS IS TEMPORARY JUST FOR NOW
-  const [friends, setFriends] = React.useState([])
-  
-=======
 function Wait(props) {
   const [users, setUsers] = React.useState("");
   const [userTotal, setUserTotal] = React.useState("");
   const [groupId] = React.useState(cookies.get("groupID")); 
   const [friends, setFriends] = React.useState([]);
 
->>>>>>> Stashed changes
   if (!cookies.get("groupID")) {
     return (
     <Redirect to={{
@@ -38,17 +29,6 @@ function Wait(props) {
   }
   
   const checkUser = async () => {
-<<<<<<< Updated upstream
-    const users = await get(
-      '/wait',
-      {
-        groupId: groupId
-      });
-      return users;
-  };
-
-	React.useEffect(() => {
-=======
     const users = await get("/wait", {
       groupId: groupId,
       firstWaitingRoom: props.location.state?.firstWaitingRoom,
@@ -67,7 +47,6 @@ function Wait(props) {
 
 
   React.useEffect(() => {
->>>>>>> Stashed changes
     function initCheck() {
         if(props.location.state?.firstWaitingRoom){
           checkUser().then((response) => {
@@ -97,13 +76,9 @@ function Wait(props) {
   return (
     <div className="Wait">
       <h1>Waiting Room</h1>
-<<<<<<< Updated upstream
-      <p id="total">{users}/{userTotal} Participants</p>
-=======
       <p id="total">
         {userTotal < 0 ? 'Loading' : <span>{users}/{userTotal} Participants</span>}
       </p>
->>>>>>> Stashed changes
       <div id="users">
         {friends.map( (user, i) =>  {
           const initial = user.name.charAt(0);
