@@ -55,7 +55,6 @@ function ResultsPage() {
               key={restaurant.restaurant_id}
               name={restaurant.restaurant_name}
               description={restaurant.cuisines.join()}
-              percentageMatch={100}
               restaurantId={restaurant.restaurant_id}
             />
           ))}

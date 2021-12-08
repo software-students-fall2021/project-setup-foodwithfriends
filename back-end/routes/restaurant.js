@@ -2,13 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Documenu = require('documenu');
 const Group = require("../models/group");
+const { check_cuisines, check_dishes } = require('../utils/loss_function');
 Documenu.configure(process.env.DOCUMENU_KEY);
 
 router.get("/restaurants", async function (req, res) {
     const id = req.query.groupID;
     const cuisine = 'American';
-    const searchKeyWord = req.query.searchKeyword;
-    const dishes = req.query.dishes;
 
     const { location, priceRange, winningCuisine } = await Group.findOne({ groupId: id });
 
@@ -20,11 +19,12 @@ router.get("/restaurants", async function (req, res) {
             "lon": location.longitude,
             "distance": 5,
             "page": i,
-            "size": 100
+            "size": 50
         };
         let response = await Documenu.Restaurants.searchGeo(params);
         response.data.forEach((restaurant) => {
-            totalRestaurants.push(restaurant);
+          console.log(restaurant);
+          totalRestaurants.push(restaurant);
         })
     }
 
@@ -36,14 +36,30 @@ router.get("/restaurants", async function (req, res) {
     res.send({ success: true, data: filteredRestaurants });
 });
 
-router.get("/restaurants/:restaurantId", async (req, res) => {
+router.get("/restaurants/:restaurantId", (req, res) => {
     try {
         const { restaurantId } = req.params;
-        const response = await Documenu.Restaurants.get(restaurantId);
-        res.status(200);
-        res.send({ restaurant: response.result })
+        const userDishes = JSON.parse(req.query.userDishes);
+        Documenu.Restaurants.get(restaurantId)
+          .then((response) => {
+            const [menu] = response.result.menus;
+            let totalDishes = [];
+            menu.menu_sections.forEach((menu_section) => {
+              menu_section.menu_items.forEach((menu_item) => {
+                totalDishes.push(menu_item.name);
+              })
+            });
+
+            console.log('userDishes: ', userDishes);
+            console.log('totalDishes: ', totalDishes);
+            const matchingPercentage = check_dishes(totalDishes, userDishes);
+
+            res.status(200);
+            res.send({ success: true, restaurant: response.result, dishes: menu.menu_sections, matchingPercentage });
+          })
+
     } catch (err) {
-        res.send(err);
+        res.send({ success: false, err });
     }
 });
 

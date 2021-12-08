@@ -93,11 +93,13 @@ function RestaurantDetails() {
 
   async function fetchRestaurant(restaurantId) {
     try {
-      const data = await get(`/restaurants/${restaurantId}`, {
-        groupID: cookies.get("groupID"),
-      });
+      const response = await get(
+        `/restaurants/${restaurantId}`, {
+          userDishes: JSON.stringify(cookies.get('preferred'))
+        }
+      );
 
-      setRestaurant(data.restaurant);
+      setRestaurant(response.restaurant);
     } catch (e) {
       console.error(e);
     }
