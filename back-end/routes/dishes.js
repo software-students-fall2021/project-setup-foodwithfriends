@@ -6,7 +6,7 @@ router.post("/preferred", function (req, res) {
 
     const userID = req.body.userID;
     const dish = req.body.dish;
-    User.findOneAndUpdate({_id: userID},{$push:{ dishPreferences: dish}},(err, doc) => {
+    User.findOneAndUpdate({_id: userID},{$push:{ dishPreferences: dish}}, {$set:{selectedPreferences: true}},(err, doc) => {
         if (err) {
             console.log("Something wrong when finding the group");
             res.status(500);

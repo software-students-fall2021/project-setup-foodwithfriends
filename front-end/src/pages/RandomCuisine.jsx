@@ -12,7 +12,7 @@ function refreshPage() {
 }
 const cookies = new Cookies();
 
-function RandomCuisine() {
+function RandomCuisine(props) {
   const cuisineData = Object.values(data);
   const generateRand = cuisineData[parseInt(Math.random() * cuisineData.length)];
   const randomCuisine = generateRand;
@@ -54,7 +54,10 @@ function RandomCuisine() {
       }
     );
     if(response.valid){
-      history.push('/wait')
+      props.history.push({
+        pathname: "/wait",
+          state: {firstWaitingRoom: true}
+      })
     }
   };
 

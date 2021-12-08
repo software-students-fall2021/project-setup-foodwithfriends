@@ -28,7 +28,7 @@ function User() {
     if (response.success) {
       cookies.set("userID", response.userID, { expires: 0});
       cookies.set("user", userName, { expires: 0 });
-      history.push(`/wait`);
+      history.push(`/cuisine`);
     }
     else {
       history.push(`/error`);

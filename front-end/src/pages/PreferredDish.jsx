@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 
 const cookies = new Cookies();
 
-function PreferredDish() {
+function PreferredDish(props) {
 
   const [dishes, setdishes] = React.useState([]);
   const [errorMessage, setErrorMessage] = React.useState('');
@@ -32,6 +32,13 @@ function PreferredDish() {
     setdishes(response.data);
   };
 
+  function routeToWait() {
+    props.history.push({
+      pathname: "/wait",
+        state: {firstWaitingRoom: false}
+    })
+  }
+
   const submitDish = async (dish) => {
     const response = await post(
       '/preferred',
@@ -41,7 +48,7 @@ function PreferredDish() {
       }
     );
     if(response.valid){
-      history.push('/wait')
+      routeToWait();
     }
   };
 
@@ -115,9 +122,8 @@ function PreferredDish() {
 
   return (
     <div className="PreferredDish">
-      <Link to="/wait">
-        <Button id="skipButton" text="skip" width="65px" height="30px" bg="#9d9287"/>
-      </Link>
+      <Button id="skipButton" text="skip" width="65px" height="30px" bg="#9d9287" onClick={routeToWait}/>
+      
 
         {dishes.length != 0 && (
           <div>

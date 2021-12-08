@@ -4,12 +4,21 @@ import React from 'react';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
+<<<<<<< Updated upstream
 function Wait() {
   const [users, setUsers] = React.useState("")
   const [userTotal, setUserTotal] = React.useState("?")
   const [groupId, ] = React.useState(cookies.get("groupID")); //THIS IS TEMPORARY JUST FOR NOW
   const [friends, setFriends] = React.useState([])
   
+=======
+function Wait(props) {
+  const [users, setUsers] = React.useState("");
+  const [userTotal, setUserTotal] = React.useState("");
+  const [groupId] = React.useState(cookies.get("groupID")); 
+  const [friends, setFriends] = React.useState([]);
+
+>>>>>>> Stashed changes
   if (!cookies.get("groupID")) {
     return (
     <Redirect to={{
@@ -29,6 +38,7 @@ function Wait() {
   }
   
   const checkUser = async () => {
+<<<<<<< Updated upstream
     const users = await get(
       '/wait',
       {
@@ -38,15 +48,46 @@ function Wait() {
   };
 
 	React.useEffect(() => {
+=======
+    const users = await get("/wait", {
+      groupId: groupId,
+      firstWaitingRoom: props.location.state?.firstWaitingRoom,
+    });
+    return users;
+  };
+
+  const checkFinalVotes = async () => {
+    const votes = await get("/wait", {
+      groupId: groupId,
+      firstWaitingRoom: props.location.state?.firstWaitingRoom,
+    });
+    return votes;
+  };
+
+
+
+  React.useEffect(() => {
+>>>>>>> Stashed changes
     function initCheck() {
-      checkUser().then((response) => {
-        setUsers(response.num_users);
-        setUserTotal(response.tot_users);
-        setFriends(response.friends);
-        if (response.num_users >= response.tot_users) {
-          window.location.href = "/cuisine";
+        if(props.location.state?.firstWaitingRoom){
+          checkUser().then((response) => {
+            setUsers(response.num_users);
+            setUserTotal(response.tot_users);
+            setFriends(response.friends);
+            if (response.num_users >= response.tot_users) {
+              window.location.href = "/cuisine";
+            }
+          });
         }
-      });
+        else{
+          checkFinalVotes().then((response) => {
+            setUsers(response.num_users);
+            setUserTotal(response.tot_users);
+            if(response.num_users >= response.tot_users){
+              window.location.href = "/results";
+            }
+          });
+        }
     }
     initCheck();
     setInterval(initCheck, 10000);
@@ -56,7 +97,13 @@ function Wait() {
   return (
     <div className="Wait">
       <h1>Waiting Room</h1>
+<<<<<<< Updated upstream
       <p id="total">{users}/{userTotal} Participants</p>
+=======
+      <p id="total">
+        {userTotal < 0 ? 'Loading' : <span>{users}/{userTotal} Participants</span>}
+      </p>
+>>>>>>> Stashed changes
       <div id="users">
         {friends.map( (user, i) =>  {
           const initial = user.name.charAt(0);

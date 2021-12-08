@@ -16,7 +16,7 @@ const cookies = new Cookies();
 
 const data = require('../data/cuisines.json');
 
-function ChooseCuisine() {
+function ChooseCuisine(props) {
   const [choice, setChoice] = React.useState("");
   const history = useHistory();
   const vote = async() => {
@@ -32,8 +32,11 @@ function ChooseCuisine() {
         groupId: cookies.get("groupID")
       }
     );
-    if(response.valid == true){
-      history.push('/wait')
+    if(response.valid){
+      props.history.push({
+        pathname: "/wait",
+          state: {firstWaitingRoom: true}
+      })
     }
   }
 
