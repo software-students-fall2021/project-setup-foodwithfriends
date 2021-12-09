@@ -19,7 +19,12 @@ function WinningCuisine(props) {
   const [winningCuisine, setWinningCuisine] = React.useState("");
   const cuisineData = Object.values(data);
 
+<<<<<<< HEAD
 >>>>>>> 143bfb3 (fix route)
+=======
+  const [winningCuisine, setWinningCuisine] = React.useState("");
+
+>>>>>>> d74040c (fix route)
   if (!cookies.get("groupID")) {
     return (
       <Redirect to={{
@@ -56,6 +61,7 @@ function WinningCuisine(props) {
   // Store this result and print the correlated image
   const final = async () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     const cuisine = await get(
       '/win',
       {
@@ -66,20 +72,31 @@ function WinningCuisine(props) {
 <<<<<<< HEAD
 =======
     const final = await get(
+=======
+    const cuisine = await get(
+>>>>>>> d74040c (fix route)
       '/win',
       {
-        finalCuisine
+        groupId: cookies.get("groupID")
       });
+      return votedCuisine
   };
+<<<<<<< HEAD
   
 >>>>>>> 5681077 (Winning cuisine route)
   
   
 >>>>>>> c324ec0 (Winning cuisine route)
+=======
+
+  setWinningCuisine(final());
+
+>>>>>>> d74040c (fix route)
   return (
     <div className="WinningCuisine">
 <<<<<<< HEAD
       <h1 id="winner">WINNER</h1>
+<<<<<<< HEAD
       <div className="WinningImage"><img id="winImg" src={winningLogo} alt="Winning cuisine image" /></div>
       <div className="WinningHeader">{props.cuisine}Chosen Cuisine Name</div>
       <p className="WinningFacts">{props.description}Facts about cuisine. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
@@ -111,6 +128,11 @@ function WinningCuisine(props) {
       <div className="WinningImage"><img id="winImg" src={winningLogo} alt="Winning cuisine image"/></div>
       <div className="WinningHeader">{props.cuisine}Chosen Cuisine Name</div>
       <p className="WinningFacts">{props.description}Facts about cuisine. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+=======
+      <div className="WinningImage"><img id="winImg" src={require(`../img/cuisines/${winningCuisine.cuisine}/${winningCuisine.thumbnail}`).default} alt="Winning cuisine image"/></div>
+      <div className="WinningHeader">{winningCuisine}</div>
+      <p className="WinningFacts">{winningCuisine.description}</p>
+>>>>>>> d74040c (fix route)
       <Link to ="/preferences">
         <Button id = "btn" text="Continue" width="260px" height="50px"/>
       </Link>
