@@ -42,7 +42,6 @@ function CuisineVote() {
       <h1 id="cuisine-heading">Cuisine Vote</h1>
       <div id="cuisine-description" className="text-container">
         <p>Select an Option</p>
-        {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget est sed justo pretium laoreet. Donec placerat viverra quam, id posuere metus blandit eu. Maecenas tempor, elit et gravida volutpat, augue velit placerat leo, ut pharetra sem magna ac orci. Cras sit amet odio quis nunc tincidunt ultrices. </p> */}
       </div>
 
       <div id="choice-container">

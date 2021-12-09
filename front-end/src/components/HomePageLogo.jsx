@@ -86,7 +86,6 @@ function HomePageLogo() {
 
   useEffect(() => {
     setRandomDishes();
-    //eslint-disable-next-line
   }, []);
 
   return (

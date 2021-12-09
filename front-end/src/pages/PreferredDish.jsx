@@ -59,7 +59,6 @@ function PreferredDish() {
       setErrorMessage("Choose at least one dish")
     }
     else {
-      // otherwise save dishes #107
       submitDish(chosenDishes);
       cookies.set("preferred", true);
     }

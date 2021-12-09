@@ -8,7 +8,7 @@ const cookies = new Cookies();
 function Wait() {
   const [users, setUsers] = React.useState("");
   const [userTotal, setUserTotal] = React.useState("?");
-  const [groupId] = React.useState(cookies.get("groupID")); //THIS IS TEMPORARY JUST FOR NOW
+  const [groupId] = React.useState(cookies.get("groupID")); 
   const [friends, setFriends] = React.useState([]);
 
   if (!cookies.get("groupID")) {

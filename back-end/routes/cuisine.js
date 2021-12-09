@@ -17,8 +17,7 @@ router.post("/cuisine", function (req, res) {
 
         const count = doc.selectedCuisines.find((selectedCuisine) => { return cuisine == selectedCuisine.cuisine });
 
-        if (count) { //if count is defined
-            // INCREMENT COUNT MANUALLY
+        if (count) { 
             const newSelectedCuisines = [...doc.selectedCuisines];
             newSelectedCuisines.forEach((selectedCuisine, index) => {
                 if (selectedCuisine.cuisine === cuisine) {
@@ -31,7 +30,7 @@ router.post("/cuisine", function (req, res) {
             },)
 
         }
-        else { //if count is undefined
+        else { 
             const newSelectedCuisines = [...doc.selectedCuisines];
             newSelectedCuisines.push({ cuisine: cuisine, votes: 1 });
             Group.updateOne({ groupId: groupId }, {

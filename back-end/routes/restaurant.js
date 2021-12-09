@@ -4,7 +4,6 @@ const { restauraunt_rankings } = require("../utils/loss_function");
 const restaurants = require("../data/restauraunts.json");
 
 router.get("/restaurants", function (req, res) {
-    // const result = restauraunt_rankings();
     const result = restaurants.data;
     res.status(200);
     res.send(result);

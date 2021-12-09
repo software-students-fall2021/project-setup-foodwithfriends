@@ -84,7 +84,6 @@ function RestaurantDetails() {
                 src={`https://www.google.com/maps/embed/v1/place?q=${restaurant.geo.lat},${restaurant.geo.lon}&key=AIzaSyB_AxybqGJ-K6-3Jr9efLKXdZX_L7pMJ8I`}
               ></iframe>
             </div>
-            {/* <Button id="reserve-btn" text="Reserve a table" width="250px" height="50px"/> */}
           </div>
         </div>
       </div>

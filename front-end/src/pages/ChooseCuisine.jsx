@@ -4,7 +4,7 @@ import CuisineItem from "../components/CuisineItem";
 import Button from "../components/Button";
 import { post } from '../utils/request';
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router';
 import Cookies from 'universal-cookie';
