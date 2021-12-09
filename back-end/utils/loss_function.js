@@ -1,6 +1,4 @@
 const generate_restuaraunts_map = (restauraunts) => {
-  // Generates a list of restauraunt ids to their point values,
-  // Initialized to zero
   const data = Object.fromEntries(
     restauraunts.data.map((restauraunt) => {
       return [
@@ -16,7 +14,6 @@ const generate_restuaraunts_map = (restauraunts) => {
 };
 
 const check_menu = (menus, dishes) => {
-  // Returns number of dishes matching menu
   let matches = 0;
   menus.forEach((menu) => {
     menu.menu_sections.forEach((menu_section) => {
@@ -36,11 +33,9 @@ const loss_function = (restauraunts, user_preferences) => {
   let restauraunt_ranking = generate_restuaraunts_map(restauraunts);
   restauraunts.data.forEach((restauraunt) => {
     user_preferences.forEach((user) => {
-      // Match user price preference
       if (user.price === restauraunt.price_range) {
         restauraunt_ranking[restauraunt.restaurant_id]["points"] += 1;
       }
-      // Match user menu item preference
       restauraunt_ranking[restauraunt.restaurant_id]["points"] += check_menu(
         restauraunt.menus,
         user.dishes
@@ -51,7 +46,6 @@ const loss_function = (restauraunts, user_preferences) => {
 };
 
 const restauraunt_rankings = () => {
-  // TODO: Return List of Restauraunts
   let results = [];
   return results;
 };

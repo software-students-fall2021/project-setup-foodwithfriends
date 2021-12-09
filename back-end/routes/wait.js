@@ -31,11 +31,7 @@ router.get("/wait", query("groupId").isString(), function (req, res) {
       const number_users = doc.friends.length;
       const total_users = doc.numOfFriends;
       res.status(200);
-      res.send({
-        num_users: number_users,
-        tot_users: total_users,
-        friends: friends_array,
-      });
+      res.send({ num_users: number_users, tot_users: total_users, friends: friends_array });
       return;
     });
   });

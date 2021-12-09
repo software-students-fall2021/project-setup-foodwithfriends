@@ -14,34 +14,29 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const name = req.body.userName;
-    const id = req.body.groupID;
-    const newUser = new User({ groupId: id, name: name, dishPreferences: [] });
 
-    newUser.save((err, result) => {
+router.post("/user", function (req, res) {
+  const name = req.body.userName;
+  const id = req.body.groupID;
+  const newUser = new User({ groupId: id, name: name, dishPreferences: [] });
+
+  newUser.save((err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ success: false });
+      return;
+    }
+    Group.findOneAndUpdate({ groupId: id }, { $addToSet: { friends: newUser } }, { new: true }, (err, doc) => {
       if (err) {
-        // console.log(err);
         res.status(500);
         res.send({ success: false });
-        return;
+        return
       }
-      Group.findOneAndUpdate(
-        { groupId: id },
-        { $addToSet: { friends: newUser } },
-        { new: true },
-        (err, doc) => {
-          if (err) {
-            // console.log("Something wrong when updating the data");
-            res.status(500);
-            res.send({ success: false });
-            return;
-          }
-          res.status(200);
-          res.send({ success: true, userID: result._id });
-        }
-      );
+      res.status(200);
+      res.send({ success: true, userID: result._id });
     });
-  }
-);
+  })
+});
+
 
 module.exports = router;
