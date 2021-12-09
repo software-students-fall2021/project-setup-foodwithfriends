@@ -1,5 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const { param, validationResult } = require("express-validator");
 const { restauraunt_rankings } = require("../utils/loss_function");
 const restaurants = require("../data/restauraunts.json");
 
@@ -9,7 +10,14 @@ router.get("/restaurants", function (req, res) {
     res.send(result);
 });
 
-router.get("/restaurants/:restaurantId", (req, res) => {
+router.get(
+  "/restaurants/:restaurantId",
+  param("restaurantId").isString(),
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     try {
         const { restaurantId } = req.params;
         const restaurantList = restaurants.data;
@@ -19,11 +27,12 @@ router.get("/restaurants/:restaurantId", (req, res) => {
             );
         });
 
-        res.status(200);
-        res.send({ restaurant })
+      res.status(200);
+      res.send({ restaurant });
     } catch (err) {
-        res.send(err);
+      res.send(err);
     }
-});
+  }
+);
 
 module.exports = router;

@@ -1,10 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const Group = require("../models/group");
+
 const Documenu = require('documenu');
+const { query, validationResult } = require("express-validator");
 Documenu.configure(process.env.DOCUMENU_KEY);
 
-router.get("/documenu/dishes", (req, res) => {
+router.get(
+  "/documenu/dishes",
+  query("groupID").isString(),
+  query("cuisine").isString(),
+  query("searchKeyword").isString(),
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
     const id = req.query.groupID;
     const cuisine = req.query.cuisine;
     const searchKeyWord = req.query.searchKeyword;
@@ -36,11 +48,12 @@ router.get("/documenu/dishes", (req, res) => {
 
         res.send({ success: true, data: data });
         return;
-    })
-});
+    });
+  }
+);
 
 router.get("/documenu/restaurants", async (req, res) => {
-    res.send("OK");
+  res.send("OK");
 });
 
 module.exports = router;
