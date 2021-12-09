@@ -8,6 +8,12 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
 function WinningCuisine(props) {
+<<<<<<< HEAD
+=======
+
+  const [winningCuisine, setWinningCuisine] = React.useState("");
+
+>>>>>>> 143bfb3 (fix route)
   if (!cookies.get("groupID")) {
     return (
       <Redirect to={{
@@ -40,12 +46,14 @@ function WinningCuisine(props) {
   // WC.jsx: Get request with the URL => /'win'
   // Store this result and print the correlated image
   const final = async () => {
-    const final = await get(
+    const cuisine = await get(
       '/win',
       {
-        finalCuisine
+        groupId: cookies.get("groupID")
       });
+      return votedCuisine
   };
+<<<<<<< HEAD
   
   
 >>>>>>> c324ec0 (Winning cuisine route)
@@ -57,6 +65,19 @@ function WinningCuisine(props) {
       <p className="WinningFacts">{props.description}Facts about cuisine. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
       <Link to="/preferences">
         <Button id="btn" text="Continue" width="260px" height="50px" />
+=======
+
+  setWinningCuisine(final());
+
+  return (
+    <div className="WinningCuisine">
+      <h1 id="winner">WINNER</h1>
+      <div className="WinningImage"><img id="winImg" src={require(`../img/cuisines/${winningCuisine.cuisine}/${winningCuisine.thumbnail}`).default} alt="Winning cuisine image"/></div>
+      <div className="WinningHeader">{winningCuisine}</div>
+      <p className="WinningFacts">{winningCuisine.description}</p>
+      <Link to ="/preferences">
+        <Button id = "btn" text="Continue" width="260px" height="50px"/>
+>>>>>>> 143bfb3 (fix route)
       </Link>
     </div>
     
