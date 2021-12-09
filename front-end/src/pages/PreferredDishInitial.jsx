@@ -22,6 +22,10 @@ function PreferredDishInitial() {
     history.push(`/choose-preferences`);
   };
 
+  React.useEffect(() => {
+    clearWaitRoom();
+  }, []);
+
   if (!cookies.get("groupID")) {
     return (
       <Redirect
@@ -82,6 +86,7 @@ function PreferredDishInitial() {
       userID: cookies.get("userID"),
       dish: [],
       skip: true,
+      groupID: cookies.get("groupID")
     });
     if (response.valid) {
       history.push({
@@ -132,6 +137,19 @@ function PreferredDishInitial() {
       </div>
     </div>
   );
+}
+
+async function clearWaitRoom() {
+  try {
+    const response = await post("/resetWait",
+      {groupId: cookies.get("groupID")}
+    );
+    if (response.success) {
+      console.log("Successfully cleared waiting room data");
+    }
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 export default PreferredDishInitial;

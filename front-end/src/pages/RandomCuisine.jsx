@@ -45,12 +45,12 @@ function RandomCuisine(props) {
   }
 
   const sendVote = async () => {
-    cookies.set("cuisine", randomCuisine.name);
     const response = await post(
       '/cuisine',
       {
-        choice: randomCuisine.name,
-        groupId: cookies.get("groupID")
+        choice: randomCuisine.cuisine,
+        groupId: cookies.get("groupID"),
+        name: cookies.get("user")
       }
     );
     if(response.valid){
@@ -58,6 +58,7 @@ function RandomCuisine(props) {
         pathname: "/wait",
           state: {firstWaitingRoom: true}
       })
+      cookies.set("cuisine", randomCuisine.name);
     }
   };
 

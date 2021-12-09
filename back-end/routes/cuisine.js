@@ -6,6 +6,7 @@ router.post("/cuisine", function (req, res) {
 
     const groupId = req.body.groupId;
     const cuisine = req.body.choice;
+    const friend = req.body.name;
 
     Group.findOne({groupId: groupId}, (err, doc) => {
         if (err) {
@@ -27,7 +28,9 @@ router.post("/cuisine", function (req, res) {
         })
 
         Group.updateOne({groupId: groupId}, {
-            $set: {selectedCuisines: newSelectedCuisines}
+            $set: {selectedCuisines: newSelectedCuisines},
+            $inc: {waitCount: 1},
+            $push:{currWaitFriends: friend}
         }, (err, doc) => {})
 
        }
@@ -35,7 +38,9 @@ router.post("/cuisine", function (req, res) {
         const newSelectedCuisines = [...doc.selectedCuisines];
         newSelectedCuisines.push({cuisine: cuisine, votes: 1 });
         Group.updateOne({groupId: groupId}, {
-            $set: {selectedCuisines: newSelectedCuisines}
+            $set: {selectedCuisines: newSelectedCuisines},
+            $inc: {waitCount: 1},
+            $push:{currWaitFriends: friend}
         }, (err, doc) => {})
 
        }

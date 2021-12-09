@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require("uuid");
 
 router.post("/room", function (req, res) {
     const roomId = uuidv4().substr(0, 5);
-    const newGroup = new Group({groupId: roomId, groupName: req.body.name, numOfFriends: req.body.capacity, location: {latitude: req.body.latitude, longitude: req.body.longitude}, priceRange: req.body.price, friends:[], selectedCuisines: [], winningCuisine: ""});
+    const newGroup = new Group({groupId: roomId, groupName: req.body.name, numOfFriends: req.body.capacity, location: {latitude: req.body.latitude, longitude: req.body.longitude}, priceRange: req.body.price, friends:[], waitCount: 0, currWaitFriends: [], selectedCuisines: [], winningCuisine: ""});
     newGroup.save((err, result) => {
       if (err){
           console.log(err);
@@ -37,5 +37,26 @@ router.get("/room", function (req,res) {
       res.send({ valid: true, msg: null, groupname: groupname });
     });
 });
-  
+
+
+router.post("/resetWait", function (req, res) {
+  const id = req.body.groupId;
+  console.log("the group id is " + id);
+  Group.findOneAndUpdate({groupId: id}, {$set:{waitCount: 0, currWaitFriends: []}},  { "new": true }, (err, doc) => {
+    if (err) {
+      console.log(err);
+      res.send({ success: false });
+      return;
+    }
+
+    console.log("the group id is " + id);
+    console.log("THE UPDATED DOC IS " + doc);
+
+
+    res.status(200);
+    res.send({ success: true });
+    return;
+  })
+});
+
 module.exports = router;

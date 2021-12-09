@@ -45,6 +45,7 @@ function PreferredDish(props) {
       userID: cookies.get("userID"),
       dish: dish,
       skip: skip,
+      groupID: cookies.get("groupID")
     });
     if (response.valid) {
       routeToWait();

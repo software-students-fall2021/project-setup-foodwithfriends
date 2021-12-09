@@ -57,15 +57,20 @@ function Wait(props) {
           setUserTotal(response.tot_users);
           setFriends(response.friends);
           if (response.num_users >= response.tot_users) {
-            window.location.href = "/cuisine";
+            setTimeout(function() {
+              window.location.href = "/win";
+            }, 2500);
           }
         });
       } else {
         checkFinalVotes().then((response) => {
           setUsers(response.num_users);
           setUserTotal(response.tot_users);
+          setFriends(response.friends);
           if (response.num_users >= response.tot_users) {
-            window.location.href = "/results";
+            setTimeout(function() {
+              window.location.href = "/results";
+            }, 2500);
           }
         });
       }
@@ -89,14 +94,14 @@ function Wait(props) {
       </p>
       <div id="users">
         {friends.map((user, i) => {
-          const initial = user.name.charAt(0);
+          const initial = user.charAt(0);
           return (
             <div className="user-item" key={i}>
               <span className="icon">
                 {" "}
                 <span className="initial">{initial}</span>{" "}
               </span>
-              <p>{user.name}</p>
+              <p>{user}</p>
             </div>
           );
         })}

@@ -20,16 +20,14 @@ function ChooseCuisine(props) {
   const [choice, setChoice] = React.useState("");
   const history = useHistory();
   const vote = async() => {
-    if (!choice) {
-      cookies.set("cuisine", "italian");
-      return
-    }
-    cookies.set("cuisine", choice);
+    let cuisineValue = !choice ? "italian" : choice;
+    
     const response = await post(
       '/cuisine',
       {
-        choice: choice,
-        groupId: cookies.get("groupID")
+        choice: cuisineValue,
+        groupId: cookies.get("groupID"),
+        name: cookies.get("user")
       }
     );
     if(response.valid){
@@ -37,6 +35,7 @@ function ChooseCuisine(props) {
         pathname: "/wait",
           state: {firstWaitingRoom: true}
       })
+      cookies.set("cuisine", cuisineValue);
     }
   }
 
