@@ -3,6 +3,7 @@ import './WinningCuisine.css';
 import React from 'react';
 import Button from '../components/Button';
 import winningLogo from '../img/winningimg.jpeg';
+import data from '../data/cuisines.json';
 
 import { Redirect } from 'react-router';
 
@@ -12,6 +13,7 @@ const cookies = new Cookies();
 function WinningCuisine(props) {
 
   const [winningCuisine, setWinningCuisine] = React.useState("");
+  const cuisineData = Object.values(data);
 
   if (!cookies.get("groupID")) {
     return (
@@ -52,13 +54,14 @@ function WinningCuisine(props) {
   };
 
   setWinningCuisine(final());
-
+  const win = cuisineData[winningCuisine];
+  
   return (
     <div className="WinningCuisine">
       <h1 id="winner">WINNER</h1>
-      <div className="WinningImage"><img id="winImg" src={require(`../img/cuisines/${winningCuisine.cuisine}/${winningCuisine.thumbnail}`).default} alt="Winning cuisine image"/></div>
-      <div className="WinningHeader">{winningCuisine}</div>
-      <p className="WinningFacts">{winningCuisine.description}</p>
+      <div className="WinningImage"><img id="winImg" src={require(`../img/cuisines/${win.cuisine}/${win.thumbnail}`).default} alt="Winning cuisine image"/></div>
+      <div className="WinningHeader">{win}</div>
+      <p className="WinningFacts">{win.description}</p>
       <Link to ="/preferences">
         <Button id = "btn" text="Continue" width="260px" height="50px"/>
       </Link>
