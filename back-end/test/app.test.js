@@ -82,22 +82,6 @@ describe('Fetch Restaurant', () => {
   // GET Restaurants
   describe('GET /restaurants', () => {
 
-    // it("It should store group details in the DB first", (done) => {
-    //   const groupDetails = {name: "test", location:"new york", latitude:"40.7128", longitude: "74.0060", price:"$", capacity: 2};
-    //   chai.request(server)
-    //     .post("/room")
-    //     .send(groupDetails)
-    //     .end((err, res) => {
-    //       console.log('body: ', res.body);
-    //       invite = res.body;
-    //       res.should.have.status(200);
-    //       res.body.should.be.a('object');
-    //       res.body.should.have.property('roomId');
-    //       // server.close();
-    //       done();
-    //     });
-    // })
-
     it("It should succeed if the invite code is found in the DB", (done) => {
       chai.request(server)
         .get("/room")
@@ -112,7 +96,6 @@ describe('Fetch Restaurant', () => {
         })
     })
 
-
     it('It should fetch restaurants filtered by winning cuisine', (done) => {
       chai.request(server)
         .get('/restaurants')
@@ -125,7 +108,6 @@ describe('Fetch Restaurant', () => {
           res.body.should.be.a('object');
           res.body.should.have.property('success').eq(true);
           res.body.should.have.property('data').be.an('array');
-          // res.body.should.have.property('valid')
           done();
         })
     })
@@ -158,17 +140,5 @@ describe('Fetch Restaurant', () => {
           done();
         });
     });
-
-    // it('It should have a name property in restaurant', (done) => {
-    //   chai.request(server)
-    //     .get(`/restaurants/${restaurantId}`)
-    //     .end((err, res) => {
-    //       res.should.have.status(200);
-    //       res.body.should.be.a('object');
-    //       res.body.should.have.property('success').eq(true);
-    //       res.body.restaurant.should.have.property('restaurant_name').be.an('string');
-    //       done();
-    //     });
-    // });
   })
 })
