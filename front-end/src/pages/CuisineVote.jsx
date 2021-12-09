@@ -5,7 +5,6 @@ import SelectChoice from '../img/select-choice.svg';
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router';
 import Cookies from 'universal-cookie';
-
 const cookies = new Cookies();
 
 function CuisineVote() {

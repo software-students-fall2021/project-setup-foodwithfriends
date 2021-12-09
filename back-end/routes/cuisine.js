@@ -28,7 +28,7 @@ router.post("/cuisine", function (req, res) {
 
             Group.updateOne({ groupId: groupId }, {
                 $set: { selectedCuisines: newSelectedCuisines }
-            }, (err, doc) => { })
+            },)
 
         }
         else { //if count is undefined
@@ -36,7 +36,7 @@ router.post("/cuisine", function (req, res) {
             newSelectedCuisines.push({ cuisine: cuisine, votes: 1 });
             Group.updateOne({ groupId: groupId }, {
                 $set: { selectedCuisines: newSelectedCuisines }
-            }, (err, doc) => { })
+            },)
 
         }
         res.status(200);

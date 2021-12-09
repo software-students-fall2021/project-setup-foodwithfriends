@@ -32,7 +32,8 @@ function Button(props) {
 
   return (
     <div>
-      <button id={props.id} className="button" onClick={click} type={props.type} style={styles}>{props.text}</button>
+      <button id={props.id} className="button" onClick={click} 
+      type={props.type} style={styles}>{props.text}</button>
     </div>
   );
 }

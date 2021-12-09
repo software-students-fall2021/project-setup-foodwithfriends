@@ -26,7 +26,6 @@ router.get("/room", function (req, res) {
       res.send({ valid: false, msg: "An error occured." });
       return;
     }
-    // console.log(result);
     if (result.length == 0) {
       res.send({ valid: false, msg: "Invalid Invite Code" });
       return;

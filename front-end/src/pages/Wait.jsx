@@ -3,7 +3,6 @@ import { get } from "../utils/request";
 import React from "react";
 import Cookies from "universal-cookie";
 import { Redirect } from "react-router-dom";
-
 const cookies = new Cookies();
 
 function Wait() {

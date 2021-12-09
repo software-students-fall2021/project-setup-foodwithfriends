@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Group = require("../models/group");
 const Documenu = require('documenu');
-
 Documenu.configure(process.env.DOCUMENU_KEY);
 
 router.get("/documenu/dishes", (req, res) => {

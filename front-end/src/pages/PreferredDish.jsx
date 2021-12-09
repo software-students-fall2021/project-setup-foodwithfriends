@@ -164,7 +164,7 @@ function PreferredDish() {
       )}
 
       {dishes.length == 0 && loaded && (
-        <div className="Error" style={{ marginTop: "100px" }}>
+        <div className="Error">
           <h1 className="heading">No Dish Results Found</h1>
           <p className="info space-sides space-top">Try searching with a different keyword to populate this list.</p>
           <div className="button-group">

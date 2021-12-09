@@ -5,7 +5,6 @@ import winningLogo from '../img/winningimg.jpeg';
 import { Redirect } from 'react-router';
 import { Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
-
 const cookies = new Cookies();
 
 function WinningCuisine(props) {
