@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { get } from "../utils/request";
 import Loading from '../components/Loading';
 import { Redirect } from 'react-router';
-import { getRandomRestaurantImage } from '../utils/restaurantImage.js'
+import { getRandomRestaurantImage } from '../utils/restaurant.js'
 
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();

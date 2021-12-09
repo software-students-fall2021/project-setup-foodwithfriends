@@ -56,6 +56,8 @@ function ResultsPage() {
               name={restaurant.restaurant_name}
               description={restaurant.cuisines.join()}
               restaurantId={restaurant.restaurant_id}
+              priceRange={restaurant.price_range}
+              geo={restaurant.geo}
             />
           ))}
         </div>
@@ -69,6 +71,7 @@ function ResultsPage() {
         '/restaurants', {
         groupID: cookies.get("groupID"),
       });
+      console.log(response);
 
       setIsLoading(false);
       setRestaurants(response.data);

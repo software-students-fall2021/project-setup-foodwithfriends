@@ -38,9 +38,11 @@ function CreateRoom() {
       },
     );
 
+
     const roomId = response.roomId;
     cookies.set("groupID", roomId, { expires: 0 });
     cookies.set("groupName", name, { expires: 0 })
+    cookies.set("coord", { latitude, longitude }, { expires: 0 });
     history.push(`/invite`, { roomId: roomId });
   };
 

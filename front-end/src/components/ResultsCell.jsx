@@ -1,21 +1,15 @@
 import "./ResultsCell.css";
 import { useHistory } from "react-router-dom";
-import { getRandomRestaurantImage } from '../utils/restaurantImage.js';
-import { get } from "../utils/request";
+import { getRandomRestaurantImage, getDistanceBetweenTwoPlace } from '../utils/restaurant.js';
 import React from "react";
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
-function ResultsCell({ restaurantId, name, description }) {
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [matchingPercentage, setMatchingPercentage] = React.useState(-1);
+function ResultsCell({ restaurantId, name, description, priceRange, geo }) {
   const history = useHistory();
   const randomRestaurantImage = getRandomRestaurantImage(restaurantId);
-
-  // console.log(cookies.get('preferred'));
-  React.useEffect(() => {
-    fetchMenus();
-  }, []);
+  const coord = cookies.get('coord');
+  const distance = getDistanceBetweenTwoPlace(geo.lat, geo.lon, coord.latitude, coord.longitude, 'N');
 
   return (
     <div
@@ -30,27 +24,13 @@ function ResultsCell({ restaurantId, name, description }) {
         </div>
         <div className="ResultsCell__content__right">
           <div className="ResultsCell__content__right__name">{name}</div>
-          <div className="ResultsCell__content__right__description">{description}</div>
-          <div className="ResultsCell__content__right__percentage">{matchingPercentage}% Match</div>
+          <div className="ResultsCell__content__right__description">{description || 'Others'}</div>
+          <div className="ResultsCell__content__right__price">{priceRange || '?'}</div>
+          <div className="ResultsCell__content__right__distance">{distance.toFixed(2)} miles away</div>
         </div>
       </div>
     </div>
   );
-
-  async function fetchMenus() {
-    try {
-      const response = await get(
-        `/restaurants/${restaurantId}`, {
-          userDishes: JSON.stringify(cookies.get('preferred'))
-        }
-      );
-
-      setIsLoading(false);
-      setMatchingPercentage(response.matchingPercentage);
-    } catch (err) {
-      console.error(err);
-    }
-  }
 }
 
 export default ResultsCell;
