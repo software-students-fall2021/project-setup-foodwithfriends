@@ -71,7 +71,6 @@ function ResultsPage() {
         '/restaurants', {
         groupID: cookies.get("groupID"),
       });
-      console.log(response);
 
       setIsLoading(false);
       setRestaurants(response.data);
