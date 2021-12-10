@@ -19,7 +19,7 @@ router.get("/restaurants", async function (req, res) {
             "lon": location.longitude,
             "distance": 5,
             "page": i,
-            "size": 50
+            "size": 100
         };
         let response = await Documenu.Restaurants.searchGeo(params);
         response.data.forEach((restaurant) => {
