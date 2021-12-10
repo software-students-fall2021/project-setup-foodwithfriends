@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import { get } from '../utils/request';
 import Cookies from 'universal-cookie';
 import { post } from '../utils/request';
+import { useHistory } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -16,6 +17,7 @@ function PreferredDish() {
   const [loaded, setLoad] = React.useState(false);
   const [isActive, setActive] = React.useState(false);
   const [activeItem, setItem] = React.useState(-1);
+  const history = useHistory();
 
   const fetchDishes = async () => {
     console.log("currently fetching....");
@@ -50,6 +52,7 @@ function PreferredDish() {
   const submitOptions = () => {
     const inputs = document.querySelectorAll("input[type='checkbox']");
     let chosenDishes = [];
+
     for (let i = 0; i < inputs.length; i++) {
       if (inputs[i].checked) {
         chosenDishes.push(inputs[i].value)
@@ -60,7 +63,7 @@ function PreferredDish() {
     }
     else {
       submitDish(chosenDishes);
-      cookies.set("preferred", true);
+      cookies.set("preferred", chosenDishes);
     }
   };
 

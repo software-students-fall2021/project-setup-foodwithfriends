@@ -1,3 +1,4 @@
+const { assert } = require("chai");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const server = require("../app");
@@ -59,7 +60,6 @@ describe('Invite Code', () => {
 })
 
 describe('Create new User', () => {
-
   // POST User Creation
   describe("POST  /user", () => {
     it("It should create and store a new user in the DB", (done) => {
@@ -77,3 +77,68 @@ describe('Create new User', () => {
   })
 });
 
+describe('Fetch Restaurant', () => {
+
+  // GET Restaurants
+  describe('GET /restaurants', () => {
+
+    it("It should succeed if the invite code is found in the DB", (done) => {
+      chai.request(server)
+        .get("/room")
+        .query({inviteCode: invite.roomId})
+        .end((err,res) => {
+
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('valid').eq(true);
+          res.body.should.have.property('msg').eq(null);
+          done();
+        })
+    })
+
+    it('It should fetch restaurants filtered by winning cuisine', (done) => {
+      chai.request(server)
+        .get('/restaurants')
+        .query({
+          groupId: invite.roomId
+        })
+        .end((err, res) => {
+          console.log(res.body);
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('success').eq(true);
+          res.body.should.have.property('data').be.an('array');
+          done();
+        })
+    })
+  })
+
+  describe('GET /restaurants/:restaurantId', (req, res) => {
+    const restaurantId = '4076262074000177';
+
+    it('It should fetch one restaurant', (done) => {
+      chai.request(server)
+        .get(`/restaurants/${restaurantId}`)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('restaurant').be.an('object');
+          res.body.should.have.property('success').eq(true);
+          done();
+        });
+    });
+
+    it('It should have a name property in restaurant', (done) => {
+      chai.request(server)
+        .get(`/restaurants/${restaurantId}`)
+        .end((err, res) => {
+          console.log(res.body);
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('success').eq(true);
+          res.body.restaurant.should.have.property('restaurant_name').be.an('string');
+          done();
+        });
+    });
+  })
+})

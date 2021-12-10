@@ -45,6 +45,36 @@ const loss_function = (restauraunts, user_preferences) => {
   return restauraunt_ranking;
 };
 
+const check_cuisines = (restaurant_cuisines, group_cuisine) => {
+  if (restaurant_cuisines.includes(group_cuisine)) {
+    return true;
+  } else {
+    const matches = restaurant_cuisines.filter((dish) => {
+      return dish.toLowerCase().indexOf(group_cuisine.toLowerCase()) !== -1
+    });
+
+    if (matches.length > 0) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+const check_dishes = (restaurant_menus, user_preferences) => {
+  const count = user_preferences.reduce((acc, val) => {
+    let matches = restaurant_menus.filter((dish) => {
+      return dish.toLowerCase().indexOf(val.toLowerCase()) !== -1
+    });
+    if (restaurant_menus.includes(val.toLowerCase()) || matches.length > 0) {
+      return ++acc;
+    }
+    return acc;
+  }, 0)
+
+  return (count / restaurant_menus.length) * 100;
+};
+
 const restauraunt_rankings = () => {
   let results = [];
   return results;
@@ -54,3 +84,5 @@ exports.restauraunt_rankings = restauraunt_rankings;
 exports.generate_restuaraunts_map = generate_restuaraunts_map;
 exports.check_menu = check_menu;
 exports.loss_function = loss_function;
+exports.check_cuisines = check_cuisines;
+exports.check_dishes = check_dishes;
