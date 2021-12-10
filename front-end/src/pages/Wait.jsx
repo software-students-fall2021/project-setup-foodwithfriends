@@ -59,7 +59,7 @@ function Wait(props) {
           if (response.num_users >= response.tot_users) {
             setTimeout(function() {
               window.location.href = "/win";
-            }, 2500);
+            }, 1000);
           }
         });
       } else {
@@ -70,7 +70,7 @@ function Wait(props) {
           if (response.num_users >= response.tot_users) {
             setTimeout(function() {
               window.location.href = "/results";
-            }, 2500);
+            }, 1000);
           }
         });
       }

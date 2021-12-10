@@ -10,6 +10,7 @@ const Group = new Schema ({
     friends: [{type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     waitCount: Number,
     currWaitFriends: [String],
+    resetRoom: false,
     selectedCuisines: [{cuisine: String, votes: Number}],
     winningCuisine: String
 });

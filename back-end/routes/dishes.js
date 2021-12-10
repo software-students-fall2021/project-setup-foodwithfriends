@@ -7,49 +7,43 @@ router.post("/preferred", function (req, res) {
 
     const userID = req.body.userID;
     const dish = req.body.dish;
-    const skip = req.body.skip;
     const groupID = req.body.groupID;
 
-    if(skip){
-        User.findOneAndUpdate({_id: userID}, {$set:{selectedPreferences: true}},(err, doc) => {
-            if (err) {
-                console.log("Something wrong when finding the group");
-                res.status(500);
-                res.send(err);
-                return;
+    User.findOne({_id : userID} , (err, user) => {
+        if (err) {
+            console.log("Something went wrong");
+            res.status(500);
+            res.send(err);
+        }
+
+        Group.findOne({groupId: groupID}, (error, group) => {
+            
+            let alreadyResetRoom = group.resetRoom;
+            let numInWait = group.waitCount;
+            let friendsInWait = [...group.currWaitFriends];
+
+            if (!alreadyResetRoom && numInWait > 0) {
+                alreadyResetRoom = true;
+                numInWait = 0;
+                friendsInWait = [];
+                console.log("currently resetting....");
             }
 
-            Group.updateOne({groupId: groupID}, {
-                $inc: {waitCount: 1},
-                $push:{currWaitFriends: doc.name}
-            }, (err, doc) => {
+            friendsInWait.push(user.name);
 
-                res.status(200);
-                res.send({valid: true});
-            })
+            group.resetRoom = alreadyResetRoom;
+            group.waitCount = numInWait + 1;
+            group.currWaitFriends = friendsInWait;
 
-        });
-
-    }
-    else {
-        User.findOneAndUpdate({_id: userID},{$push:{ dishPreferences: dish}}, {$set:{selectedPreferences: true}},(err, doc) => {
-            if (err) {
-                console.log("Something wrong when finding the group");
-                res.status(500);
-                res.send(err);
-                return;
-            }
-                       
-            Group.updateOne({groupId: groupID}, {
-                $inc: {waitCount: 1},
-                $push:{currWaitFriends: doc.name}
-            }, (err, doc) => {
-
-                res.status(200);
-                res.send({valid: true});
-            })
-        });
-    }
+            group.save((er, rs) => {
+                user.dishPreferences = [...dish];
+                user.save((er, rs) => {
+                    res.status(200);
+                    res.send({valid: true});
+                })
+            });
+        })
+    })
 });
 
 module.exports = router;
