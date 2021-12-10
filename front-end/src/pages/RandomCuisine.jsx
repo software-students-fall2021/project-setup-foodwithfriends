@@ -16,7 +16,7 @@ function RandomCuisine(props) {
   const cuisineData = Object.values(data);
   const generateRand = cuisineData[parseInt(Math.random() * cuisineData.length)];
   const randomCuisine = generateRand;
-  const history = useHistory();
+
   if (!cookies.get("groupID")) {
     return (
     <Redirect to={{
