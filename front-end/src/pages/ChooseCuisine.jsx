@@ -18,7 +18,6 @@ const data = require('../data/cuisines.json');
 
 function ChooseCuisine(props) {
   const [choice, setChoice] = React.useState("");
-  const history = useHistory();
   const vote = async() => {
     let cuisineValue = !choice ? "italian" : choice;
     
