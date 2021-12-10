@@ -1,6 +1,7 @@
 import './WinningCuisine.css';
 import React from 'react';
 import Button from '../components/Button';
+<<<<<<< HEAD
 import winningLogo from '../img/winningimg.jpeg';
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -10,25 +11,38 @@ import winningLogo from '../img/winningimg.jpeg';
 import data from '../data/cuisines.json';
 
 >>>>>>> d58bc22 (fix front end)
+=======
+import data from '../data/cuisines.json';
+
+import { get } from "../utils/request";
+>>>>>>> eb4a502 (Make changes)
 import { Redirect } from 'react-router';
 import { Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
+<<<<<<< HEAD
 function WinningCuisine(props) {
 <<<<<<< HEAD
 =======
 
   const [winningCuisine, setWinningCuisine] = React.useState("");
   const cuisineData = Object.values(data);
+=======
+function WinningCuisine() {
+>>>>>>> eb4a502 (Make changes)
 
 <<<<<<< HEAD
 >>>>>>> 143bfb3 (fix route)
 =======
   const [winningCuisine, setWinningCuisine] = React.useState("");
   const cuisineData = Object.values(data);
+<<<<<<< HEAD
 
 >>>>>>> d74040c (fix route)
+=======
+  console.log("i am in the front end");
+>>>>>>> eb4a502 (Make changes)
   if (!cookies.get("groupID")) {
     return (
       <Redirect to={{
@@ -56,6 +70,7 @@ function WinningCuisine(props) {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 =======
@@ -67,6 +82,11 @@ function WinningCuisine(props) {
 <<<<<<< HEAD
 <<<<<<< HEAD
     const cuisine = await get(
+=======
+
+  const final = async () => {
+    const votedCuisine = await get(
+>>>>>>> eb4a502 (Make changes)
       '/win',
       {
         groupId: cookies.get("groupID")
