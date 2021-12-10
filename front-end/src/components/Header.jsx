@@ -2,7 +2,6 @@ import "./Header.css";
 import Logo from "./Logo";
 import InformationIcon from "./InformationIcon";
 import { Link } from "react-router-dom";
-
 import React from "react";
 
 function Header() {

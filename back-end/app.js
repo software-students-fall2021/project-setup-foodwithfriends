@@ -42,7 +42,7 @@ app.use(waitRoutes);
 const env = process.env.NODE_ENV || 'development';
 const port = env === "test" ? 80 : 8000;
 
-let server = app.listen(port,  () => {
+let server = app.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });
 

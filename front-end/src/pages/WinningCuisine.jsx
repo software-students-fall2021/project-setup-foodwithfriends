@@ -1,5 +1,4 @@
 import './WinningCuisine.css';
-
 import React from 'react';
 import Button from '../components/Button';
 import data from '../data/cuisines.json';
@@ -7,7 +6,6 @@ import data from '../data/cuisines.json';
 import { get } from "../utils/request";
 import { Redirect } from 'react-router';
 import { Link } from "react-router-dom";
-
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
@@ -18,29 +16,28 @@ function WinningCuisine() {
   console.log("i am in the front end");
   if (!cookies.get("groupID")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nogroup" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nogroup" }
+      }}
+      />)
+  }
+  if (!cookies.get("user")) {
+    return (
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nouser" }
+      }}
+      />)
   }
 
-  if (!cookies.get("user")){
+  if (!cookies.get("cuisine")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nouser" }
-    }}
-    />)
-  }
-
-  if (!cookies.get("cuisine")){
-    return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nocuisine", next: "/cuisine" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nocuisine", next: "/cuisine" }
+      }}
+      />)
   }
 
   const final = async () => {

@@ -34,7 +34,7 @@ export const join_post = async (roomId) => {
       roomId
     }),
   };
-  return await fetch(base_url +`/invite/${roomId}`, requestOptions)
+  return await fetch(base_url + `/invite/${roomId}`, requestOptions)
     .then(async (response) => {
       const text = await response.text();
       const data = JSON.parse(text);
