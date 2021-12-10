@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const User = require("../models/user");
 const Group = require("../models/group");
 
 router.get("/win", function (req, res) {
 
     const groupID = req.query.groupID;
-    console.log("helloooooo i am here before ");
-    Group.findOne({groupId: groupId}, (err, doc) => {
+    Group.findOne({groupId: groupID}, (err, doc) => {
         if (err) {
             console.log("Something wrong when finding the group");
             res.status(500);
@@ -15,6 +13,7 @@ router.get("/win", function (req, res) {
             return;
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         const count = doc.selectedCuisines.find((selectedCuisine) => {return cuisine == selectedCuisine.cuisine});
 
@@ -35,6 +34,8 @@ router.get("/win", function (req, res) {
             selectedCuisinesList.forEach((selectedCuisine, index) => {
 =======
         console.log("here after finding group");
+=======
+>>>>>>> 8f4b57f (Remove print statments)
         const selectedCuisinesList = [...doc.selectedCuisines];
         let maxVotes = -1;
         let finalCuisine = "";
