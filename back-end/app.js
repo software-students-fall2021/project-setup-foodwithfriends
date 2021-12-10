@@ -21,6 +21,7 @@ const documenuRoutes = require("./routes/documenu");
 const cuisineRoutes = require("./routes/cuisine");
 const prefDishRoutes = require("./routes/dishes");
 const waitRoutes = require("./routes/wait");
+const winRoutes = require("./routes/win");
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
@@ -38,6 +39,7 @@ app.use(documenuRoutes);
 app.use(cuisineRoutes);
 app.use(prefDishRoutes);
 app.use(waitRoutes);
+app.use(winRoutes);
 
 const env = process.env.NODE_ENV || 'development';
 const port = env === "test" ? 80 : 8000;

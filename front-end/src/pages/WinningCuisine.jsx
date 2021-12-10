@@ -13,7 +13,6 @@ function WinningCuisine() {
 
   const [winningCuisine, setWinningCuisine] = React.useState("");
   const cuisineData = Object.values(data);
-  console.log("i am in the front end");
   if (!cookies.get("groupID")) {
     return (
       <Redirect to={{
