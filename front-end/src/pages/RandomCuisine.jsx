@@ -3,7 +3,6 @@ import React from 'react';
 import data from '../data/cuisines.json';
 import Button from '../components/Button';
 import { Redirect } from 'react-router';
-import { useHistory } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import { post } from '../utils/request';
 
