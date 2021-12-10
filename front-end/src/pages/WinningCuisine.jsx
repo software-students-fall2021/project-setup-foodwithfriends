@@ -2,20 +2,20 @@ import './WinningCuisine.css';
 
 import React from 'react';
 import Button from '../components/Button';
-import winningLogo from '../img/winningimg.jpeg';
 import data from '../data/cuisines.json';
 
+import { get } from "../utils/request";
 import { Redirect } from 'react-router';
 import { Link } from "react-router-dom";
 
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
-function WinningCuisine(props) {
+function WinningCuisine() {
 
   const [winningCuisine, setWinningCuisine] = React.useState("");
   const cuisineData = Object.values(data);
-
+  console.log("i am in the front end");
   if (!cookies.get("groupID")) {
     return (
     <Redirect to={{
@@ -42,11 +42,9 @@ function WinningCuisine(props) {
     }}
     />)
   }
-  // "Indian" vs "indian" --> Figure out where this bug is
-  // WC.jsx: Get request with the URL => /'win'
-  // Store this result and print the correlated image
+
   const final = async () => {
-    const cuisine = await get(
+    const votedCuisine = await get(
       '/win',
       {
         groupId: cookies.get("groupID")
