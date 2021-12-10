@@ -41,7 +41,7 @@ function App() {
         <Route path='/win' component={WinningCuisine} exact />
         <Route path='/preferences' component={PreferredDishInitial} exact />
         <Route path='/choose-preferences' component={PreferredDish} exact />
-        <Route path='/error' component={Error} exact/>
+        <Route path='/error' component={Error} exact />
       </Switch>
       <Footer />
     </div>

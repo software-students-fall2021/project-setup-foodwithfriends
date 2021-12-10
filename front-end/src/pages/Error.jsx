@@ -1,10 +1,9 @@
 import './Error.css';
-
 import React, { useEffect } from 'react';
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies();
 
 function Error(props) {
@@ -37,28 +36,28 @@ function Error(props) {
 
   let component = null;
 
-  switch(error) {
+  switch (error) {
     case "group":
       component = <div>
-        <h1 className = "heading">Already in a group</h1>
-          <p className="info">Uh oh...</p>
-          <p className = "info space-sides">It seems like you already joined a group called <span className="bold">{group}</span></p>
-          <div className="button-group">
-            <Button text = "Leave Group" width="250px" height="50px" bg="#6e6d63" onClick={resetCookies}/>
-          </div>
+        <h1 className="heading">Already in a group</h1>
+        <p className="info">Uh oh...</p>
+        <p className="info space-sides">It seems like you already joined a group called <span className="bold">{group}</span></p>
+        <div className="button-group">
+          <Button text="Leave Group" width="250px" height="50px" bg="#6e6d63" onClick={resetCookies} />
+        </div>
       </div>;
       break;
     case "nogroup":
       component = <div>
-        <h1 className = "heading">No Group Found</h1>
-        <p className = "info">Please create or join a group before voting</p>
-        <div className = "button-group">
-         <Link to="/create">
-           <Button text = "Create" width="250px" height="40px" bg="#b7b4a7"/>
-         </Link>
-         <Link to="/join">
-           <Button text = "Join" width="250px" height="40px" bg="#787567"/>
-         </Link>
+        <h1 className="heading">No Group Found</h1>
+        <p className="info">Please create or join a group before voting</p>
+        <div className="button-group">
+          <Link to="/create">
+            <Button text="Create" width="250px" height="40px" bg="#b7b4a7" />
+          </Link>
+          <Link to="/join">
+            <Button text="Join" width="250px" height="40px" bg="#787567" />
+          </Link>
         </div>
       </div>;
       break;
@@ -68,9 +67,9 @@ function Error(props) {
         <p className="info space-sides">Hey <span className="bold">{user}</span>, It seems like you are registered already :)!</p>
         <p className="info space-sides space-top">If this is a mistake, reset your current session with us.</p>
         <div className="button-group">
-            <Button text = "Reset" width="250px" height="50px" bg="#6e6d63" onClick={resetCookies}/>
-        </div>      
-        </div>;
+          <Button text="Reset" width="250px" height="50px" bg="#6e6d63" onClick={resetCookies} />
+        </div>
+      </div>;
       break;
     case "nouser":
       component = <div>
@@ -78,31 +77,31 @@ function Error(props) {
         <p className="info space-sides"> Please set your user information before continuing </p>
         <div className="button-group">
           <Link to="/new-user">
-            <Button text = "Set User Info" width="250px" height="50px" bg="#6e6d63"/>
+            <Button text="Set User Info" width="250px" height="50px" bg="#6e6d63" />
           </Link>
         </div>
       </div>;
       break;
-    case "cuisine": 
+    case "cuisine":
       component = <div>
         <h1 className="heading">Already Voted</h1>
         <p className="info space-sides">You already chose a cuisine. <span className="bold cap-init">{cuisine}</span> food sounds delicious!</p>
         <div className="button-group">
           <Link to="/win">
-              <Button text = "View Winner" width="250px" height="50px" bg="#6e6d63"/>
+            <Button text="View Winner" width="250px" height="50px" bg="#6e6d63" />
           </Link>
         </div>
       </div>
       break;
-    case "nocuisine": 
-      component =  <div>
+    case "nocuisine":
+      component = <div>
         <h1 className="heading">No Cuisine found</h1>
         <p className="info space-sides">It seems like you have not voted for a cuisine</p>
         <div className="button-group">
           <Link to="/cuisine">
-            <Button text = "Vote" width="250px" height="50px" bg="#6e6d63"/>
+            <Button text="Vote" width="250px" height="50px" bg="#6e6d63" />
           </Link>
-        </div>     
+        </div>
       </div>
       break;
     case "preferredkey":
@@ -111,9 +110,9 @@ function Error(props) {
         <p className="info space-sides space-top">Your search keyword is <span className="bold">{keyword}</span></p>
         <div className="button-group">
           <Link to="/choose-preferences">
-            <Button text = "Select Preferences" width="250px" height="50px" bg="#6e6d63"/>
+            <Button text="Select Preferences" width="250px" height="50px" bg="#6e6d63" />
           </Link>
-        </div>   
+        </div>
       </div>
       break;
 
@@ -123,22 +122,22 @@ function Error(props) {
         <p className="info space-sides">Please input a keyword that relates to your preferred dishes.</p>
         <div className="button-group">
           <Link to="/preferences">
-            <Button text = "Submit Keyword" width="250px" height="50px" bg="#6e6d63"/>
+            <Button text="Submit Keyword" width="250px" height="50px" bg="#6e6d63" />
           </Link>
-        </div>     
+        </div>
       </div>
       break;
-    case "preferred": 
+    case "preferred":
       component = <div>
         <h1 className="heading">Already selected preferences</h1>
         <p className="info space-sides space-top">You already chose your dish preferences. Proceed to check out your group&apos;s restaurant results.</p>
         <div className="button-group">
           <Link to="/results">
-            <Button text = "See Results" width="250px" height="50px" bg="#6e6d63"/>
+            <Button text="See Results" width="250px" height="50px" bg="#6e6d63" />
           </Link>
         </div>
       </div>
-    break;
+      break;
     default:
       component = <div>
         <h1 className="heading">404 Page Not Found</h1>

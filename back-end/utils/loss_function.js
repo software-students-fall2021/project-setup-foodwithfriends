@@ -1,6 +1,4 @@
 const generate_restuaraunts_map = (restauraunts) => {
-  // Generates a list of restauraunt ids to their point values,
-  // Initialized to zero
   const data = Object.fromEntries(
     restauraunts.data.map((restauraunt) => {
       return [
@@ -16,7 +14,6 @@ const generate_restuaraunts_map = (restauraunts) => {
 };
 
 const check_menu = (menus, dishes) => {
-  // Returns number of dishes matching menu
   let matches = 0;
   menus.forEach((menu) => {
     menu.menu_sections.forEach((menu_section) => {
@@ -36,11 +33,9 @@ const loss_function = (restauraunts, user_preferences) => {
   let restauraunt_ranking = generate_restuaraunts_map(restauraunts);
   restauraunts.data.forEach((restauraunt) => {
     user_preferences.forEach((user) => {
-      // Match user price preference
       if (user.price === restauraunt.price_range) {
         restauraunt_ranking[restauraunt.restaurant_id]["points"] += 1;
       }
-      // Match user menu item preference
       restauraunt_ranking[restauraunt.restaurant_id]["points"] += check_menu(
         restauraunt.menus,
         user.dishes
@@ -50,8 +45,37 @@ const loss_function = (restauraunts, user_preferences) => {
   return restauraunt_ranking;
 };
 
+const check_cuisines = (restaurant_cuisines, group_cuisine) => {
+  if (restaurant_cuisines.includes(group_cuisine)) {
+    return true;
+  } else {
+    const matches = restaurant_cuisines.filter((dish) => {
+      return dish.toLowerCase().indexOf(group_cuisine.toLowerCase()) !== -1
+    });
+
+    if (matches.length > 0) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+const check_dishes = (restaurant_menus, user_preferences) => {
+  const count = user_preferences.reduce((acc, val) => {
+    let matches = restaurant_menus.filter((dish) => {
+      return dish.toLowerCase().indexOf(val.toLowerCase()) !== -1
+    });
+    if (restaurant_menus.includes(val.toLowerCase()) || matches.length > 0) {
+      return ++acc;
+    }
+    return acc;
+  }, 0)
+
+  return (count / restaurant_menus.length) * 100;
+};
+
 const restauraunt_rankings = () => {
-  // TODO: Return List of Restauraunts
   let results = [];
   return results;
 };
@@ -60,3 +84,5 @@ exports.restauraunt_rankings = restauraunt_rankings;
 exports.generate_restuaraunts_map = generate_restuaraunts_map;
 exports.check_menu = check_menu;
 exports.loss_function = loss_function;
+exports.check_cuisines = check_cuisines;
+exports.check_dishes = check_dishes;
