@@ -16,29 +16,29 @@ function RestaurantDetails() {
 
   if (!cookies.get("groupID")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nogroup" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nogroup" }
+      }}
+      />)
   }
 
-  if (!cookies.get("user")){
+  if (!cookies.get("user")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nouser" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nouser" }
+      }}
+      />)
   }
 
-  if (!cookies.get("cuisine")){
+  if (!cookies.get("cuisine")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nocuisine", next: "/cuisine"  }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nocuisine", next: "/cuisine" }
+      }}
+      />)
   }
 
   React.useEffect(() => {
@@ -85,7 +85,6 @@ function RestaurantDetails() {
               src={`https://www.google.com/maps/embed/v1/place?q=${restaurant.geo.lat},${restaurant.geo.lon}&key=AIzaSyB_AxybqGJ-K6-3Jr9efLKXdZX_L7pMJ8I`}
             ></iframe>
           </div>
-          {/* <Button id="reserve-btn" text="Reserve a table" width="250px" height="50px"/> */}
         </div>
       </div>
     </div>

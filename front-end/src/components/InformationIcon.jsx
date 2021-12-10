@@ -1,5 +1,4 @@
 import "./InformationIcon.css";
-
 import React from "react";
 import InfoIcon from "../img/info-circle-solid.svg";
 

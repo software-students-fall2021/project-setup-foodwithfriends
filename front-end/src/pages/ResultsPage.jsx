@@ -1,12 +1,12 @@
 import "./ResultsPage.css";
 import ResultsCell from "../components/ResultsCell";
 import { get } from "../utils/request";
-
 import React from "react";
 import { Redirect } from 'react-router';
 import Loading from '../components/Loading';
 
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies();
 
 function ResultsPage() {
@@ -15,29 +15,29 @@ function ResultsPage() {
 
   if (!cookies.get("groupID")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nogroup" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nogroup" }
+      }}
+      />)
   }
 
-  if (!cookies.get("user")){
+  if (!cookies.get("user")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nouser" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nouser" }
+      }}
+      />)
   }
 
-  if (!cookies.get("cuisine")){
+  if (!cookies.get("cuisine")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nocuisine", next: "/cuisine"  }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nocuisine", next: "/cuisine" }
+      }}
+      />)
   }
 
 
