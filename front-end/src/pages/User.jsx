@@ -6,7 +6,6 @@ import { post } from '../utils/request';
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router';
 import { validateForm } from "../utils/validation"
-
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
@@ -26,8 +25,9 @@ function User() {
     );
 
     if (response.success) {
-      history.push(`/wait`);
+      cookies.set("userID", response.userID, { expires: 0 });
       cookies.set("user", userName, { expires: 0 });
+      history.push(`/wait`);
     }
     else {
       history.push(`/error`);
@@ -36,30 +36,30 @@ function User() {
 
   if (!cookies.get("groupID")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nogroup" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nogroup" }
+      }}
+      />)
   }
 
   if (cookies.get("user")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "user", user: cookies.get("user") }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "user", user: cookies.get("user") }
+      }}
+      />)
   }
 
   return (
     <div className="User">
-      <Input labelFor="name" label="Enter your name" inputName="userName" onChange={(e) => setName(e.target.value)} value={userName}/>
+      <Input labelFor="name" label="Enter your name" inputName="userName" onChange={(e) => setName(e.target.value)} value={userName} />
       <Button text="Continue" width="250px" height="40px" onClick={() => {
-          if (validateForm()) {
-            makeUser();
-          }
-      }}/>
+        if (validateForm()) {
+          makeUser();
+        }
+      }} />
     </div>
   );
 }

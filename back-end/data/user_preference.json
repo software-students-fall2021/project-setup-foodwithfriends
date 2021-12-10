@@ -5,7 +5,11 @@
       "first_name": "Bob",
       "last_name": "Ross"
     },
-    "cuisines": ["Italian", "Japanese", "American"],
+    "cuisines": [
+      "Italian",
+      "Japanese",
+      "American"
+    ],
     "price": "$$$",
     "geo": {
       "lat": 40.723324,
@@ -23,7 +27,11 @@
       "first_name": "Barack",
       "last_name": "Obama"
     },
-    "cuisines": ["Chinese", "Indian", "American"],
+    "cuisines": [
+      "Chinese",
+      "Indian",
+      "American"
+    ],
     "price": "$$$$",
     "geo": {
       "lat": 40.723345,

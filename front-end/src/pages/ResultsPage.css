@@ -1,4 +1,8 @@
-.restauraunt-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+.ResultsPage {
+  min-width: 100%;
+}
+
+.ResultsPage .heading {
+  margin: 50px;
+  color: #8b5858;
 }

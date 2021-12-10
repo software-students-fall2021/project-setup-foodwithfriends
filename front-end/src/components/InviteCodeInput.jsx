@@ -1,9 +1,7 @@
 import './InviteCodeInput.css';
-
 import React from 'react';
 
 function InviteCodeInput({ disabled = false, value, handleValue }) {
-
   return (
     <input
       className="InviteCodeInput"
