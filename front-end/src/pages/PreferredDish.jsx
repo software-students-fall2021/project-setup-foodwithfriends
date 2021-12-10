@@ -9,7 +9,7 @@ import { post } from "../utils/request";
 
 const cookies = new Cookies();
 
-function PreferredDish(props) {
+function PreferredDish() {
   const [dishes, setdishes] = React.useState([]);
   const [errorMessage, setErrorMessage] = React.useState("");
   const [loaded, setLoad] = React.useState(false);
