@@ -130,12 +130,7 @@ function PreferredDish() {
 
   return (
     <div className="PreferredDish">
-      <Button
-        id="skipButton"
-        text="skip"
-        width="65px"
-        height="30px"
-        bg="#9d9287"
+      <Button id="skipButton" text="skip" width="65px" height="30px" bg="#9d9287"
         onClick={() => {
           submitDish([], true);
         }}
@@ -182,11 +177,7 @@ function PreferredDish() {
               </div>
             ))}
           </div>
-          <Button
-            id="select-btn"
-            text="Select"
-            width="350px"
-            height="40px"
+          <Button  id="select-btn" text="Select" width="350px" height="40px"
             onClick={submitOptions}
           />
           <Link to="/preferences">
@@ -210,18 +201,14 @@ function PreferredDish() {
       )}
 
       {dishes.length == 0 && loaded && (
-        <div className="Error" style={{ marginTop: "100px" }}>
+        <div className="Error" id ="dish-error">
           <h1 className="heading">No Dish Results Found</h1>
           <p className="info space-sides space-top">
             Try searching with a different keyword to populate this list.
           </p>
           <div className="button-group">
             <Link to="/preferences">
-              <Button
-                text="Try Again"
-                width="250px"
-                height="50px"
-                bg="#6e6d63"
+              <Button text="Try Again" width="250px" height="50px" bg="#6e6d63"
                 onClick={() => {
                   cookies.remove("keyword");
                   cookies.remove("preferred");

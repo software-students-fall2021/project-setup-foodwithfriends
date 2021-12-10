@@ -95,14 +95,7 @@ function PreferredDishInitial() {
   return (
     <div className="PreferredDishInitial">
       <Link to="/wait">
-        <Button
-          id="skipButton"
-          text="skip"
-          width="65px"
-          height="30px"
-          bg="#9d9287"
-          onClick={skipDish}
-        />
+        <Button id="skipButton" text="skip" width="65px" height="30px" bg="#9d9287" onClick={skipDish} />
       </Link>
       <div>
         <h1 className="heading"> Dish Preferences</h1>
@@ -119,11 +112,7 @@ function PreferredDishInitial() {
           value={keyword}
           placeholder="e.g. Chicken"
         />
-        <Button
-          text="Continue"
-          width="260px"
-          height="50px"
-          br="15px"
+        <Button text="Continue" width="260px" height="50px" br="15px"
           onClick={() => {
             if (validateForm()) {
               saveKeyWord();

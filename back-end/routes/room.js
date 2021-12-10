@@ -38,20 +38,4 @@ router.get("/room", function (req,res) {
     });
 });
 
-// router.post("/resetWait", function (req, res) {
-//   const id = req.body.groupId;
-
-//   Group.findOneAndUpdate({groupId: id}, {$set:{waitCount: 0, currWaitFriends: []}},  { "new": true }, (err, doc) => {
-//     if (err) {
-//       console.log(err);
-//       res.send({ success: false });
-//       return;
-//     }
-
-//     res.status(200);
-//     res.send({ success: true });
-//     return;
-//   })
-// });
-
 module.exports = router;

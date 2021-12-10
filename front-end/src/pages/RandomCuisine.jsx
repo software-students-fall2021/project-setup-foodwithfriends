@@ -55,7 +55,7 @@ function RandomCuisine(props) {
     if(response.valid){
       props.history.push({
         pathname: "/wait",
-          state: {firstWaitingRoom: true}
+          state: { firstWaitingRoom: true }
       })
       cookies.set("cuisine", randomCuisine.name);
     }

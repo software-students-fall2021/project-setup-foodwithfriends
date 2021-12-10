@@ -9,7 +9,7 @@ router.post("/preferred", function (req, res) {
     const dish = req.body.dish;
     const groupID = req.body.groupID;
 
-    User.findOne({_id : userID} , (err, user) => {
+    User.findOne({ _id : userID } , (err, user) => {
         if (err) {
             console.log("Something went wrong");
             res.status(500);

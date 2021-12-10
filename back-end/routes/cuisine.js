@@ -8,44 +8,40 @@ router.post("/cuisine", function (req, res) {
     const cuisine = req.body.choice;
     const friend = req.body.name;
 
-    Group.findOne({groupId: groupId}, (err, doc) => {
+    Group.findOne({groupId: groupId}, (err, group) => {
+
         if (err) {
             console.log("Something wrong when finding the group");
             res.status(500);
             res.send(err);
             return;
         }
-    
-       const count = doc.selectedCuisines.find((selectedCuisine) => {return cuisine == selectedCuisine.cuisine});
 
-       if(count){ //if count is defined
-        // INCREMENT COUNT MANUALLY
-        const newSelectedCuisines = [...doc.selectedCuisines];
-        newSelectedCuisines.forEach((selectedCuisine, index) => {
-            if(selectedCuisine.cuisine === cuisine){
-                selectedCuisine.votes += 1;
-            }
-        })
+        const count = group.selectedCuisines.find((selectedCuisine) => {return cuisine == selectedCuisine.cuisine});
 
-        Group.updateOne({groupId: groupId}, {
-            $set: {selectedCuisines: newSelectedCuisines},
-            $inc: {waitCount: 1},
-            $push:{currWaitFriends: friend}
-        }, (err, doc) => {})
+        let newSelectedCuisines = [...group.selectedCuisines];
 
-       }
-       else{ //if count is undefined
-        const newSelectedCuisines = [...doc.selectedCuisines];
-        newSelectedCuisines.push({cuisine: cuisine, votes: 1 });
-        Group.updateOne({groupId: groupId}, {
-            $set: {selectedCuisines: newSelectedCuisines},
-            $inc: {waitCount: 1},
-            $push:{currWaitFriends: friend}
-        }, (err, doc) => {})
+        if (count) {
+            newSelectedCuisines.forEach((selectedCuisine) => {
+                if (selectedCuisine.cuisine === cuisine) {
+                    selectedCuisine.votes += 1;
+                }
+            })
+        }
 
-       }
-        res.status(200);
-        res.send({valid: true});
+        else {
+            newSelectedCuisines.push({cuisine: cuisine, votes: 1 });
+        }
+
+        group.selectedCuisines = newSelectedCuisines;
+        group.waitCount = group.waitCount + 1;
+        group.currWaitFriends.push(friend);
+
+        group.save((err, success) => {
+            res.status(200);
+            res.send({valid: true});
+        });
+
     });
 });
 
