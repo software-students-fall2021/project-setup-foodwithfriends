@@ -18,7 +18,6 @@ function PreferredDish() {
   const [isActive, setActive] = React.useState(false);
   const [activeItem, setItem] = React.useState(-1);
   const history = useHistory();
-  console.log(dishes);
 
   const fetchDishes = async () => {
     console.log("currently fetching....");
@@ -53,7 +52,7 @@ function PreferredDish() {
   const submitOptions = () => {
     const inputs = document.querySelectorAll("input[type='checkbox']");
     let chosenDishes = [];
-    console.log(inputs);
+
     for (let i = 0; i < inputs.length; i++) {
       if (inputs[i].checked) {
         chosenDishes.push(inputs[i].value)
