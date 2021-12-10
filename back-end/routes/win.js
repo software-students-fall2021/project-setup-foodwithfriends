@@ -13,29 +13,6 @@ router.get("/win", function (req, res) {
             return;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        const count = doc.selectedCuisines.find((selectedCuisine) => {return cuisine == selectedCuisine.cuisine});
-
-        if(count) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            let maxVotes = -1;
-            let finalCuisine = "";
-=======
-            const maxVotes = 0;
-            const finalCuisine = "";
->>>>>>> 5681077 (Winning cuisine route)
-=======
-            let maxVotes = -1;
-            let finalCuisine = "";
->>>>>>> d74040c (fix route)
-            const selectedCuisinesList = [...doc.selectedCuisines];
-            selectedCuisinesList.forEach((selectedCuisine, index) => {
-=======
-        console.log("here after finding group");
-=======
->>>>>>> 8f4b57f (Remove print statments)
         const selectedCuisinesList = [...doc.selectedCuisines];
         let maxVotes = -1;
         let finalCuisine = "";
@@ -46,7 +23,6 @@ router.get("/win", function (req, res) {
         }
         if(i != selectedCuisinesList.length-1) {
             selectedCuisinesList.forEach((selectedCuisine) => {
->>>>>>> eb4a502 (Make changes)
                 if(selectedCuisine.votes > maxVotes) {
                     maxVotes = selectedCuisine.votes;
                     finalCuisine = selectedCuisine.cuisine;
