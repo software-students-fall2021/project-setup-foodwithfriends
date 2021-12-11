@@ -11,7 +11,6 @@ router.get("/win", function (req, res) {
             res.send(err);
             return;
         }
-
         const selectedCuisinesList = [...doc.selectedCuisines];
         let maxVotes = -1;
         let finalCuisine = "";
@@ -34,7 +33,6 @@ router.get("/win", function (req, res) {
 
         doc.winningCuisine = finalCuisine.cuisine;
         doc.save(( (err, doc) => {
-
             res.status(200);
             res.send({finalCuisine: finalCuisine});
         }));

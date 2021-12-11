@@ -58,6 +58,7 @@ function WinningCuisine() {
   if(!winningCuisine) {
     return <Loading />;
   }
+
   const winCuisine = cuisineData.filter(data => data.cuisine.toLowerCase() === winningCuisine.cuisine.toLowerCase());
   const win = winCuisine[0];
 
@@ -71,7 +72,6 @@ function WinningCuisine() {
         <Button id = "btn" text="Continue" width="260px" height="50px"/>
       </Link>
     </div>
-
   );
 }
 

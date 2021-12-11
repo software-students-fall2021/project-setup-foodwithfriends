@@ -13,7 +13,6 @@ router.get("/restaurants", async function (req, res) {
 
     let totalRestaurants = [];
 
-
     for (let i=1; i<2; i++) {
         const params = {
             "lat": location.latitude,
