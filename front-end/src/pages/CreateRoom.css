@@ -41,11 +41,8 @@
   }
 
   .CreateRoom__location__logo {
-    /* position: absolute; */
     width: 25px;
     height: 25px;
-    /* right: 15px; */
-    /* top: 20px; */
   }
 
   .CreateRoom__friends__number {
