@@ -36,7 +36,7 @@ router.post(
 
             Group.updateOne({ groupId: groupId }, {
                 $set: { selectedCuisines: newSelectedCuisines }
-            },)
+            }, (err, res) => {})
 
         }
         else { 
@@ -44,7 +44,7 @@ router.post(
             newSelectedCuisines.push({ cuisine: cuisine, votes: 1 });
             Group.updateOne({ groupId: groupId }, {
                 $set: { selectedCuisines: newSelectedCuisines }
-            },)
+            }, (err, res) => {})
 
         }
         res.status(200);
