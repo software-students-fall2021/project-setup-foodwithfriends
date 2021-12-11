@@ -18,23 +18,21 @@ router.post(
     }
     const roomId = uuidv4().substr(0, 5);
     const newGroup = new Group({
-      groupId: roomId, 
-      groupName: req.body.name, 
-      numOfFriends: req.body.capacity, 
-      location: {latitude: req.body.latitude, longitude: req.body.longitude}, 
-      priceRange: req.body.price, 
-      friends:[], 
-      waitCount: 0, 
-      currWaitFriends: [], 
-      resetRoom: false, 
-      selectedCuisines: [], 
+      groupId: roomId,
+      groupName: req.body.name,
+      numOfFriends: req.body.capacity,
+      location: {latitude: req.body.latitude, longitude: req.body.longitude},
+      priceRange: req.body.price,
+      friends:[],
+      waitCount: 0,
+      currWaitFriends: [],
+      resetRoom: false,
+      selectedCuisines: [],
       winningCuisine: ""
     });
     newGroup.save((err, result) => {
       if (err) {
         console.log(err);
-      } else {
-        console.log(result);
       }
     });
     res.status(200);
@@ -58,9 +56,10 @@ router.get("/room", query("inviteCode").isString(), function (req, res) {
       res.send({ valid: false, msg: "Invalid Invite Code" });
       return;
     }
+
     const groupname = result[0].groupName;
     res.status(200);
-    res.send({ valid: true, msg: null, groupname: groupname });
+    res.send({ valid: true, msg: null, groupname: groupname, location: result[0].location });
   });
 });
 

@@ -13,6 +13,7 @@ router.get("/restaurants", async function (req, res) {
 
     let totalRestaurants = [];
 
+
     for (let i=1; i<2; i++) {
         const params = {
             "lat": location.latitude,
@@ -28,7 +29,7 @@ router.get("/restaurants", async function (req, res) {
     }
 
     const filteredRestaurants = totalRestaurants.filter((restaurant) => {
-        return (restaurant.price_range === priceRange && check_cuisines(restaurant.cuisines, winningCuisine));
+      return ((!restaurant.price_range || restaurant.price_range === priceRange) && check_cuisines(restaurant.cuisines, winningCuisine));
     });
 
     res.status(200);

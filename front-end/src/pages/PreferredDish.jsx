@@ -24,6 +24,7 @@ function PreferredDish() {
       cuisine: cookies.get("cuisine"),
       searchKeyword: cookies.get("keyword"),
     });
+    console.log(response);
 
     if (response.data.length == 0) {
       setLoad(true);
