@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import { get } from "../utils/request";
 import Cookies from "universal-cookie";
 import { post } from "../utils/request";
+import Loading from '../components/Loading';
 
 const cookies = new Cookies();
 
@@ -21,7 +22,7 @@ function PreferredDish() {
     console.log("currently fetching....");
     const response = await get('/documenu/dishes', {
       groupID: cookies.get("groupID"),
-      cuisine: cookies.get("cuisine"),
+      cuisine: cookies.get("winningCuisine"),
       searchKeyword: cookies.get("keyword"),
     });
 
@@ -158,8 +159,8 @@ function PreferredDish() {
         </div>
       )}
       {dishes.length == 0 && !loaded && (
-        <div className="loader">
-          <p>Loading....</p>
+        <div>
+          <Loading/>
         </div>
       )}
 

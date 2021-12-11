@@ -22,6 +22,8 @@ function Error(props) {
     cookies.remove("keyword");
     cookies.remove("preferred");
     cookies.remove("userID");
+    cookies.remove("coord");
+    cookies.remove("winningCuisine");
     window.location.href = `${next}`;
   };
 
