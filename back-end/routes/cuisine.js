@@ -15,8 +15,10 @@ router.post(
 
     const groupId = req.body.groupId;
     const cuisine = req.body.choice;
+    const friend = req.body.name;
 
-    Group.findOne({ groupId: groupId }, (err, doc) => {
+    Group.findOne({groupId: groupId}, (err, group) => {
+
         if (err) {
             console.log("Something wrong when finding the group");
             res.status(500);
@@ -24,31 +26,30 @@ router.post(
             return;
         }
 
-        const count = doc.selectedCuisines.find((selectedCuisine) => { return cuisine == selectedCuisine.cuisine });
+        const count = group.selectedCuisines.find((selectedCuisine) => {return cuisine == selectedCuisine.cuisine});
 
-        if (count) { 
-            const newSelectedCuisines = [...doc.selectedCuisines];
-            newSelectedCuisines.forEach((selectedCuisine, index) => {
+        let newSelectedCuisines = [...group.selectedCuisines];
+
+        if (count) {
+            newSelectedCuisines.forEach((selectedCuisine) => {
                 if (selectedCuisine.cuisine === cuisine) {
                     selectedCuisine.votes += 1;
                 }
             })
-
-            Group.updateOne({ groupId: groupId }, {
-                $set: { selectedCuisines: newSelectedCuisines }
-            }, (err, res) => {})
-
         }
-        else { 
-            const newSelectedCuisines = [...doc.selectedCuisines];
-            newSelectedCuisines.push({ cuisine: cuisine, votes: 1 });
-            Group.updateOne({ groupId: groupId }, {
-                $set: { selectedCuisines: newSelectedCuisines }
-            }, (err, res) => {})
 
+        else {
+            newSelectedCuisines.push({cuisine: cuisine, votes: 1 });
         }
-        res.status(200);
-        res.send({ valid: true });
+
+        group.selectedCuisines = newSelectedCuisines;
+        group.waitCount = group.waitCount + 1;
+        group.currWaitFriends.push(friend);
+
+        group.save((err, success) => {
+            res.status(200);
+            res.send({valid: true});
+        });
 
     });
   }

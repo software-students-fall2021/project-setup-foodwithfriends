@@ -5,10 +5,10 @@ import Cookies from "universal-cookie";
 import { Redirect } from "react-router-dom";
 const cookies = new Cookies();
 
-function Wait() {
+function Wait(props) {
   const [users, setUsers] = React.useState("");
-  const [userTotal, setUserTotal] = React.useState("?");
-  const [groupId] = React.useState(cookies.get("groupID")); 
+  const [userTotal, setUserTotal] = React.useState("");
+  const [groupId] = React.useState(cookies.get("groupID"));
   const [friends, setFriends] = React.useState([]);
 
   if (!cookies.get("groupID")) {
@@ -36,20 +36,44 @@ function Wait() {
   const checkUser = async () => {
     const users = await get("/wait", {
       groupId: groupId,
+      firstWaitingRoom: props.location.state?.firstWaitingRoom,
     });
     return users;
   };
 
+  const checkFinalVotes = async () => {
+    const votes = await get("/wait", {
+      groupId: groupId,
+      firstWaitingRoom: props.location.state?.firstWaitingRoom,
+    });
+    return votes;
+  };
+
   React.useEffect(() => {
     function initCheck() {
-      checkUser().then((response) => {
-        setUsers(response.num_users);
-        setUserTotal(response.tot_users);
-        setFriends(response.friends);
-        if (response.num_users >= response.tot_users) {
-          window.location.href = "/cuisine";
-        }
-      });
+      if (props.location.state?.firstWaitingRoom) {
+        checkUser().then((response) => {
+          setUsers(response.num_users);
+          setUserTotal(response.tot_users);
+          setFriends(response.friends);
+          if (response.num_users >= response.tot_users) {
+            setTimeout(function() {
+              window.location.href = "/win";
+            }, 1000);
+          }
+        });
+      } else {
+        checkFinalVotes().then((response) => {
+          setUsers(response.num_users);
+          setUserTotal(response.tot_users);
+          setFriends(response.friends);
+          if (response.num_users >= response.tot_users) {
+            setTimeout(function() {
+              window.location.href = "/results";
+            }, 1000);
+          }
+        });
+      }
     }
     initCheck();
     setInterval(initCheck, 10000);
@@ -60,18 +84,24 @@ function Wait() {
     <div className="Wait">
       <h1>Waiting Room</h1>
       <p id="total">
-        {users}/{userTotal} Participants
+        {userTotal < 0 ? (
+          "Loading"
+        ) : (
+          <span>
+            {users}/{userTotal} Participants
+          </span>
+        )}
       </p>
       <div id="users">
         {friends.map((user, i) => {
-          const initial = user.name.charAt(0);
+          const initial = user.charAt(0);
           return (
             <div className="user-item" key={i}>
               <span className="icon">
                 {" "}
                 <span className="initial">{initial}</span>{" "}
               </span>
-              <p>{user.name}</p>
+              <p>{user}</p>
             </div>
           );
         })}

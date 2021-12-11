@@ -5,31 +5,31 @@ import Button from "../components/Button";
 import { post } from '../utils/request';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
-import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 const data = require('../data/cuisines.json');
 
-function ChooseCuisine() {
+function ChooseCuisine(props) {
   const [choice, setChoice] = React.useState("");
-  const history = useHistory();
-  const vote = async () => {
-    if (!choice) {
-      cookies.set("cuisine", "italian");
-      return
-    }
-    cookies.set("cuisine", choice);
+  const vote = async() => {
+    let cuisineValue = !choice ? "italian" : choice;
+    
     const response = await post(
       '/cuisine',
       {
-        choice: choice,
-        groupId: cookies.get("groupID")
+        choice: cuisineValue,
+        groupId: cookies.get("groupID"),
+        name: cookies.get("user")
       }
     );
-    if (response.valid == true) {
-      history.push('/wait')
+    if(response.valid){
+      props.history.push({
+        pathname: "/wait",
+          state: {firstWaitingRoom: true}
+      })
+      cookies.set("cuisine", cuisineValue);
     }
   }
 

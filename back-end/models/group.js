@@ -7,9 +7,11 @@ const Group = new Schema({
     numOfFriends: Number,
     location: { latitude: String, longitude: String },
     priceRange: String,
-    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    selectedCuisines: [{ cuisine: String, votes: Number }],
-    finalWaitingRoom: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    friends: [{type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    waitCount: Number,
+    currWaitFriends: [String],
+    resetRoom: false,
+    selectedCuisines: [{cuisine: String, votes: Number}],
     winningCuisine: String
 });
 

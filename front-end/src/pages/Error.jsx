@@ -21,6 +21,7 @@ function Error(props) {
     cookies.remove("cuisine");
     cookies.remove("keyword");
     cookies.remove("preferred");
+    cookies.remove("userID");
     window.location.href = `${next}`;
   };
 

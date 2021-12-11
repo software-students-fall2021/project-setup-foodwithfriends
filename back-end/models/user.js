@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const User = new Schema({
     groupId: String,
     name: String,
+    selectedPreferences: Boolean,
     dishPreferences: [String]
 });
 

@@ -83,6 +83,10 @@
     height: 65px !important;
 }
 
+.PreferredDish #dish-error {
+    margin-top: 100px;
+}
+
 @media screen and (max-width: 800px) {
     .PreferredDish .pref-content-box {
         width: 70%;

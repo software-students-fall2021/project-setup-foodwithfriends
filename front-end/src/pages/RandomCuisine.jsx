@@ -3,7 +3,6 @@ import React from 'react';
 import data from '../data/cuisines.json';
 import Button from '../components/Button';
 import { Redirect } from 'react-router';
-import { useHistory } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import { post } from '../utils/request';
 
@@ -12,11 +11,11 @@ function refreshPage() {
 }
 const cookies = new Cookies();
 
-function RandomCuisine() {
+function RandomCuisine(props) {
   const cuisineData = Object.values(data);
   const generateRand = cuisineData[parseInt(Math.random() * cuisineData.length)];
   const randomCuisine = generateRand;
-  const history = useHistory();
+
   if (!cookies.get("groupID")) {
     return (
       <Redirect to={{
@@ -45,16 +44,20 @@ function RandomCuisine() {
   }
 
   const sendVote = async () => {
-    cookies.set("cuisine", randomCuisine.name);
     const response = await post(
       '/cuisine',
       {
-        choice: randomCuisine.name,
-        groupId: cookies.get("groupID")
+        choice: randomCuisine.cuisine,
+        groupId: cookies.get("groupID"),
+        name: cookies.get("user")
       }
     );
-    if (response.valid) {
-      history.push('/wait')
+    if(response.valid){
+      props.history.push({
+        pathname: "/wait",
+          state: { firstWaitingRoom: true }
+      })
+      cookies.set("cuisine", randomCuisine.name);
     }
   };
 

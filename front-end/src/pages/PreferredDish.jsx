@@ -1,19 +1,17 @@
-import './PreferredDish.css';
-import React, { useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { Redirect } from 'react-router';
-import Button from '../components/Button';
-import { get } from '../utils/request';
-import Cookies from 'universal-cookie';
-import { post } from '../utils/request';
-import { useHistory } from "react-router-dom";
+import "./PreferredDish.css";
+import React, { useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { Redirect } from "react-router";
+import Button from "../components/Button";
+import { get } from "../utils/request";
+import Cookies from "universal-cookie";
+import { post } from "../utils/request";
 
 const cookies = new Cookies();
 
 function PreferredDish() {
-
   const [dishes, setdishes] = React.useState([]);
-  const [errorMessage, setErrorMessage] = React.useState('');
+  const [errorMessage, setErrorMessage] = React.useState("");
   const [loaded, setLoad] = React.useState(false);
   const [isActive, setActive] = React.useState(false);
   const [activeItem, setItem] = React.useState(-1);
@@ -24,7 +22,7 @@ function PreferredDish() {
     const response = await get('/documenu/dishes', {
       groupID: cookies.get("groupID"),
       cuisine: cookies.get("cuisine"),
-      searchKeyword: cookies.get("keyword")
+      searchKeyword: cookies.get("keyword"),
     });
 
     if (response.data.length == 0) {
@@ -40,7 +38,8 @@ function PreferredDish() {
       '/preferred',
       {
         userID: cookies.get("userID"),
-        dish: dish
+        dish: dish,
+        groupID: cookies.get("groupID")
       }
     );
     if (response.valid) {
@@ -48,14 +47,13 @@ function PreferredDish() {
     }
   };
 
-
   const submitOptions = () => {
     const inputs = document.querySelectorAll("input[type='checkbox']");
     let chosenDishes = [];
 
     for (let i = 0; i < inputs.length; i++) {
       if (inputs[i].checked) {
-        chosenDishes.push(inputs[i].value)
+        chosenDishes.push(inputs[i].value);
       }
     }
     if (chosenDishes.length == 0) {
