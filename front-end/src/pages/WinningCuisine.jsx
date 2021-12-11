@@ -52,6 +52,7 @@ function WinningCuisine() {
         groupId: cookies.get("groupID")
       });
       setWinningCuisine(votedCuisine.finalCuisine);
+      cookies.set("winningCuisine", votedCuisine.finalCuisine.cuisine)
       return votedCuisine.finalCuisine
   };
 
