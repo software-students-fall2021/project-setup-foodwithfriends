@@ -2,8 +2,8 @@ import "./Wait.css";
 import { get } from "../utils/request";
 import React from "react";
 import Cookies from "universal-cookie";
-const cookies = new Cookies();
 import { Redirect } from "react-router-dom";
+const cookies = new Cookies();
 
 function Wait(props) {
   const [users, setUsers] = React.useState("");

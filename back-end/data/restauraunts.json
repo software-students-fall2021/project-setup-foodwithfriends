@@ -12,7 +12,10 @@
       "price_range": "",
       "price_range_num": 0,
       "restaurant_id": 4072332573989656,
-      "cuisines": ["American", "Barbecue"],
+      "cuisines": [
+        "American",
+        "Barbecue"
+      ],
       "address": {
         "city": "NEW YORK",
         "state": "NY",
@@ -1208,7 +1211,11 @@
       "price_range": "$$$",
       "price_range_num": 3,
       "restaurant_id": 4072055173984543,
-      "cuisines": ["Asian Fusion", "Japanese", "Noodles"],
+      "cuisines": [
+        "Asian Fusion",
+        "Japanese",
+        "Noodles"
+      ],
       "address": {
         "city": "New York",
         "state": "NY",
@@ -1505,7 +1512,10 @@
       "price_range": "$$",
       "price_range_num": 2,
       "restaurant_id": 4071913973985926,
-      "cuisines": ["Deli Food", "Sandwiches"],
+      "cuisines": [
+        "Deli Food",
+        "Sandwiches"
+      ],
       "address": {
         "city": "New York",
         "state": "NY",

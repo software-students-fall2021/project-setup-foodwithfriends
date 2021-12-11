@@ -3,7 +3,7 @@ import React from 'react';
 import { useHistory } from "react-router-dom";
 
 function Button(props) {
-  
+
   let history = useHistory();
   const goToPrevPage = () => {
     history.goBack()
@@ -27,12 +27,13 @@ function Button(props) {
   };
 
   if (props.backEnabled) {
-    click = () => {goToPrevPage()}
+    click = () => { goToPrevPage() }
   }
 
   return (
     <div>
-      <button id = {props.id} className = "button" onClick={click} type={props.type} style={styles}>{props.text}</button>
+      <button id={props.id} className="button" onClick={click} 
+      type={props.type} style={styles}>{props.text}</button>
     </div>
   );
 }

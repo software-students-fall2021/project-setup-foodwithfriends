@@ -4,6 +4,9 @@
     font-weight: 300;
 }
 
+.Error{
+    margin-top: 100px;
+}
 .pref-dish-row {
     background-color: #ECECEC;
     display: flex;

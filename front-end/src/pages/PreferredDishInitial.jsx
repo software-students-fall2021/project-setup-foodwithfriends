@@ -1,8 +1,7 @@
-import "./PreferredDishInitial.css";
-
-import React from "react";
-import { Redirect } from "react-router";
-import Cookies from "universal-cookie";
+import './PreferredDishInitial.css';
+import React from 'react';
+import { Redirect } from 'react-router';
+import Cookies from 'universal-cookie';
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { validateForm } from "../utils/validation";
@@ -24,57 +23,47 @@ function PreferredDishInitial() {
 
   if (!cookies.get("groupID")) {
     return (
-      <Redirect
-        to={{
-          pathname: "/error",
-          state: { error: "nogroup" },
-        }}
-      />
-    );
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nogroup" }
+      }}
+      />)
   }
 
   if (!cookies.get("user")) {
     return (
-      <Redirect
-        to={{
-          pathname: "/error",
-          state: { error: "nouser" },
-        }}
-      />
-    );
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nouser" }
+      }}
+      />)
   }
 
   if (!cookies.get("cuisine")) {
     return (
-      <Redirect
-        to={{
-          pathname: "/error",
-          state: { error: "nocuisine", next: "/cuisine" },
-        }}
-      />
-    );
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nocuisine", next: "/cuisine" }
+      }}
+      />)
   }
 
   if (cookies.get("preferred")) {
     return (
-      <Redirect
-        to={{
-          pathname: "/error",
-          state: { error: "preferred" },
-        }}
-      />
-    );
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "preferred" }
+      }}
+      />)
   }
 
   if (cookies.get("keyword")) {
     return (
-      <Redirect
-        to={{
-          pathname: "/error",
-          state: { error: "preferredkey", keyword: cookies.get("keyword") },
-        }}
-      />
-    );
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "preferredkey", keyword: cookies.get("keyword") }
+      }}
+      />)
   }
 
   const skipDish = async () => {

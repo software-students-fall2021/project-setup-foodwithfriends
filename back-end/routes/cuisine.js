@@ -1,8 +1,17 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const Group = require("../models/group");
+const { body, validationResult } = require("express-validator");
 
-router.post("/cuisine", function (req, res) {
+router.post(
+  "/cuisine",
+  body("groupId").isString(),
+  body("choice").isString(),
+  function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
 
     const groupId = req.body.groupId;
     const cuisine = req.body.choice;
@@ -43,6 +52,7 @@ router.post("/cuisine", function (req, res) {
         });
 
     });
-});
+  }
+);
 
 module.exports = router;

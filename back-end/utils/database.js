@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const server = require("../app");
-
 const env = process.env.NODE_ENV || 'development';
 
 (async () => {
-  
+
   if (env === "test") {
 
     let mock_mongodb = await MongoMemoryServer.create();
-  
+
     mongoose.connect(
       mock_mongodb.getUri(),
       {
@@ -17,7 +16,7 @@ const env = process.env.NODE_ENV || 'development';
         useUnifiedTopology: true
       }
     );
-  
+
     setTimeout(
       async () => {
         mongoose.disconnect()
@@ -27,12 +26,12 @@ const env = process.env.NODE_ENV || 'development';
       3000
     );
   }
-  else {  
+  else {
     mongoose.connect(process.env.DB_CONNECTION, {
-        useNewUrlParser: true, 
-        useUnifiedTopology: true
-      }, () => {
-        console.log("connected!")
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }, () => {
+      console.log("connected!")
     });
   }
 })();

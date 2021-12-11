@@ -2,8 +2,14 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const Group = require("../models/group");
+const { query, validationResult } = require("express-validator");
 
-router.get("/wait", function (req, res) {
+router.get("/wait", query("groupId").isString(), function (req, res) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const groupId = req.query.groupId;
 
   Group.findOne({ groupId }, (err, group) => {

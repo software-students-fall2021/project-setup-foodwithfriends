@@ -18,29 +18,29 @@ function RandomCuisine(props) {
 
   if (!cookies.get("groupID")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nogroup" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nogroup" }
+      }}
+      />)
   }
 
   if (!cookies.get("user")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "nouser" }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "nouser" }
+      }}
+      />)
   }
 
   if (cookies.get("cuisine")) {
     return (
-    <Redirect to={{
-      pathname: "/error",
-      state: { error: "cuisine", cuisine: cookies.get("cuisine") }
-    }}
-    />)
+      <Redirect to={{
+        pathname: "/error",
+        state: { error: "cuisine", cuisine: cookies.get("cuisine") }
+      }}
+      />)
   }
 
   const sendVote = async () => {
@@ -70,13 +70,13 @@ function RandomCuisine(props) {
       </div>
       <div id="vote-button-div">
         <Button text="Vote" width="260px" height="50px" br="15px" bg="#3F3F3F"
-        onClick={() => {
-          sendVote();
-        }}
+          onClick={() => {
+            sendVote();
+          }}
         />
       </div>
       <div id="reload" onClick={refreshPage}>
-      <Button text="Different Cuisine" width="260px" height="50px" br="15px" bg="#E7D7D3" color="black" fontWeight="bold"/>
+        <Button text="Different Cuisine" width="260px" height="50px" br="15px" bg="#E7D7D3" color="black" fontWeight="bold" />
       </div>
     </div>
 
