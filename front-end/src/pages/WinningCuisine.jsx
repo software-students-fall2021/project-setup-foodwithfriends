@@ -60,7 +60,7 @@ function WinningCuisine() {
   }
   const winCuisine = cuisineData.filter(data => {return data.name == winningCuisine.charAt(0).toUpperCase() + winningCuisine.substr(1)})
   const win = winCuisine[0];
-  console.log(win);
+  
   return (
     <div className="WinningCuisine">
       <h1 id="winner">WINNER</h1>
