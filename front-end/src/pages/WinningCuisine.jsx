@@ -52,7 +52,7 @@ function WinningCuisine() {
         groupId: cookies.get("groupID")
       });
       setWinningCuisine(votedCuisine.finalCuisine);
-      cookies.set("winningCuisine", votedCuisine.finalCuisine.cuisine)
+      cookies.set("winningCuisine", votedCuisine.finalCuisine)
       return votedCuisine.finalCuisine
   };
 
@@ -60,7 +60,7 @@ function WinningCuisine() {
     return <Loading />;
   }
 
-  const winCuisine = cuisineData.filter(data => data.cuisine.toLowerCase() === winningCuisine.cuisine.toLowerCase());
+  const winCuisine = cuisineData.filter(data => data.cuisine.toLowerCase() === winningCuisine.toLowerCase());
   const win = winCuisine[0];
 
   return (
