@@ -38,7 +38,8 @@ function PreferredDish() {
       '/preferred',
       {
         userID: cookies.get("userID"),
-        dish: dish
+        dish: dish,
+        groupID: cookies.get("groupID")
       }
     );
     if (response.valid) {
