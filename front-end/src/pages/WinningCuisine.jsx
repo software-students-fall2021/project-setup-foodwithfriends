@@ -1,13 +1,24 @@
 import './WinningCuisine.css';
 import React from 'react';
 import Button from '../components/Button';
-import winningLogo from '../img/winningimg.jpeg';
+import data from '../data/cuisines.json';
+
+import { get } from "../utils/request";
 import { Redirect } from 'react-router';
 import { Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import Loading from '../components/Loading';
+
 const cookies = new Cookies();
 
-function WinningCuisine(props) {
+function WinningCuisine() {
+
+  const [winningCuisine, setWinningCuisine] = React.useState("");
+  const cuisineData = Object.values(data);
+  React.useEffect(() => {
+    final();
+  }, []);
+  
   if (!cookies.get("groupID")) {
     return (
       <Redirect to={{
@@ -33,17 +44,34 @@ function WinningCuisine(props) {
       }}
       />)
   }
+  
+  const final = async () => {
+    const votedCuisine = await get(
+      '/win',
+      {
+        groupId: cookies.get("groupID")
+      });
+      setWinningCuisine(votedCuisine.finalCuisine);
+      return votedCuisine.finalCuisine
+  };
 
+  if(!winningCuisine) {
+    return <Loading></Loading>;
+  }
+  const winCuisine = cuisineData.filter(data => {return data.name == winningCuisine.charAt(0).toUpperCase() + winningCuisine.substr(1)})
+  const win = winCuisine[0];
+  
   return (
     <div className="WinningCuisine">
       <h1 id="winner">WINNER</h1>
-      <div className="WinningImage"><img id="winImg" src={winningLogo} alt="Winning cuisine image" /></div>
-      <div className="WinningHeader">{props.cuisine}Chosen Cuisine Name</div>
-      <p className="WinningFacts">{props.description}Facts about cuisine. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-      <Link to="/preferences">
-        <Button id="btn" text="Continue" width="260px" height="50px" />
+      <div className="WinningImage"><img id="winImg" src={require(`../img/cuisines/${win.cuisine}/${win.thumbnail}`).default} alt="Winning cuisine image"/></div>
+      <div className="WinningHeader">{win.name}</div>
+      <p className="WinningFacts">{win.description}</p>
+      <Link to ="/preferences">
+        <Button id = "btn" text="Continue" width="260px" height="50px"/>
       </Link>
     </div>
+    
   );
 }
 
