@@ -27,6 +27,10 @@ function JoinRoom() {
     if (response.valid) {
       cookies.set("groupID", inviteCode, { expires: 0 });
       cookies.set("groupName", response.groupname, { expires: 0 });
+      cookies.set("coord", {
+        latitude: response.location.latitude,
+        longitude: response.location.longitude
+      }, { expires: 0 });
       history.push(`/new-user`);
     }
     else {

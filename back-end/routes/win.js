@@ -3,7 +3,6 @@ const router = express.Router();
 const Group = require("../models/group");
 
 router.get("/win", function (req, res) {
-
     const groupId = req.query.groupId;
     Group.findOne({groupId: groupId}, (err, doc) => {
         if (err) {
@@ -12,8 +11,7 @@ router.get("/win", function (req, res) {
             res.send(err);
             return;
         }
-
-        const selectedCuisinesList = [...doc.selectedCuisines];     
+        const selectedCuisinesList = [...doc.selectedCuisines];
         let maxVotes = -1;
         let finalCuisine = "";
         let sameNumVotes = selectedCuisinesList[0].votes;
@@ -32,10 +30,11 @@ router.get("/win", function (req, res) {
         else {
             finalCuisine = selectedCuisinesList[parseInt(Math.random() * selectedCuisinesList.length)]
         }
+
         doc.winningCuisine = finalCuisine.cuisine;
         doc.save(( (err, doc) => {
             res.status(200);
-            res.send({finalCuisine: finalCuisine.cuisine});
+            res.send({finalCuisine: finalCuisine});
         }));
     });
 });

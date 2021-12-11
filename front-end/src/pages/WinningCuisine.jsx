@@ -18,7 +18,7 @@ function WinningCuisine() {
   React.useEffect(() => {
     final();
   }, []);
-  
+
   if (!cookies.get("groupID")) {
     return (
       <Redirect to={{
@@ -44,7 +44,7 @@ function WinningCuisine() {
       }}
       />)
   }
-  
+
   const final = async () => {
     const votedCuisine = await get(
       '/win',
@@ -56,11 +56,12 @@ function WinningCuisine() {
   };
 
   if(!winningCuisine) {
-    return <Loading></Loading>;
+    return <Loading />;
   }
-  const winCuisine = cuisineData.filter(data => {return data.name == winningCuisine.charAt(0).toUpperCase() + winningCuisine.substr(1)})
+
+  const winCuisine = cuisineData.filter(data => data.cuisine.toLowerCase() === winningCuisine.cuisine.toLowerCase());
   const win = winCuisine[0];
-  
+
   return (
     <div className="WinningCuisine">
       <h1 id="winner">WINNER</h1>
@@ -71,7 +72,6 @@ function WinningCuisine() {
         <Button id = "btn" text="Continue" width="260px" height="50px"/>
       </Link>
     </div>
-    
   );
 }
 

@@ -28,7 +28,7 @@ router.get("/restaurants", async function (req, res) {
     }
 
     const filteredRestaurants = totalRestaurants.filter((restaurant) => {
-        return (restaurant.price_range === priceRange && check_cuisines(restaurant.cuisines, winningCuisine));
+      return ((!restaurant.price_range || restaurant.price_range === priceRange) && check_cuisines(restaurant.cuisines, winningCuisine));
     });
 
     res.status(200);
