@@ -7,12 +7,17 @@ import { get } from "../utils/request";
 import { Redirect } from 'react-router';
 import { Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import Loading from '../components/Loading';
+
 const cookies = new Cookies();
 
 function WinningCuisine() {
 
   const [winningCuisine, setWinningCuisine] = React.useState("");
   const cuisineData = Object.values(data);
+  React.useEffect(() => {
+    final();
+  }, []);
   
   if (!cookies.get("groupID")) {
     return (
@@ -39,24 +44,28 @@ function WinningCuisine() {
       }}
       />)
   }
-
+  
   const final = async () => {
     const votedCuisine = await get(
       '/win',
       {
         groupId: cookies.get("groupID")
       });
-      return votedCuisine
+      setWinningCuisine(votedCuisine.finalCuisine);
+      return votedCuisine.finalCuisine
   };
 
-  setWinningCuisine(final());
-  const win = cuisineData[winningCuisine];
-  
+  if(!winningCuisine) {
+    return <Loading></Loading>;
+  }
+  const winCuisine = cuisineData.filter(data => {return data.name == winningCuisine.charAt(0).toUpperCase() + winningCuisine.substr(1)})
+  const win = winCuisine[0];
+  console.log(win);
   return (
     <div className="WinningCuisine">
       <h1 id="winner">WINNER</h1>
       <div className="WinningImage"><img id="winImg" src={require(`../img/cuisines/${win.cuisine}/${win.thumbnail}`).default} alt="Winning cuisine image"/></div>
-      <div className="WinningHeader">{win}</div>
+      <div className="WinningHeader">{win.name}</div>
       <p className="WinningFacts">{win.description}</p>
       <Link to ="/preferences">
         <Button id = "btn" text="Continue" width="260px" height="50px"/>

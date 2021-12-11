@@ -4,8 +4,8 @@ const Group = require("../models/group");
 
 router.get("/win", function (req, res) {
 
-    const groupID = req.query.groupID;
-    Group.findOne({groupId: groupID}, (err, doc) => {
+    const groupId = req.query.groupId;
+    Group.findOne({groupId: groupId}, (err, doc) => {
         if (err) {
             console.log("Something wrong when finding the group");
             res.status(500);
@@ -13,15 +13,15 @@ router.get("/win", function (req, res) {
             return;
         }
 
-        const selectedCuisinesList = [...doc.selectedCuisines];
+        const selectedCuisinesList = [...doc.selectedCuisines];     
         let maxVotes = -1;
         let finalCuisine = "";
         let sameNumVotes = selectedCuisinesList[0].votes;
         let i = 0;
-        while(sameNumVotes == selectedCuisinesList[i].votes && i < selectedCuisinesList.length) {
+        while(i < selectedCuisinesList.length && sameNumVotes == selectedCuisinesList[i].votes) {
             i++;
         }
-        if(i != selectedCuisinesList.length-1) {
+        if(i != selectedCuisinesList.length) {
             selectedCuisinesList.forEach((selectedCuisine) => {
                 if(selectedCuisine.votes > maxVotes) {
                     maxVotes = selectedCuisine.votes;
@@ -32,11 +32,11 @@ router.get("/win", function (req, res) {
         else {
             finalCuisine = selectedCuisinesList[parseInt(Math.random() * selectedCuisinesList.length)]
         }
-        doc.winningCuisine = finalCuisine;
-        doc.save;
-
-        res.status(200);
-        res.send(finalCuisine);
+        doc.winningCuisine = finalCuisine.cuisine;
+        doc.save(( (err, doc) => {
+            res.status(200);
+            res.send({finalCuisine: finalCuisine.cuisine});
+        }));
     });
 });
 
