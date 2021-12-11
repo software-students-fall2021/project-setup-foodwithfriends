@@ -4,13 +4,20 @@ const Group = require("../models/group");
 
 router.get("/win", function (req, res) {
     const groupId = req.query.groupId;
-    Group.findOne({groupId: groupId}, (err, doc) => {
+    Group.findOne({ groupId }, (err, doc) => {
         if (err) {
             console.log("Something wrong when finding the group");
             res.status(500);
             res.send(err);
             return;
         }
+
+        if (!!doc.winningCuisine) {
+            res.status(200);
+            res.send({ finalCuisine: doc.winningCuisine });
+            return;
+        }
+
         const selectedCuisinesList = [...doc.selectedCuisines];
         let maxVotes = -1;
         let finalCuisine = "";
@@ -32,9 +39,9 @@ router.get("/win", function (req, res) {
         }
 
         doc.winningCuisine = finalCuisine.cuisine;
-        doc.save(( (err, doc) => {
+        doc.save(((err, doc) => {
             res.status(200);
-            res.send({finalCuisine: finalCuisine});
+            res.send({ finalCuisine: finalCuisine.cuisine });
         }));
     });
 });
