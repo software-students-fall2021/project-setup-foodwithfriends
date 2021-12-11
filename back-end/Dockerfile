@@ -11,10 +11,12 @@ COPY package*.json ./
 
 RUN npm install
 # If you are building your code for production
-# RUN npm ci --only=production
+
+# Install pm2
+RUN npm install pm2 -g
 
 # Bundle app source
 COPY . .
 
 EXPOSE 8000
-CMD [ "npm", "start" ]
+CMD [ "pm2-runtime", "app.js" ]
