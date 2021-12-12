@@ -139,7 +139,6 @@ function TeamPage() {
           text="Go Back"
           width="250px"
           height="50px"
-          bg="black"
           backEnabled={true}
         />
       </div>

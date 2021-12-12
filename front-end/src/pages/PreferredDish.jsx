@@ -3,9 +3,8 @@ import React, { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Redirect } from "react-router";
 import Button from "../components/Button";
-import { get } from "../utils/request";
+import { get, post } from "../utils/request";
 import Cookies from "universal-cookie";
-import { post } from "../utils/request";
 import Loading from "../components/Loading";
 
 const cookies = new Cookies();
