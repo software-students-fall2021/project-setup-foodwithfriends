@@ -10,6 +10,7 @@ function ResultsCell({ restaurantId, name, description, priceRange, geo }) {
   const randomRestaurantImage = getRandomRestaurantImage(restaurantId);
   const coord = cookies.get('coord');
   const distance = getDistanceBetweenTwoPlace(geo.lat, geo.lon, coord.latitude, coord.longitude, 'N');
+  const cuisines = description.replaceAll(',', ', ');
 
   return (
     <div
@@ -24,8 +25,8 @@ function ResultsCell({ restaurantId, name, description, priceRange, geo }) {
         </div>
         <div className="ResultsCell__content__right">
           <div className="ResultsCell__content__right__name">{name}</div>
-          <div className="ResultsCell__content__right__description">{description || 'Others'}</div>
-          <div className="ResultsCell__content__right__price">{priceRange || '?'}</div>
+          <div className="ResultsCell__content__right__description">{cuisines || 'Others'}</div>
+          <div className="ResultsCell__content__right__price">{priceRange || '$'}</div>
           <div className="ResultsCell__content__right__distance">{distance.toFixed(2)} miles away</div>
         </div>
       </div>

@@ -47,6 +47,7 @@ const loss_function = (restauraunts, user_preferences) => {
 
 const check_cuisines = (restaurant_cuisines, group_cuisine) => {
   if (restaurant_cuisines.includes(group_cuisine)) {
+
     return true;
   } else {
     const matches = restaurant_cuisines.filter((dish) => {

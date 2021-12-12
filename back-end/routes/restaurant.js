@@ -27,12 +27,12 @@ router.get("/restaurants", async function (req, res) {
         })
     }
 
-    const filteredRestaurants = totalRestaurants.filter((restaurant) => {
+    const filteredRestaurants = totalRestaurants.filter((restaurant, i) => {
       return ((!restaurant.price_range || restaurant.price_range === priceRange) && check_cuisines(restaurant.cuisines, winningCuisine));
     });
 
     res.status(200);
-    res.send({ success: true, data: !winningCuisine ? totalRestaurants.slice(0, 30) : filteredRestaurants });
+    res.send({ success: true, data: filteredRestaurants.length === 0 ? totalRestaurants.slice(0, 30) : filteredRestaurants });
 });
 
 router.get(

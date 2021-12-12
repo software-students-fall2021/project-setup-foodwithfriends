@@ -54,7 +54,7 @@ function RestaurantDetails() {
           <h3 className="rest-name">{restaurant.restaurant_name}</h3>
           <img src={randomRestaurantImage}></img>
         </div>
-        <h4 className="sub-heading">Restauraunt Info</h4>
+        <h4 className="sub-heading">Restaurant Info</h4>
         <div className="basic-info">
           <p>
             <b>Address:</b> {restaurant.address.formatted || ''}

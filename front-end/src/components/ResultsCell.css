@@ -39,17 +39,20 @@
   justify-content: space-evenly;
   align-items: flex-end;
   padding-right: 10px;
+  position: relative;
 }
 
 .ResultsCell__content__right__name {
   overflow: hidden;
-  white-space: nowrap;
+  max-width: 90%;
   font-size: 1.17em;
   font-weight: bolder;
+  text-align: right;
 }
 
 .ResultsCell__content__right__description {
   font-size: 1em;
+  text-align: right;
 }
 
 .ResultsCell__content__right__percentage {

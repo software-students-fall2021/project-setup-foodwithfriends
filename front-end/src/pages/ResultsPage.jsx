@@ -47,7 +47,7 @@ function ResultsPage() {
 
   return (
     <div className="ResultsPage">
-      <h2 className="heading">Recommended Restauraunts</h2>
+      <h2 className="heading">Recommended Restaurants</h2>
       {isLoading ? <Loading /> : (
         <div>
           {restaurants.map((restaurant) => (
