@@ -44,7 +44,6 @@
 
 .ResultsCell__content__right__name {
   overflow: hidden;
-  /* white-space: nowrap; */
   max-width: 90%;
   font-size: 1.17em;
   font-weight: bolder;
