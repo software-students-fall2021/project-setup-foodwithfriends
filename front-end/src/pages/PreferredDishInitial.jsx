@@ -6,7 +6,6 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import { validateForm } from "../utils/validation";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { post } from "../utils/request";
 
 const cookies = new Cookies();
