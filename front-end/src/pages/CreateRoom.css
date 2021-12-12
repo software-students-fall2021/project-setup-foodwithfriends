@@ -6,6 +6,12 @@
   font-weight: 700;
 }
 
+.CreateRoom__title {
+  letter-spacing: 2px;
+  font-size: 22px;
+  color: #8b5858;
+}
+
   .CreateRoom__group__input {
     width: 240px;
     height: 50px;

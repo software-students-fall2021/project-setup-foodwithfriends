@@ -2,9 +2,11 @@ import "./RestaurantDetails.css";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { get } from "../utils/request";
-import Loading from '../components/Loading';
+import Loading from "../components/Loading";
 import { Redirect } from 'react-router';
-import { getRandomRestaurantImage } from '../utils/restaurant.js'
+import Button from "../components/Button";
+import Spacer from "../components/Spacer";
+import { getRandomRestaurantImage } from "../utils/restaurant.js";
 
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
@@ -86,6 +88,14 @@ function RestaurantDetails() {
             ></iframe>
           </div>
         </div>
+        <Spacer space="50" />
+        <Button
+          id="back-button"
+          text="Go Back"
+          width="250px"
+          height="50px"
+          backEnabled={true}
+        />
       </div>
     </div>
   );

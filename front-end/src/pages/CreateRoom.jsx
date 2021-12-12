@@ -35,7 +35,6 @@ function CreateRoom() {
       },
     );
 
-
     const roomId = response.roomId;
     cookies.set("groupID", roomId, { expires: 0 });
     cookies.set("groupName", name, { expires: 0 })
@@ -62,9 +61,10 @@ function CreateRoom() {
 
   return (
     <div className="CreateRoom">
+      <Spacer space="50" />
       <div className="CreateRoom__title">Create a Room</div>
 
-      <Spacer space="75" />
+      <Spacer space="30" />
 
       <div className="CreateRoom__group">
         <div className="title">Group Name</div>
@@ -177,7 +177,7 @@ function CreateRoom() {
         </div>
       </div>
 
-      <Spacer space="110" />
+      <Spacer space="50" />
       <Button text="Join" width="260px" height="50px" br="15px" bg="#b1afaf"
         onClick={() => {
           if (validateForm()) {

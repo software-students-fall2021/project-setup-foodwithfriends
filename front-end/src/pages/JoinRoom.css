@@ -21,3 +21,8 @@
     font-weight: bold;
     margin-top: 10px;
   }
+
+  .JoinRoom__title {
+    color: #8b5858;
+    letter-spacing: 2px;
+  }
