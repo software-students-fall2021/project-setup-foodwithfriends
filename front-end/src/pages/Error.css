@@ -1,0 +1,36 @@
+.Error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Error .heading {
+    color: #8b5858;
+}
+
+.Error .info {
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.Error .button-group {
+    margin-top: 70px;
+}
+
+.Error .bold {
+    font-weight: bold;
+}
+
+.Error .space-sides {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.Error .space-top {
+    margin-top: 30px;
+}
+
+.Error .cap-init {
+    text-transform: capitalize;
+}
+

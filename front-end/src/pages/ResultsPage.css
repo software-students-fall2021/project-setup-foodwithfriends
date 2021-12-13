@@ -1,0 +1,8 @@
+.ResultsPage {
+  min-width: 100%;
+}
+
+.ResultsPage .heading {
+  margin: 50px;
+  color: #8b5858;
+}

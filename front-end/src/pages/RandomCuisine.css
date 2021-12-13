@@ -1,0 +1,32 @@
+.RandomCuisine {
+}
+
+#random-cuisine-title-top, #random-cuisine-title-bottom {
+    font-weight:bold;
+    font-size: 18px;
+}
+
+#random-cuisine-title-top {
+    margin-top: 40px;
+    margin-bottom: 34px;
+}
+
+#cuisine-photo{
+    width: 300px;
+    height: 200px;
+}
+
+#cuisine-text {
+    margin: 30px 35px;
+}
+
+#vote-button {
+    color:white;
+    padding: 0px 140px;
+    background-color: #3F3F3F; 
+    font-weight: bold;
+}
+
+#reload{
+    margin-top: -10px;
+}

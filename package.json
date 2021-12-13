@@ -1,0 +1,30 @@
+{
+  "name": "project-setup-food-with-friends",
+  "version": "1.0.0",
+  "description": "Food with Friends App",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd front-end && npm start",
+    "server": "cd back-end && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/software-students-fall2021/project-setup-foodwithfriends.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/software-students-fall2021/project-setup-foodwithfriends/issues"
+  },
+  "homepage": "https://github.com/software-students-fall2021/project-setup-foodwithfriends#readme",
+  "devDependencies": {
+    "concurrently": "^6.3.0"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "documenu": "^1.1.0",
+    "react-cookie": "^4.1.1",
+    "react-places-autocomplete": "^7.3.0"
+  }
+}

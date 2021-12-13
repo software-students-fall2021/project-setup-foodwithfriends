@@ -1,0 +1,104 @@
+.HomePageLogo {
+}
+
+.HomePageLogo .title {
+  max-width: 300px;
+}
+
+.title-bottom {
+  bottom: 20px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.HomePageLogo .container {
+  cursor: pointer;
+  width: 300px;
+  height: 400px;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: #f18a40ad;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.plate {
+  width: 100px;
+  height: 100px;
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  animation: animatePlate infinite ease-in-out 5s;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+.inner-plate-circle {
+  width: 75px;
+  height: 75px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plate-1 {
+  left: 5%;
+  top: 25%;
+  animation-delay: 0.2s;
+  animation: animatePlate-small infinite ease-in-out 8s;
+}
+
+.plate-2 {
+  left: 32.5%;
+  top: 40%;
+  animation-delay: 0.5s;
+}
+
+.plate-3 {
+  right: 5%;
+  top: 25%;
+  animation-delay: 0.2s;
+  animation: animatePlate-small infinite ease-in-out 8s;
+}
+
+@keyframes animatePlate-small {
+  0% {
+    transform: translate(0, 0px) scale(0.75);
+  }
+  50% {
+    transform: translate(0, 20px) scale(0.75);
+  }
+  100% {
+    transform: translate(0, -0px) scale(0.75);
+  }
+}
+
+@keyframes animatePlate {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 20px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
+}
+
+.food-icon {
+  width: 50px;
+  height: 50px;
+}
+
+#button-group {
+  margin-bottom: 50px;
+}

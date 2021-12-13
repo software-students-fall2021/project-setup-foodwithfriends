@@ -1,0 +1,55 @@
+.RestaurantDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  margin-bottom: 50px;
+}
+
+.RestaurantDetails img {
+  width: 75%;
+}
+
+.RestaurantDetails .google-maps-iframe {
+  border: none;
+}
+
+.RestaurantDetails .page-container {
+  width: 70%;
+}
+
+.RestaurantDetails .map-container {
+  display: flex;
+  justify-content: center;
+}
+
+.RestaurantDetails .basic-info {
+  text-align: left;
+  width: 100%;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.1);
+}
+
+.RestaurantDetails .rest-name {
+  margin: 50px 0;
+  color: #8b5858;
+}
+
+.RestaurantDetails .sub-heading {
+  margin: 50px 0 30px;
+  color: #876a6a;
+}
+
+#reserve-btn {
+  margin-top: 40px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .RestaurantDetails img {
+    width: 100%;
+  }
+}

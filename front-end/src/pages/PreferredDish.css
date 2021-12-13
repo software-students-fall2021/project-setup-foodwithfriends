@@ -1,0 +1,100 @@
+.PreferredDish #title{
+    margin: 10px 0 40px;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.Error{
+    margin-top: 100px;
+}
+.pref-dish-row {
+    background-color: #ECECEC;
+    display: flex;
+    height: 55px;
+    align-items: center;
+    width: 100%;
+    color: #666262;
+}
+
+.pref-dish-row input {
+    flex: 15%;
+}
+
+.pref-dish-row:hover, .activate-color {
+    background-color: #fbf1e6 !important;
+}
+
+.pref-dish-row label:hover, .pref-dish-row:hover {
+    cursor: pointer;
+}
+
+.pref-dish-row label {
+    flex: 85%;
+    text-align: right;
+    margin-right: 10%;
+}
+
+.PreferredDish #skipButton {
+    margin-left: 78%;
+    margin-top: 20px;
+}
+
+.PreferredDish #select-btn {
+    margin-top: 30px;
+}
+
+.PreferredDish #checkbox-group {
+    height: 375px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+.PreferredDish .dish-error {
+    margin-bottom: 10px;
+    color: #b58f90;
+    font-weight: bold;
+}
+
+.PreferredDish .loader {
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.PreferredDish .pref-content-box {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 20px auto;
+}
+
+.PreferredDish .content {
+    background-color: white;
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    overflow-y: auto;
+}
+
+.PreferredDish .content p {
+    padding: 0 5px;
+}
+
+.PreferredDish .active {
+    height: 65px !important;
+}
+
+.PreferredDish #dish-error {
+    margin-top: 100px;
+}
+
+@media screen and (max-width: 800px) {
+    .PreferredDish .pref-content-box {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .PreferredDish .pref-content-box {
+        width: 85%;
+    }
+}

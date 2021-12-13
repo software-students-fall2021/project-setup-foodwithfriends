@@ -1,0 +1,64 @@
+.DietaryPreferences #submit-button{
+    margin: 50px 10px;
+}
+
+#preferences-container {
+    display: flex;
+    align-items: center;
+    width: 35%;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+}
+
+#dp-select-text{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.pref-container{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.DietaryPreferences #submit {
+    margin: 50px 0;
+}
+
+.DietaryPreferences #skipButton {
+    margin-left: 78%;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 1400px) {
+    #preferences-container{
+        width: 45%;
+    }
+  }
+
+  @media only screen and (max-width: 1100px) {
+    #preferences-container{
+        width: 55%;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    #preferences-container{
+        width: 65%;
+    }
+  }
+
+  @media only screen and (max-width: 760px) {
+    #preferences-container{
+        width: 75%;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    #preferences-container{
+        width: 80%;
+    }
+  }
