@@ -95,50 +95,5 @@ describe('Fetch Restaurant', () => {
           done();
         })
     })
-
-    it('It should fetch restaurants filtered by winning cuisine', (done) => {
-      chai.request(server)
-        .get('/restaurants')
-        .query({
-          groupId: invite.roomId
-        })
-        .end((err, res) => {
-          console.log(res.body);
-          res.should.have.status(200);
-          res.body.should.be.a('object');
-          res.body.should.have.property('success').eq(true);
-          res.body.should.have.property('data').be.an('array');
-          done();
-        })
-    })
   })
-
-  describe('GET /restaurants/:restaurantId', (req, res) => {
-    const restaurantId = '4076262074000177';
-
-    it('It should fetch one restaurant', (done) => {
-      chai.request(server)
-        .get(`/restaurants/${restaurantId}`)
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a('object');
-          res.body.should.have.property('restaurant').be.an('object');
-          res.body.should.have.property('success').eq(true);
-          done();
-        });
-    });
-
-    it('It should have a name property in restaurant', (done) => {
-      chai.request(server)
-        .get(`/restaurants/${restaurantId}`)
-        .end((err, res) => {
-          console.log(res.body);
-          res.should.have.status(200);
-          res.body.should.be.a('object');
-          res.body.should.have.property('success').eq(true);
-          res.body.restaurant.should.have.property('restaurant_name').be.an('string');
-          done();
-        });
-    });
-  })
-})
+});
