@@ -20,7 +20,7 @@ router.get("/win", function (req, res) {
 
         const selectedCuisinesList = [...doc.selectedCuisines];
         let maxVotes = -1;
-        let finalCuisine = "";
+        let finalCuisine;
         let sameNumVotes = selectedCuisinesList[0].votes;
         let i = 0;
         while(i < selectedCuisinesList.length && sameNumVotes == selectedCuisinesList[i].votes) {
@@ -30,7 +30,7 @@ router.get("/win", function (req, res) {
             selectedCuisinesList.forEach((selectedCuisine) => {
                 if(selectedCuisine.votes > maxVotes) {
                     maxVotes = selectedCuisine.votes;
-                    finalCuisine = selectedCuisine.cuisine;
+                    finalCuisine = selectedCuisine;
                 }
             })
         }
